@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMapComponent from '../components/GoogleMap';
 import GoogleMapRouteComponent from '../components/GoogleMapRoute';
+import GuestForm from '../components/GuestForm';
 
 export default function Home() {
   return (
@@ -16,6 +17,9 @@ export default function Home() {
         Finca Genilla
         <GoogleMapRouteComponent />
       </h2>
+
+      <h1>Event Registration</h1>
+      <GuestForm />
     </main>
   );
 }
