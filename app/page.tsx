@@ -2,24 +2,29 @@ import React from 'react';
 import GoogleMapComponent from '../components/GoogleMap';
 import GoogleMapRouteComponent from '../components/GoogleMapRoute';
 import GuestForm from '../components/GuestForm';
+import {createGuest} from '@/api/setGuest';
+import GuestFormFormik from "@/components/GuestFormFormik";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className={"text-3xl"}>
-        Wedding App - Home Page
-      </h1>
-      <h2 className={"text-3xl"}>
-        Iglesia San Francisco
-        <GoogleMapComponent />
-      </h2>
-      <h2 className={"text-3xl"}>
-        Finca Genilla
-        <GoogleMapRouteComponent />
-      </h2>
+    /*const docId = createGuest();
+    console.log("Guest created successfully with ID:", docId);*/
+    return (
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <h1 className={"text-3xl"}>
+                Wedding App - Home Page
+            </h1>
+            <h2 className={"text-3xl"}>
+                Iglesia San Francisco
+                <GoogleMapComponent/>
+            </h2>
+            <h2 className={"text-3xl"}>
+                Finca Genilla
+                <GoogleMapRouteComponent/>
+            </h2>
 
-      <h1>Event Registration</h1>
-      <GuestForm />
-    </main>
-  );
+            <h1>Event Registration</h1>
+            {/*<GuestForm/>*/}
+            <GuestForm/>
+        </main>
+    );
 }

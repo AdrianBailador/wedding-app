@@ -1,11 +1,11 @@
 import { collection, addDoc } from "firebase/firestore"; 
-import { db } from "../firebase.config"
+import { db } from "@/firebase.config"
 
 // Add a new document with a generated id.
 export  const createGuest = async () => {
     const docRef = await addDoc(collection(db, "guests"), {
-        name: "Adrian",
-        surname: "Bailador",
+        name: "victor",
+        surname: "Alvarado",
         email: "prr@gmail.com",
         photos: [],
         token: "",
@@ -13,4 +13,8 @@ export  const createGuest = async () => {
         accompanist: false,
         comment: ""
       });
+
+    console.log("Document written with ID: ", docRef.id);
+
+    return docRef.id;
 }

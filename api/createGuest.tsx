@@ -1,26 +1,24 @@
-import { collection, addDoc } from "firebase/firestore"; 
-import { db } from "../firebase.config";
+'use server'
+
+import {collection, addDoc} from "firebase/firestore";
+import {db} from "@/firebase.config";
 
 // Define the interface for newGuest
 interface Guest {
-  name: string;
-  surname: string;
-  email: string;
-  assistance: boolean;
-  accompanist: boolean;
-  photos: any[];
-  token: string;
-  comment: string;
+    name: string;
+    surname: string;
+    email: string;
+    assistance: boolean;
+    accompanist: boolean;
+    token: string;
 }
 
-export const createGuest = async (newGuest: Guest): Promise<string | undefined> => {
-  try {
-    console.log("Creating guest in Firestore with data:", newGuest);
-    const docRef = await addDoc(collection(db, "guests"), newGuest);
-    console.log("Document written with ID: ", docRef.id);
-    return docRef.id; // Return the ID of the created document
-  } catch (error) {
-    console.error("Error adding document to Firestore:", error);
-    throw error;
-  }
-};
+// Create a new guest in the Firestore database
+export const createGuest = async (newGuest: Guest) => {
+    // get a reference to the guests collection
+    const collectionRef = collection(db, "guests");
+    // add a new document with the newGuest data
+    const docRef = await addDoc(collectionRef, newGuest);
+    // return the ID of the new document
+    return docRef.id;
+}
