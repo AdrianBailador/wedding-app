@@ -24,7 +24,7 @@ export default function Home() {
 
             <h1>Event Registration</h1>
             {/*<GuestForm/>*/}
-            <GuestForm/>
+            <GuestFormFormik/>
         </main>
     );
 }

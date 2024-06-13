@@ -2,6 +2,7 @@
 
 import {Field, Form, Formik, FormikHelpers} from "formik";
 import {createGuest} from "@/api/createGuest";
+import {sendEmail} from "@/api/sendEmail";
 
 interface Values {
     name: string;
@@ -32,6 +33,7 @@ const GuestFormFormik = () => {
                     const docId = createGuest(values);
                     console.log("Guest created successfully with ID:", docId);
                     setSubmitting(false);
+                    const resendEmail = sendEmail(values);
                 }}
             >
                 <Form className="flex flex-col items-center justify-center space-y-4 mt-6">
