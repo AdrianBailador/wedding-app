@@ -1,0 +1,30 @@
+{
+    "Home": {
+      "title": "Aplicación de Boda - Página Principal",
+      "sections": {
+        "church": "Iglesia San Francisco",
+        "farm": "Finca Genilla",
+        "event_registration": "Registro de Eventos"
+      },
+      "components": {
+        "GoogleMapComponent": "Componente de Mapa de Google",
+        "GoogleMapRouteComponent": "Componente de Ruta de Mapa de Google",
+        "GuestFormFormik": "Formulario de Invitado con Formik"
+      }
+    },
+    "GuestForm": {
+      "fields": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo Electrónico"
+      },
+      "placeholders": {
+        "firstName": "Juan",
+        "lastName": "Pérez",
+        "email": "juan@ejemplo.com"
+      },
+      "buttons": {
+        "confirmAssistant": "Confirmar Asistencia"
+      }
+    }
+  }
