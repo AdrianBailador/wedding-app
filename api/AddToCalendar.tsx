@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface Event {
@@ -8,11 +9,7 @@ interface Event {
     endTime: string;
 }
 
-interface AddToCalendarProps {
-    event: Event;
-}
-
-const AddToCalendar: React.FC<AddToCalendarProps> = () => {
+const AddToCalendar: React.FC = () => {
     const event: Event = {
         title: "Boda de Adrian y Ana",
         description: "Boda de Adrian y Ana",

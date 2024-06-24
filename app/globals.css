@@ -2,4 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #2d3748; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+.button-submit {
+    background-color: #4299e1;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-submit:hover {
+    background-color: #3182ce;
+}
 
