@@ -6,11 +6,11 @@ import {db} from "@/firebase.config";
 // Define the interface for newGuest
 interface Guest {
     name: string;
-    surname: string;
-    email: string;
-    assistance: boolean;
-    accompanist: boolean;
-    token: string;
+    //surname: string;
+    //email: string;
+    //assistance: boolean;
+    //accompanist: boolean;
+    //token: string;
 }
 
 // Create a new guest in the Firestore database
