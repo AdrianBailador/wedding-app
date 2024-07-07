@@ -21,7 +21,7 @@ export const sendEmail = async (values: Values) => {
         if (response.ok) {
             console.log("Email Sent Successfully!");
         } else {
-            console.error("There was a problem sending email. Pls try again!");
+            console.error("There was a problem sending email. Pls try again!", response.statusText, response.status, response.body);
         }
     } catch (error) {
         console.log("Error sending email:", error);
