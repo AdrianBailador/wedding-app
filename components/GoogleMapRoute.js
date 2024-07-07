@@ -1,6 +1,8 @@
+// components/googleMapRoute.js
 'use client'
 import React from 'react';
 import { GoogleMap, LoadScript, Marker, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import '../styles/GoogleMapRoute.css';
 
 const containerStyle = {
   width: '400px',
@@ -25,7 +27,6 @@ const GoogleMapRouteComponent = () => {
     if (response !== null) {
       if (response.status === 'OK') {
         setDirections(response);
-        // Get the duration of the route
         const route = response.routes[0].legs[0];
         setTravelTime(route.duration.text);
       } else {
@@ -36,34 +37,26 @@ const GoogleMapRouteComponent = () => {
 
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={origin}
-        zoom={10}
-      >
-        <Marker position={origin} />
-        <Marker position={destination} />
-        <DirectionsService
-          // required
-          options={{
-            destination: destination,
-            origin: origin,
-            travelMode: 'DRIVING'
-          }}
-          // required
-          callback={directionsCallback}
-        />
-        {
-          directions &&
-          <DirectionsRenderer
-            // required
+      <div className="map-container">
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={origin}
+          zoom={10}
+        >
+          <Marker position={origin} />
+          <Marker position={destination} />
+          <DirectionsService
             options={{
-              directions: directions
+              destination: destination,
+              origin: origin,
+              travelMode: 'DRIVING'
             }}
+            callback={directionsCallback}
           />
-        }
-      </GoogleMap>
-      {travelTime && <p>Tiempo de viaje estimado: {travelTime}</p>}
+          {directions && <DirectionsRenderer options={{ directions: directions }} />}
+        </GoogleMap>
+        {travelTime && <p className="travel-time">Tiempo de viaje estimado: {travelTime}</p>}
+      </div>
     </LoadScript>
   );
 };
