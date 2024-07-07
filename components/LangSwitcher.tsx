@@ -1,5 +1,6 @@
+// components/LangSwitcher.tsx
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image"; // Import StaticImageData
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import gbFlag from "../public/bg_flag.png";
@@ -9,7 +10,7 @@ const LangSwitcher: React.FC = () => {
   interface Option {
     country: string;
     code: string;
-    flag: StaticImageData;
+    flag: StaticImageData; // Use StaticImageData for the flag type
   }
 
   const router = useRouter();
