@@ -204,10 +204,7 @@ const GuestForm: React.FC = () => {
                                 </div>
                                 {errors.bus && touched.bus ? <div className="text-red-500">{errors.bus}</div> : null}
                             </div>
-                        </>
-                    )}
-
-                    <div className="w-72 mb-2">
+                            <div className="w-72 mb-2">
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                             Will you have an accompanist?
                         </label>
@@ -298,6 +295,12 @@ const GuestForm: React.FC = () => {
                         />
                         {errors.comments && touched.comments ? <div className="text-red-500">{errors.comments}</div> : null}
                     </div>
+
+
+                        </>
+                    )}
+
+                   
 
                     {!isVerified && <div className="text-red-500">Please complete the reCAPTCHA verification</div>}
 
