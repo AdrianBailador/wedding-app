@@ -1,11 +1,13 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
-import GoogleMapComponent from '../components/GoogleMap';
-import GoogleMapRouteComponent from '../components/GoogleMapRoute';
+import GoogleMapComponent from './GoogleMap';
+import GoogleMapRouteComponent from './GoogleMapRoute';
 import '../styles/MapTabs.css';
 
-const MapTabs = () => {
-  const [activeTab, setActiveTab] = useState('wedding');
+type Tab = 'wedding' | 'party';
+
+const MapTabs: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<Tab>('wedding');
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -31,10 +33,16 @@ const MapTabs = () => {
   return (
     <div className="tabs-container">
       <div className="tabs">
-        <button className={`tab ${activeTab === 'wedding' ? 'active' : ''}`} onClick={() => setActiveTab('wedding')}>
+        <button
+          className={`tab ${activeTab === 'wedding' ? 'active' : ''}`}
+          onClick={() => setActiveTab('wedding')}
+        >
           Wedding Event
         </button>
-        <button className={`tab ${activeTab === 'party' ? 'active' : ''}`} onClick={() => setActiveTab('party')}>
+        <button
+          className={`tab ${activeTab === 'party' ? 'active' : ''}`}
+          onClick={() => setActiveTab('party')}
+        >
           Party Event
         </button>
       </div>
