@@ -1,5 +1,6 @@
 interface Values {
     name: string;
+    surname: string;
     email: string;
 }
 
@@ -11,10 +12,7 @@ export const sendEmail = async (values: Values) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                email: values.email,
-                name: values.name,
-            }),
+            body: JSON.stringify(values),
         });
 
         // handle success

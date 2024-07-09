@@ -1,34 +1,30 @@
-import { EmailTemplate } from '@/components/email-template';
 import { Resend } from 'resend';
-import { NextRequest, NextResponse } from "next/server";
+import {EmailTemplate} from "@/components/email-template";
+import {NextRequest, NextResponse} from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req: NextRequest) {
-    const body = await req.json();
-    const { name, email } = body;
-
-    console.log("Received POST request with body:", body);
-
-    try {
-        const { data, error } = await resend.emails.send({
-            from: `${name} <${email}>`,  // Utiliza el correo proporcionado por el usuario
-            to: ['adrianbailador@hotmail.com'], // Cambia esto al correo al que deseas enviar los correos
-            subject: 'Hello world',
-            text: 'Hello world',
-            react: EmailTemplate({ firstName: name }),
-        });
-
-        if (error) {
-            console.error("Error sending email:", error);
-            return NextResponse.json({ error }, { status: 500 });
+export async function POST(req: NextRequest, res: NextResponse) {
+    if (req.method === 'POST') {
+        const body = await req.json();
+        const { name, surname, email } = body;
+        console.log(name, surname, email)
+        try {
+            const response = await resend.emails.send({
+                to: email,
+                from: 'no-reply@victoralvarado.dev', // Reemplaza con tu dirección de correo
+                subject: 'Formik + ReSend Example - Welcome! 🎉',
+                react: EmailTemplate({ firstName: name, lastName: surname, email: email}),
+                text: ``,
+            });
+            console.log(res, response)
+            return NextResponse.json({ message: 'Correo enviado', response });
+        } catch (error) {
+            console.error(error);
+            console.log(res, error)
+            return NextResponse.json({ message: 'Error al enviar el correo', error });
         }
-
-        console.log("Email sent successfully:", data);
-
-        return NextResponse.json(data);
-    } catch (error) {
-        console.error("Error in POST request:", error);
-        return NextResponse.json({ error }, { status: 500 });
+    } else {
+        console.log(res)
     }
 }
