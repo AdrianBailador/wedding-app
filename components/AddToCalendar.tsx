@@ -1,5 +1,4 @@
-
-import React from 'react';
+import  {FC} from "react";
 
 interface Event {
     title: string;
@@ -9,7 +8,7 @@ interface Event {
     endTime: string;
 }
 
-const AddToCalendar: React.FC = () => {
+const AddToCalendar: FC = () => {
     const event: Event = {
         title: "Boda de Adrian y Ana",
         description: "Boda de Adrian y Ana",
@@ -18,7 +17,7 @@ const AddToCalendar: React.FC = () => {
         endTime: "2024-10-12T14:00:00" // Se establece una duración de 2 horas, ajusta según necesites
     };
 
-    const { title, description, location, startTime, endTime } = event;
+    const {title, description, location, startTime, endTime} = event;
 
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
@@ -27,17 +26,19 @@ const AddToCalendar: React.FC = () => {
 
     const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(location)}`;
 
-    const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${title}
-DESCRIPTION:${description}
-LOCATION:${location}
-DTSTART:${start}
-DTEND:${end}
-END:VEVENT
-END:VCALENDAR`;
-    const icsFile = new Blob([icsContent], { type: 'text/calendar' });
+    const icsContent = `
+    BEGIN:VCALENDAR
+    VERSION:2.0
+    BEGIN:VEVENT
+    SUMMARY:${title}
+    DESCRIPTION:${description}
+    LOCATION:${location}
+    DTSTART:${start}
+    DTEND:${end}
+    END:VEVENT
+    END:VCALENDAR
+    `;
+    const icsFile = new Blob([icsContent], {type: 'text/calendar'});
     const icsUrl = URL.createObjectURL(icsFile);
 
     return (

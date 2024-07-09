@@ -1,5 +1,4 @@
-import {createGuest} from "@/api/createGuest";
-import {forms} from "googleapis/build/src/apis/forms";
+import {createGuest} from "@/api/fb-database/createGuest";
 
 const generateToken = () => {
     return Math.random().toString(36).substr(2, 9);

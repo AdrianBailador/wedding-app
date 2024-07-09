@@ -1,7 +1,5 @@
-// app/[locale]/ClientLayout.tsx
 import React from 'react';
 import { Inter } from 'next/font/google';
-import { usePathname } from 'next/navigation';
 import "../globals.css"; // Adjust the import path if necessary
 
 const inter = Inter({ subsets: ['latin'] });

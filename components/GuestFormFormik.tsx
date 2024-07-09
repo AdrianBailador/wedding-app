@@ -3,9 +3,9 @@
 import {Field, Form, Formik, FormikHelpers} from 'formik';
 import React, {useState} from 'react';
 import {GoogleReCaptchaProvider, useGoogleReCaptcha} from 'react-google-recaptcha-v3';
-import {sendEmail} from '@/api/sendEmail';
-import {createGuest} from '@/api/createGuest';
-import AddToCalendar from '@/api/AddToCalendar';
+import {sendEmail} from '@/api/emails/sendEmail';
+import {createGuest} from '@/api/fb-database/createGuest';
+import AddToCalendar from '@/components/AddToCalendar';
 import {boolean, object, string} from "yup";
 import * as Yup from "yup";
 

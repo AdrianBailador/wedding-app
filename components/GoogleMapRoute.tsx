@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import loader from '../api/googleMapsLoader';
-import '../styles/GoogleMapRoute.css';
+import loader from '@/api/googleMapsLoader';
+import '@/styles/GoogleMapRoute.css';
 
 const containerStyle = {
   width: '400px',

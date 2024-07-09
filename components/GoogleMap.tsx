@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import loader from '../api/googleMapsLoader';
+import loader from '@/api/googleMapsLoader';
 
 const containerStyle = {
   width: '400px',

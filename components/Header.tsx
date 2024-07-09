@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import LangSwitcher from "@/components/LangSwitcher";
-import Image from "next/image";
 
 const Header = () => {
   const themeSwitcherRef = useRef<HTMLDivElement>(null);

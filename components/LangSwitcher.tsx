@@ -1,4 +1,3 @@
-// components/LangSwitcher.tsx
 import React, { useState, useRef, useEffect } from "react";
 import Image, { StaticImageData } from "next/image"; // Import StaticImageData
 import { useRouter } from "next/navigation";

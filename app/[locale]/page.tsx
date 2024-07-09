@@ -1,8 +1,5 @@
-import React from 'react';
-import GoogleMapComponent from '../../components/GoogleMap';
-import GoogleMapRouteComponent from '../../components/GoogleMapRoute';
-import MapTabs from '../../components/MapTabs';
-import Navbar from '../../components/Navbar'
+import MapTabs from '@/components/MapTabs';
+import Navbar from '@/components/Navbar'
 import GuestFormFormik from "@/components/GuestFormFormik";
 import Header from "@/components/Header";
 import { useTranslations } from "next-intl";
