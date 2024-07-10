@@ -170,7 +170,7 @@ const GuestFormFormik: React.FC = () => {
                                 Will you attend?
                             </label>
                             <div className="flex items-center space-x-4">
-                                <label htmlFor="assistance">Attendance</label>
+                                <label>Attendance</label>
                                 <div role="group" aria-labelledby="assistance">
                                     <label>
                                         <Field type="radio" name="assistance" value="true"/>
