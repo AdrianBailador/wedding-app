@@ -1,30 +1,46 @@
 {
-    "Home": {
-      "title": "Aplicación de Boda - Página Principal",
-      "sections": {
-        "church": "Iglesia San Francisco",
-        "farm": "Finca Genilla",
-        "event_registration": "Registro de Eventos"
-      },
-      "components": {
-        "GoogleMapComponent": "Componente de Mapa de Google",
-        "GoogleMapRouteComponent": "Componente de Ruta de Mapa de Google",
-        "GuestFormFormik": "Formulario de Invitado con Formik"
-      }
+  "Home": {
+    "title": "Aplicación de Boda - Página Principal",
+    "sections": {
+      "church": "Iglesia San Francisco",
+      "farm": "Finca Genilla",
+      "event_registration": "Registro de Eventos"
     },
-    "GuestForm": {
-      "fields": {
-        "firstName": "Nombre",
-        "lastName": "Apellido",
-        "email": "Correo Electrónico"
-      },
-      "placeholders": {
-        "firstName": "Juan",
-        "lastName": "Pérez",
-        "email": "juan@ejemplo.com"
-      },
-      "buttons": {
-        "confirmAssistant": "Confirmar Asistencia"
-      }
+    "components": {
+      "GoogleMapComponent": "Componente de Mapa de Google",
+      "GoogleMapRouteComponent": "Componente de Ruta de Mapa de Google",
+      "GuestFormFormik": "Formulario de Invitado con Formik"
+    }
+  },
+  "GuestForm": {
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo Electrónico"
+    },
+    "placeholders": {
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan@ejemplo.com"
+    },
+    "buttons": {
+      "confirmAssistant": "Confirmar Asistencia"
+    }
+  },
+  "Navbar": {
+    "companyLogoAlt": "Logo de la Empresa",
+    "openUserMenu": "Abrir menú de usuario",
+    "dashboard": "Panel de Control",
+    "settings": "Configuración",
+    "signOut": "Cerrar sesión",
+    "rsvp": "RSVP",
+    "openMainMenu": "Abrir menú principal",
+    "searchPlaceholder": "Buscar...",
+    "nav": {
+      "boda": "Boda",
+      "greeting": "Saludo",
+      "aboutUs": "Sobre Nosotros",
+      "gallery": "Galería"
     }
   }
+}

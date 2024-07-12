@@ -1,6 +1,5 @@
-// components/LangSwitcher.tsx
 import React, { useState, useRef, useEffect } from "react";
-import Image, { StaticImageData } from "next/image"; // Import StaticImageData
+import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import gbFlag from "../public/bg_flag.png";
@@ -10,7 +9,7 @@ const LangSwitcher: React.FC = () => {
   interface Option {
     country: string;
     code: string;
-    flag: StaticImageData; // Use StaticImageData for the flag type
+    flag: StaticImageData;
   }
 
   const router = useRouter();
@@ -46,10 +45,10 @@ const LangSwitcher: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center bg-gray-100">
+    <div className="flex items-center justify-center bg-[#F6F4EC]">
       <div className="relative text-lg w-48" ref={dropdownRef}>
         <button
-          className="flex justify-between items-center w-full border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-all duration-300 ease-in-out shadow-md"
+          className="flex justify-between items-center w-full border border-[#DE967D] text-[#DE967D] bg-[#F6F4EC] hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-all duration-300 ease-in-out shadow-md"
           onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
         >
           Select Language
@@ -76,7 +75,7 @@ const LangSwitcher: React.FC = () => {
               : "scale-y-100 opacity-100 h-auto"
           } absolute w-full z-10`}
         >
-          <ul className="mt-2 bg-white divide-y rounded-lg shadow-lg overflow-hidden">
+          <ul className="mt-2 bg-[#F6F4EC] divide-y rounded-lg shadow-lg overflow-hidden">
             {options.map((option, index) => (
               <li
                 key={index}
@@ -92,7 +91,7 @@ const LangSwitcher: React.FC = () => {
                   height={20}
                   alt={`${option.country} flag`}
                 />
-                <span className="ml-3">{option.country}</span>
+                <span className="ml-3 text-[#DE967D]">{option.country}</span>
                 {pathname === `/${option.code}` && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

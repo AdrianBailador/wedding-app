@@ -1,8 +1,7 @@
-// app/[locale]/ClientLayout.tsx
 import React from 'react';
 import { Inter } from 'next/font/google';
-import { usePathname } from 'next/navigation';
-import "../globals.css"; // Adjust the import path if necessary
+import { NextIntlClientProvider } from 'next-intl';
+import "../globals.css"; // Ajusta la ruta si es necesario
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +14,9 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children, locale }) => {
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        {children}
+        <NextIntlClientProvider locale={locale}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

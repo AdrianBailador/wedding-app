@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import GoogleMapComponent from './GoogleMap';
 import GoogleMapRouteComponent from './GoogleMapRoute';
 import '../styles/MapTabs.css';
+import Image from 'next/image';
 
 type Tab = 'wedding' | 'party';
 
@@ -15,14 +16,14 @@ const MapTabs: React.FC = () => {
         return (
           <div className="tab-content">
             <GoogleMapComponent />
-            <img src="/iglesia.jpg" alt="Iglesia" className="tab-image" />
+            <Image src="/iglesia.jpg" alt="Iglesia" className="tab-image" width={800} height={600} />
           </div>
         );
       case 'party':
         return (
           <div className="tab-content">
             <GoogleMapRouteComponent />
-            <img src="/genilla.jpg" alt="Genila" className="tab-image" />
+            <Image src="/genilla.jpg" alt="Genila" className="tab-image" width={800} height={600} />
           </div>
         );
       default:
