@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.6",
+    "@netlify/plugin-nextjs": "^5.5.1",
     "@react-google-maps/api": "^2.19.3",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
