@@ -1,0 +1,28 @@
+{
+  "IndexPage": {
+    "title": "Wedding App - Home Page",
+    "description": "¡Bienvenidos al ejemplo de Next.js Internationalization (i18n)! Esta demo muestra la potencia del App Router y cómo gestionar contenido multilingüe sin problemas utilizando next-intl",
+    "sections": {
+      "church": "San Francisco Church",
+      "farm": "Genilla Farm",
+      "event_registration": "Event Registration"
+    }
+  },
+  "NotFoundPage": {
+    "title": "Página no encontrada",
+    "description": "¡Uy! Parece que te has topado con una página que no existe. No te preocupes, nuestra magia de internacionalización sigue trabajando duro en otras partes de la aplicación. Siéntete libre de navegar de vuelta para explorar más"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "wedding": "Wedding",
+    "greeting": "Greeting",
+    "aboutUs": "About Us",
+    "gallery": "Gallery"
+  },
+  "Footer": {
+    "copyright": "© 2024 Tu App. Todos los derechos reservados"
+  }
+  
+  
+  
+}

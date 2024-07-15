@@ -1,17 +1,19 @@
+
 import React from 'react';
 import GoogleMapComponent from '../../components/GoogleMap';
 import GoogleMapRouteComponent from '../../components/GoogleMapRoute';
 import MapTabs from '../../components/MapTabs';
-import Navbar from '../../components/Navbar';
+import Header from '../../components/header';
 import GuestFormFormik from "@/components/GuestFormFormik";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const t = useTranslations("Home");
+  const t = useTranslations('IndexPage');
 
   return (
-    <>
-      <Navbar />
+ 
+      <>
+  
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
