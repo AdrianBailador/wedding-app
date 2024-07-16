@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import LangSwitcher from "@/components/LangSwitcher";
 
 const Header = () => {
   const themeSwitcherRef = useRef<HTMLDivElement>(null);
@@ -13,7 +12,6 @@ const Header = () => {
       </div>
 
       <div ref={themeSwitcherRef}>
-        <LangSwitcher />
       </div>
     </header>
   );

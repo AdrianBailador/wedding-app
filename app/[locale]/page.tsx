@@ -1,99 +1,44 @@
-import MapTabs from '@/components/MapTabs';
+
+import React from 'react';
+import MapTabs from '../../components/MapTabs';
 import GuestFormFormik from "@/components/GuestFormFormik";
-import {useTranslations} from "next-intl";
-import Navbar from "@/components/Navbar";
-import image1 from "@/public/images/img1.jpg";
-import image2 from "@/public/images/img2.jpg";
-import image3 from "@/public/images/img3.jpg";
-import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
-    const t = useTranslations("Home");
+  const t = useTranslations('IndexPage');
 
-    return (
-        <>
-            <Navbar />
-            <main className="flex min-h-screen flex-col items-center justify-between p-24">
-                <h1 className="text-3xl">
-                    {t("title")}
-                </h1>
-                <h2 className="text-3xl">
-                    {t("sections.church")}
+  return (
+ 
+      <>
+  
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">
+            {t("title")}
+          </h1>
+        </header>
+        
+        <section className="text-center mb-12">
+          <h2 className="text-3xl font-semibold mb-4">
+            {t("sections.church")}
+          </h2>
+         
+        </section>
+        
+        <section className="text-center mb-12">
+          <h2 className="text-3xl font-semibold mb-4">
+            {t("sections.farm")}
+          </h2>
+          <MapTabs />
+        </section>
 
-
-                    <MapTabs/>
-
-                </h2>
-                <h2 className="text-3xl">
-                    {t("sections.farm")}
-
-                </h2>
-                <h1>
-                    {t("sections.event_registration")}
-                </h1>
-                <GuestFormFormik/>
-
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="grid gap-4">
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                 src={image3} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                    </div>
-                    <div className="grid gap-4">
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image3} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                    </div>
-                    <div className="grid gap-4">
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image3} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                    </div>
-                    <div className="grid gap-4">
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image3} alt=""/>
-                        </div>
-                        <div>
-                            <Image className="h-auto max-w-full rounded-lg"
-                                   src={image1} alt=""/>
-                        </div>
-                    </div>
-                </div>
-
-            </main>
-        </>
-    );
+        <section className="text-center mb-12">
+          <h3 className="text-2xl font-semibold mb-4">
+            {t("sections.event_registration")}
+          </h3>
+          <GuestFormFormik />
+        </section>
+      </main>
+    </>
+  );
 }
