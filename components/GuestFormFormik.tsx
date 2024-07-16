@@ -14,6 +14,9 @@ interface Values {
     token: string;
     assistance: string;
     accompanist: string;
+    accompanistName: string;
+    children: string;
+    childrenNames: string;
     recaptchaToken: string;
     bus: string;
     allergies: string;
@@ -38,6 +41,9 @@ const GuestFormFormik: React.FC = () => {
         token: generateToken(),
         assistance: '',
         accompanist: '',
+        accompanistName: '',
+        children: '',
+        childrenNames: '',
         recaptchaToken: '',
         bus: '',
         allergies: '',
@@ -54,6 +60,18 @@ const GuestFormFormik: React.FC = () => {
             is: 'true',
             then: () => Yup.string().required('This field is required'),
         }),
+        accompanistName: Yup.string().when('accompanist', {
+            is: 'yes',
+            then: () => Yup.string().required('This field is required'),
+        }),
+        children: Yup.string().when('accompanist', {
+            is: 'yes',
+            then: () => Yup.string().required('This field is required'),
+        }),
+        childrenNames: Yup.string().when('children', {
+            is: 'yes',
+            then: () => Yup.string().required('This field is required'),
+        }),
         bus: Yup.string().when('assistance', {
             is: 'true',
             then: () => Yup.string().required('This field is required'),
@@ -63,7 +81,7 @@ const GuestFormFormik: React.FC = () => {
             then: () => Yup.string().required('This field is required'),
         }),
         allergyDetails: Yup.string().when('allergies', {
-            is: 'true',
+            is: 'yes',
             then: () => Yup.string().required('This field is required'),
         }),
         comments: Yup.string().notRequired()
@@ -220,18 +238,17 @@ END:VCALENDAR`;
                                 {errors.assistance && touched.assistance ? <div className="text-red-500">{errors.assistance}</div> : null}
                             </div>
 
-
                             {values.assistance === 'true' && (
                                 <>
                                     <div className="w-72 mb-2">
-                                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Will you use the bus?
+                                        <label htmlFor="accompanist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Will you be accompanied?
                                         </label>
                                         <div className="flex items-center space-x-4">
                                             <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="true" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'true' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.bus === 'true' && (
+                                                <Field type="radio" name="accompanist" value="yes" className="hidden" />
+                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                    {values.accompanist === 'yes' && (
                                                         <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                         </svg>
@@ -240,9 +257,105 @@ END:VCALENDAR`;
                                                 <span className="text-sm">Yes</span>
                                             </label>
                                             <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="false" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'false' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.bus === 'false' && (
+                                                <Field type="radio" name="accompanist" value="no" className="hidden" />
+                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                    {values.accompanist === 'no' && (
+                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                    )}
+                                                </div>
+                                                <span className="text-sm">No</span>
+                                            </label>
+                                        </div>
+                                        {errors.accompanist && touched.accompanist ? <div className="text-red-500">{errors.accompanist}</div> : null}
+                                    </div>
+
+                                    {values.accompanist === 'yes' && (
+                                        <>
+                                            <div className="w-72 mb-2">
+                                                <label htmlFor="accompanistName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    Name of the Accompanist
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    id="accompanistName"
+                                                    name="accompanistName"
+                                                    placeholder="Name of the Accompanist"
+                                                    className="input-field bg-gray-800 text-white"
+                                                />
+                                                {errors.accompanistName && touched.accompanistName ? <div className="text-red-500">{errors.accompanistName}</div> : null}
+                                            </div>
+
+                                            <div className="w-72 mb-2">
+                                                <label htmlFor="children" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    Will you be bringing children?
+                                                </label>
+                                                <div className="flex items-center space-x-4">
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="children" value="yes" className="hidden" />
+                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                            {values.children === 'yes' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">Yes</span>
+                                                    </label>
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="children" value="no" className="hidden" />
+                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                            {values.children === 'no' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">No</span>
+                                                    </label>
+                                                </div>
+                                                {errors.children && touched.children ? <div className="text-red-500">{errors.children}</div> : null}
+                                            </div>
+
+                                            {values.children === 'yes' && (
+                                                <div className="w-72 mb-2">
+                                                    <label htmlFor="childrenNames" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                        Names of the Children
+                                                    </label>
+                                                    <Field
+                                                        type="text"
+                                                        id="childrenNames"
+                                                        name="childrenNames"
+                                                        placeholder="Names of the Children"
+                                                        className="input-field bg-gray-800 text-white"
+                                                    />
+                                                    {errors.childrenNames && touched.childrenNames ? <div className="text-red-500">{errors.childrenNames}</div> : null}
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
+
+                                    <div className="w-72 mb-2">
+                                        <label htmlFor="bus" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Will you use the bus service?
+                                        </label>
+                                        <div className="flex items-center space-x-4">
+                                            <label className="flex items-center">
+                                                <Field type="radio" name="bus" value="yes" className="hidden" />
+                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                    {values.bus === 'yes' && (
+                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                    )}
+                                                </div>
+                                                <span className="text-sm">Yes</span>
+                                            </label>
+                                            <label className="flex items-center">
+                                                <Field type="radio" name="bus" value="no" className="hidden" />
+                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                    {values.bus === 'no' && (
                                                         <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                         </svg>
@@ -255,45 +368,14 @@ END:VCALENDAR`;
                                     </div>
 
                                     <div className="w-72 mb-2">
-                                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Will you bring a guest?
-                                        </label>
-                                        <div className="flex items-center space-x-4">
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="accompanist" value="true" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'true' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.accompanist === 'true' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">Yes</span>
-                                            </label>
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="accompanist" value="false" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'false' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.accompanist === 'false' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">No</span>
-                                            </label>
-                                        </div>
-                                        {errors.accompanist && touched.accompanist ? <div className="text-red-500">{errors.accompanist}</div> : null}
-                                    </div>
-
-                                    <div className="w-72 mb-2">
-                                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                        <label htmlFor="allergies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                             Do you have any allergies?
                                         </label>
                                         <div className="flex items-center space-x-4">
                                             <label className="flex items-center">
-                                                <Field type="radio" name="allergies" value="true" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'true' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.allergies === 'true' && (
+                                                <Field type="radio" name="allergies" value="yes" className="hidden" />
+                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                    {values.allergies === 'yes' && (
                                                         <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                         </svg>
@@ -302,9 +384,9 @@ END:VCALENDAR`;
                                                 <span className="text-sm">Yes</span>
                                             </label>
                                             <label className="flex items-center">
-                                                <Field type="radio" name="allergies" value="false" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'false' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.allergies === 'false' && (
+                                                <Field type="radio" name="allergies" value="no" className="hidden" />
+                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                    {values.allergies === 'no' && (
                                                         <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                         </svg>
@@ -316,51 +398,81 @@ END:VCALENDAR`;
                                         {errors.allergies && touched.allergies ? <div className="text-red-500">{errors.allergies}</div> : null}
                                     </div>
 
+                                    {values.allergies === 'yes' && (
+                                        <div className="w-72 mb-2">
+                                            <label htmlFor="allergyDetails" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                Please provide details
+                                            </label>
+                                            <Field
+                                                type="text"
+                                                id="allergyDetails"
+                                                name="allergyDetails"
+                                                placeholder="Details of allergies"
+                                                className="input-field bg-gray-800 text-white"
+                                            />
+                                            {errors.allergyDetails && touched.allergyDetails ? <div className="text-red-500">{errors.allergyDetails}</div> : null}
+                                        </div>
+                                    )}
 
+                                    <div className="w-72 mb-2">
+                                        <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Additional comments
+                                        </label>
+                                        <Field
+                                            type="text"
+                                            id="comments"
+                                            name="comments"
+                                            placeholder="Additional comments"
+                                            className="input-field bg-gray-800 text-white"
+                                        />
+                                    </div>
                                 </>
                             )}
 
-                            <div className="w-72 mb-2">
-                                <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Comments
-                                </label>
-                                <Field
-                                    as="textarea"
-                                    id="comments"
-                                    name="comments"
-                                    placeholder="comentarios"
-                                    className="input-field bg-gray-800 text-white"
-                                />
-                                {errors.comments && touched.comments ? <div className="text-red-500">{errors.comments}</div> : null}
-                            </div>
-
-                            <button type="submit" className="submit-button" disabled={isSubmitting}>
-                                {isSubmitting ? 'Submitting...' : 'Submit'}
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                            >
+                                Submit
                             </button>
                         </Form>
                     )}
                 </Formik>
             ) : (
-                <div className="flex flex-col items-center justify-center mt-4">
+                <div className="text-center mt-8">
+                    <h2 className="text-2xl font-semibold mb-4">Thank you for your response!</h2>
                     {assistanceConfirmed ? (
-                        <>
-                            <div className="px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
-                                <p><strong>Gracias por confirmar su asistencia</strong></p>
-                                <p>Te hemos enviado un email a tu correo con todos los detalles.</p>
-                            </div>
-                            <div className="mt-4">
-                                <ul className="flex space-x-4">
-                                    <li><a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Google Calendar</a></li>
-                                    <li><a href={outlookCalendarUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Outlook Calendar</a></li>
-                                    <li><a href={icsUrl} download="event.ics" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">iCalendar</a></li>
-                                </ul>
-                            </div>
-                        </>
+                        <p>We look forward to seeing you at the event.</p>
                     ) : (
-                        <div className="px-4 py-3 leading-normal text-red-700 bg-red-100 rounded-lg" role="alert">
-                            <p>Te vamos a echar de menos en este día tan especial.</p>
-                        </div>
+                        <p>We're sorry you can't make it.</p>
                     )}
+
+                    <div className="mt-6">
+                        <a
+                            href={googleCalendarUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 mr-2"
+                        >
+                            Add to Google Calendar
+                        </a>
+                        <a
+                            href={outlookCalendarUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mr-2"
+                        >
+                            Add to Outlook Calendar
+                        </a>
+                        <a
+                            href={icsUrl}
+                            download="event.ics"
+                            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+                        >
+                            Download ICS
+                        </a>
+                    </div>
                 </div>
             )}
         </div>
