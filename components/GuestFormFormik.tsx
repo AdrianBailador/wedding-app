@@ -445,7 +445,8 @@ END:VCALENDAR`;
                     {assistanceConfirmed ? (
                         <p>We look forward to seeing you at the event.</p>
                     ) : (
-                        <p>We're sorry you can't make it.</p>
+                        <p><p>We&apos;re sorry you can&apos;t make it.</p>
+                        </p>
                     )}
 
                     <div className="mt-6">
