@@ -3,9 +3,9 @@
 import { Field, Form, Formik, FormikHelpers } from 'formik';
 import React, { useState } from 'react';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import * as Yup from 'yup';
 import {sendEmail} from "@/api/emails/sendEmail";
 import {createGuest} from "@/api/fb-database/createGuest";
+import * as Yup from 'yup';
 
 interface Values {
     name: string;
@@ -445,7 +445,7 @@ END:VCALENDAR`;
                     {assistanceConfirmed ? (
                         <p>We look forward to seeing you at the event.</p>
                     ) : (
-                        <p>We are sorry you can not make it.</p>
+                        <p>We're sorry you can't make it.</p>
                     )}
 
                     <div className="mt-6">
