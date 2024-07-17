@@ -86,7 +86,7 @@ const Navbar = () => {
                                aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#greeting"
+                            <a href="#"
                                className="block py-2 px-3 ">About</a>
                         </li>
                     </ul>

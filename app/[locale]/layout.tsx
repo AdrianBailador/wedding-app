@@ -6,7 +6,6 @@ import Footer from '@/components/footer';
 import React from "react";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({subsets: ['latin']});
 const montserrat = Montserrat({subsets: ['latin']});
 
 export const metadata: Metadata = {
