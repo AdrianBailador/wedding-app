@@ -9,7 +9,6 @@ export default function Home() {
 
     return (
         <main className="">
-
             <section id="hero" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="hero-content w-full text-center flex-col items-center flex relative mb-10">
@@ -36,24 +35,30 @@ export default function Home() {
                                     alt="Hero 3"/>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            {/*<section className="text-center mb-12">
-                <h2 className="text-3xl font-semibold mb-4">
-                    {t("sections.farm")}
-                </h2>
-                <MapTabs/>
+            <section id="guest-form" className="flex-col justify-center items-center flex pb-[76px] px-5">
+                <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
+                    <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
+                        <h2 className="text-3xl font-bold mb-5">{t('sections.locations')}</h2>
+                        <h1>{t('sections.locationsText')}</h1>
+                        <h2>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id aliquam.</h2>
+                        <MapTabs />
+                        
+                    </div>
+                </div>
             </section>
 
-            <section className="text-center mb-12">
-                <h3 className="text-2xl font-semibold mb-4">
-                    {t("sections.event_registration")}
-                </h3>
-                <GuestFormFormik/>
-            </section>*/}
+            <section id="guest-form" className="flex-col justify-center items-center flex pb-[76px] px-5">
+                <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
+                    <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
+                        <h2 className="text-3xl font-bold mb-5">{t('sections.event_registration')}</h2>
+                        <GuestFormFormik />
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }

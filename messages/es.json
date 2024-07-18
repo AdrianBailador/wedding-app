@@ -5,7 +5,9 @@
     "sections": {
       "church": "Iglesia San Francisco",
       "farm": "Finca Genilla",
-      "event_registration": "Registro de Eventos"
+      "event_registration": "CONFIRMA TU ASISTENCIA",
+      "locations": "Localizaciones",
+      "locationsText": "¿DÓNDE OCURRIRÁ LA MAGIA?"
     }
   },
   "NotFoundPage": {

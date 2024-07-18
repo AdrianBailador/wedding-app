@@ -3,9 +3,12 @@
     "title": "Wedding App - Home Page",
     "description": "¡Bienvenidos al ejemplo de Next.js Internationalization (i18n)! Esta demo muestra la potencia del App Router y cómo gestionar contenido multilingüe sin problemas utilizando next-intl",
     "sections": {
+
       "church": "San Francisco Church",
       "farm": "Genilla Farm",
-      "event_registration": "Event Registration"
+      "event_registration": "CONFIRM YOUR ASSISTANCE",
+      "locations": "Locations",
+      "locationsText": "WHERE WILL THE MAGIC HAPPEN?"
     }
   },
   "NotFoundPage": {

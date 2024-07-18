@@ -3,9 +3,9 @@
 import { Field, Form, Formik, FormikHelpers } from 'formik';
 import React, { useState } from 'react';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import {sendEmail} from "@/api/emails/sendEmail";
-import {createGuest} from "@/api/fb-database/createGuest";
 import * as Yup from 'yup';
+import { sendEmail } from "@/api/emails/sendEmail";
+import { createGuest } from "@/api/fb-database/createGuest";
 
 interface Values {
     name: string;
@@ -156,7 +156,7 @@ END:VCALENDAR`;
     const icsUrl = URL.createObjectURL(icsFile);
 
     return (
-        <div>
+        <div className="flex justify-center h-screen">
             {!formSubmitted ? (
                 <Formik
                     initialValues={initialValues}
@@ -164,8 +164,8 @@ END:VCALENDAR`;
                     onSubmit={handleSubmit}
                 >
                     {({ isSubmitting, values, errors, touched }) => (
-                        <Form className="flex flex-col items-center justify-center space-y-4 mt-6">
-                            <div className="w-72 mb-2">
+                        <Form className="flex flex-col items-center space-y-4">
+                            <div className="w-72">
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     First Name
                                 </label>
@@ -173,13 +173,14 @@ END:VCALENDAR`;
                                     type="text"
                                     id="name"
                                     name="name"
-                                    placeholder="Nombre"
-                                    className="input-field bg-gray-800 text-white"
+                                    placeholder="Name"
+                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                 />
                                 {errors.name && touched.name ? <div className="text-red-500">{errors.name}</div> : null}
                             </div>
 
-                            <div className="w-72 mb-2">
+                            <div className="w-72">
                                 <label htmlFor="surname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     Last Name
                                 </label>
@@ -187,13 +188,14 @@ END:VCALENDAR`;
                                     type="text"
                                     id="surname"
                                     name="surname"
-                                    placeholder="Apellidos"
-                                    className="input-field bg-gray-800 text-white"
+                                    placeholder="Surname"
+                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                 />
                                 {errors.surname && touched.surname ? <div className="text-red-500">{errors.surname}</div> : null}
                             </div>
 
-                            <div className="w-72 mb-2">
+                            <div className="w-72">
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     Email
                                 </label>
@@ -201,13 +203,14 @@ END:VCALENDAR`;
                                     type="email"
                                     id="email"
                                     name="email"
-                                    placeholder="mail"
-                                    className="input-field bg-gray-800 text-white"
+                                    placeholder="Email"
+                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                 />
                                 {errors.email && touched.email ? <div className="text-red-500">{errors.email}</div> : null}
                             </div>
 
-                            <div className="w-72 mb-2">
+                            <div className="w-72 flex flex-col items-center">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     Will you attend?
                                 </label>
@@ -238,9 +241,10 @@ END:VCALENDAR`;
                                 {errors.assistance && touched.assistance ? <div className="text-red-500">{errors.assistance}</div> : null}
                             </div>
 
+
                             {values.assistance === 'true' && (
                                 <>
-                                    <div className="w-72 mb-2">
+                                    <div className="w-72 flex flex-col items-center">
                                         <label htmlFor="accompanist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                             Will you be accompanied?
                                         </label>
@@ -273,7 +277,7 @@ END:VCALENDAR`;
 
                                     {values.accompanist === 'yes' && (
                                         <>
-                                            <div className="w-72 mb-2">
+                                            <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="accompanistName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Name of the Accompanist
                                                 </label>
@@ -282,12 +286,13 @@ END:VCALENDAR`;
                                                     id="accompanistName"
                                                     name="accompanistName"
                                                     placeholder="Name of the Accompanist"
-                                                    className="input-field bg-gray-800 text-white"
+                                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                                 />
                                                 {errors.accompanistName && touched.accompanistName ? <div className="text-red-500">{errors.accompanistName}</div> : null}
                                             </div>
 
-                                            <div className="w-72 mb-2">
+                                            <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="children" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Will you be bringing children?
                                                 </label>
@@ -319,7 +324,7 @@ END:VCALENDAR`;
                                             </div>
 
                                             {values.children === 'yes' && (
-                                                <div className="w-72 mb-2">
+                                                <div className="w-72 flex flex-col items-center">
                                                     <label htmlFor="childrenNames" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                         Names of the Children
                                                     </label>
@@ -328,114 +333,118 @@ END:VCALENDAR`;
                                                         id="childrenNames"
                                                         name="childrenNames"
                                                         placeholder="Names of the Children"
-                                                        className="input-field bg-gray-800 text-white"
+                                                        className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                                        style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                                     />
                                                     {errors.childrenNames && touched.childrenNames ? <div className="text-red-500">{errors.childrenNames}</div> : null}
                                                 </div>
                                             )}
+
+                                            <div className="w-72 flex flex-col items-center">
+                                                <label htmlFor="bus" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    Will you use the bus service?
+                                                </label>
+                                                <div className="flex items-center space-x-4">
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="bus" value="yes" className="hidden" />
+                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                            {values.bus === 'yes' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">Yes</span>
+                                                    </label>
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="bus" value="no" className="hidden" />
+                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                            {values.bus === 'no' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">No</span>
+                                                    </label>
+                                                </div>
+                                                {errors.bus && touched.bus ? <div className="text-red-500">{errors.bus}</div> : null}
+                                            </div>
+
+                                            <div className="w-72 flex flex-col items-center">
+                                                <label htmlFor="allergies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    Do you have any allergies?
+                                                </label>
+                                                <div className="flex items-center space-x-4">
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="allergies" value="yes" className="hidden" />
+                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                            {values.allergies === 'yes' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">Yes</span>
+                                                    </label>
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="allergies" value="no" className="hidden" />
+                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                                            {values.allergies === 'no' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">No</span>
+                                                    </label>
+                                                </div>
+                                                {errors.allergies && touched.allergies ? <div className="text-red-500">{errors.allergies}</div> : null}
+                                            </div>
+
+                                            {values.allergies === 'yes' && (
+                                                <div className="w-72">
+                                                    <label htmlFor="allergyDetails" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                        Please provide details
+                                                    </label>
+                                                    <Field
+                                                        type="text"
+                                                        id="allergyDetails"
+                                                        name="allergyDetails"
+                                                        placeholder="Details of allergies"
+                                                        className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                                        style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
+                                                    />
+                                                    {errors.allergyDetails && touched.allergyDetails ? <div className="text-red-500">{errors.allergyDetails}</div> : null}
+                                                </div>
+                                            )}
+
+                                            <div className="w-72 flex flex-col items-center">
+                                                <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    Additional comments
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    id="comments"
+                                                    name="comments"
+                                                    placeholder="Additional comments"
+                                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
+                                                />
+                                            </div>
                                         </>
                                     )}
 
-                                    <div className="w-72 mb-2">
-                                        <label htmlFor="bus" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Will you use the bus service?
-                                        </label>
-                                        <div className="flex items-center space-x-4">
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="yes" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.bus === 'yes' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">Yes</span>
-                                            </label>
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="no" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.bus === 'no' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">No</span>
-                                            </label>
-                                        </div>
-                                        {errors.bus && touched.bus ? <div className="text-red-500">{errors.bus}</div> : null}
-                                    </div>
-
-                                    <div className="w-72 mb-2">
-                                        <label htmlFor="allergies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Do you have any allergies?
-                                        </label>
-                                        <div className="flex items-center space-x-4">
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="allergies" value="yes" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.allergies === 'yes' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">Yes</span>
-                                            </label>
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="allergies" value="no" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.allergies === 'no' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">No</span>
-                                            </label>
-                                        </div>
-                                        {errors.allergies && touched.allergies ? <div className="text-red-500">{errors.allergies}</div> : null}
-                                    </div>
-
-                                    {values.allergies === 'yes' && (
-                                        <div className="w-72 mb-2">
-                                            <label htmlFor="allergyDetails" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                Please provide details
-                                            </label>
-                                            <Field
-                                                type="text"
-                                                id="allergyDetails"
-                                                name="allergyDetails"
-                                                placeholder="Details of allergies"
-                                                className="input-field bg-gray-800 text-white"
-                                            />
-                                            {errors.allergyDetails && touched.allergyDetails ? <div className="text-red-500">{errors.allergyDetails}</div> : null}
-                                        </div>
-                                    )}
-
-                                    <div className="w-72 mb-2">
-                                        <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Additional comments
-                                        </label>
-                                        <Field
-                                            type="text"
-                                            id="comments"
-                                            name="comments"
-                                            placeholder="Additional comments"
-                                            className="input-field bg-gray-800 text-white"
-                                        />
-                                    </div>
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                                        style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
+                                    >
+                                        Submit
+                                    </button>
                                 </>
                             )}
-
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                            >
-                                Submit
-                            </button>
                         </Form>
                     )}
                 </Formik>
@@ -445,8 +454,7 @@ END:VCALENDAR`;
                     {assistanceConfirmed ? (
                         <p>We look forward to seeing you at the event.</p>
                     ) : (
-                        <p><p>We&apos;re sorry you can&apos;t make it.</p>
-                        </p>
+                        <p>We are sorry you can not make it.</p>
                     )}
 
                     <div className="mt-6">
@@ -478,6 +486,8 @@ END:VCALENDAR`;
             )}
         </div>
     );
+
+
 };
 
 const WrappedGuestForm: React.FC = () => {
@@ -489,3 +499,5 @@ const WrappedGuestForm: React.FC = () => {
 };
 
 export default WrappedGuestForm;
+
+

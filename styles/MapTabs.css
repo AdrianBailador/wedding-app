@@ -1,38 +1,38 @@
-/* components/MapTabs.css */
-
 .tabs-container {
-    width: 100%;
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .tab {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tab.active {
-    background-color: #ccc;
-  }
-  
-  .tab-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .tab-image {
-    width: 400px;
-    height: 400px;
-    margin-left: 20px;
-  }
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 2px solid #A0A48E; /* Borde según especificaciones */
+  cursor: pointer;
+  background-color: #FFFFFF; /* Fondo no seleccionado */
+  color: #545748; /* Texto no seleccionado */
+  transition: background-color 0.3s ease;
+}
+
+.tab.active {
+  background-color: #A0A48E; /* Fondo seleccionado */
+  color: #FFFFFF; /* Texto seleccionado */
+}
+
+.tab-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-image {
+  width: 400px;
+  height: 400px;
+  margin-left: 20px;
+}

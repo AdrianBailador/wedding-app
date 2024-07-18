@@ -23,7 +23,7 @@ const MapTabs: React.FC = () => {
         return (
           <div className="tab-content">
             <GoogleMapRouteComponent />
-            <Image src="/genilla.jpg" alt="Genila" className="tab-image" width={800} height={600} />
+            <Image src="/genilla.jpg" alt="Genilla" className="tab-image" width={800} height={600} />
           </div>
         );
       default:
