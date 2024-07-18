@@ -9,8 +9,8 @@ import Navbar from "@/components/Navbar";
 const montserrat = Montserrat({subsets: ['latin']});
 
 export const metadata: Metadata = {
-    title: 'Adian y Ana',
-    description: 'Bienvenidos a la boda de Adian y Ana',
+    title: 'Adrián y Ana',
+    description: 'Bienvenidos a la boda del año, a la boda de Adrián y Ana',
 };
 
 interface RootLayoutProps {
