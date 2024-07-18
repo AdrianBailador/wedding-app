@@ -20,7 +20,7 @@ export default function Footer() {
                     Made with <span>❤️</span> by
                 </p>
                 <p>
-                    Victor Alvarado & Adrian Bailador
+                    Victor Alvarado & Adrián Bailador
                 </p>
                 <p>{t('copyright')}</p>
             </div>

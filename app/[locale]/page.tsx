@@ -39,26 +39,26 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="guest-form" className="flex-col justify-center items-center flex pb-[76px] px-5">
+          {/*   <section id="guest-form" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <h2 className="text-3xl font-bold mb-5">{t('sections.locations')}</h2>
                         <h1>{t('sections.locationsText')}</h1>
                         <h2>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id aliquam.</h2>
-                        <MapTabs />
+                       <MapTabs />
                         
                     </div>
                 </div>
-            </section>
+            </section>*/}
 
-            <section id="guest-form" className="flex-col justify-center items-center flex pb-[76px] px-5">
+           {/*  <section id="guest-form" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <h2 className="text-3xl font-bold mb-5">{t('sections.event_registration')}</h2>
-                        <GuestFormFormik />
+                        {/*<GuestFormFormik />
                     </div>
                 </div>
-            </section>
+            </section> */}
         </main>
     );
 }
