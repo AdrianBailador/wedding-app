@@ -16,14 +16,18 @@ const MapTabs: React.FC = () => {
         return (
           <div className="tab-content">
             <GoogleMapComponent />
-            <Image src="/iglesia.jpg" alt="Iglesia" className="tab-image" width={800} height={600} />
+            <div className="mobile-only">
+              <Image src="/iglesia.jpg" alt="Iglesia" className="tab-image" width={800} height={600} />
+            </div>
           </div>
         );
       case 'party':
         return (
           <div className="tab-content">
             <GoogleMapRouteComponent />
-            <Image src="/genilla.jpg" alt="Genilla" className="tab-image" width={800} height={600} />
+            <div className="mobile-only">
+              <Image src="/genilla.jpg" alt="Genilla" className="tab-image" width={800} height={600} />
+            </div>
           </div>
         );
       default:
