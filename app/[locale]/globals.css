@@ -68,3 +68,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* En tu CSS global */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}

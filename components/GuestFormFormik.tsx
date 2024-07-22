@@ -140,18 +140,18 @@ const GuestFormFormik: React.FC = () => {
             adrian: process.env.NEXT_PUBLIC_ADRIAN_BANK_ACCOUNT
         }
     };
-    
+
     const { title, description, location, startTime, endTime, contacts, bankAccounts } = event;
-    
+
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
-    
+
     const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nCuentas Bancarias:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
-    
+
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(location)}`;
-    
+
     const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(detailsWithContacts)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(location)}`;
-    
+
     const icsContent = `BEGIN:VCALENDAR
     VERSION:2.0
     BEGIN:VEVENT
@@ -164,7 +164,7 @@ const GuestFormFormik: React.FC = () => {
     END:VCALENDAR`;
     const icsFile = new Blob([icsContent], { type: 'text/calendar' });
     const icsUrl = URL.createObjectURL(icsFile);
-    
+
     // Aquí no imprimimos los detalles sensibles
     console.log('Google Calendar URL:', googleCalendarUrl);
     console.log('Outlook Calendar URL:', outlookCalendarUrl);
@@ -450,18 +450,18 @@ const GuestFormFormik: React.FC = () => {
                                         </>
                                     )}
 
-                                  
+
                                 </>
                             )}
 
-<button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
-                                        style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
-                                    >
-                                        Submit
-                                    </button>
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                                style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
+                            >
+                                Submit
+                            </button>
                         </Form>
                     )}
                 </Formik>
