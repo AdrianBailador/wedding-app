@@ -130,30 +130,45 @@ const GuestFormFormik: React.FC = () => {
         description: "Boda de Adrian y Ana",
         location: "Iglesia de San Francisco, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
-        endTime: "2024-10-12T14:00:00"
+        endTime: "2024-10-12T14:00:00",
+        contacts: {
+            ana: process.env.NEXT_PUBLIC_ANA_CONTACT,
+            adrian: process.env.NEXT_PUBLIC_ADRIAN_CONTACT
+        },
+        bankAccounts: {
+            ana: process.env.NEXT_PUBLIC_ANA_BANK_ACCOUNT,
+            adrian: process.env.NEXT_PUBLIC_ADRIAN_BANK_ACCOUNT
+        }
     };
-
-    const { title, description, location, startTime, endTime } = event;
-
+    
+    const { title, description, location, startTime, endTime, contacts, bankAccounts } = event;
+    
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
-
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}`;
-
-    const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(location)}`;
-
+    
+    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nCuentas Bancarias:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
+    
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(location)}`;
+    
+    const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(detailsWithContacts)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(location)}`;
+    
     const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${title}
-DESCRIPTION:${description}
-LOCATION:${location}
-DTSTART:${start}
-DTEND:${end}
-END:VEVENT
-END:VCALENDAR`;
+    VERSION:2.0
+    BEGIN:VEVENT
+    SUMMARY:${title}
+    DESCRIPTION:${detailsWithContacts}
+    LOCATION:${location}
+    DTSTART:${start}
+    DTEND:${end}
+    END:VEVENT
+    END:VCALENDAR`;
     const icsFile = new Blob([icsContent], { type: 'text/calendar' });
     const icsUrl = URL.createObjectURL(icsFile);
+    
+    // Aquí no imprimimos los detalles sensibles
+    console.log('Google Calendar URL:', googleCalendarUrl);
+    console.log('Outlook Calendar URL:', outlookCalendarUrl);
+    console.log('ICS URL:', icsUrl);
 
     return (
         <div className="flex justify-center h-screen">
@@ -435,7 +450,11 @@ END:VCALENDAR`;
                                         </>
                                     )}
 
-                                    <button
+                                  
+                                </>
+                            )}
+
+<button
                                         type="submit"
                                         disabled={isSubmitting}
                                         className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
@@ -443,8 +462,6 @@ END:VCALENDAR`;
                                     >
                                         Submit
                                     </button>
-                                </>
-                            )}
                         </Form>
                     )}
                 </Formik>

@@ -37,13 +37,4 @@
   margin-left: 20px;
 }
 
-.mobile-only {
-  display: none; /* Por defecto, oculto en pantallas grandes */
-}
-
-@media (max-width: 768px) {
-  .mobile-only {
-    display: block; /* Mostrar en dispositivos móviles */
-  }
-}
 
