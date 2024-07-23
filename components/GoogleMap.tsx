@@ -18,7 +18,7 @@ const GoogleMapComponent: React.FC = () => {
   useEffect(() => {
     loader.load().then(() => {
       const mapInstance = new google.maps.Map(document.getElementById('map') as HTMLElement, {
-        zoom: 4,
+        zoom: 10,
         center: position,
         mapId: process.env.NEXT_PUBLIC_GOOGLE_MAP_ID
       });

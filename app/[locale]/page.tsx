@@ -58,7 +58,7 @@ export default function Home() {
                         <h1 className="font-marcellus text-[40px] font-normal leading-[50.16px] text-center">
                             {t('sections.grettingText')}
                         </h1>
-                        <h2>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id aliquam.</h2>
+                        <h2>{t('sections.locationsText1')}</h2>
                         <br />
                         <Gretting />
                     </div>
@@ -79,7 +79,7 @@ export default function Home() {
                         <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2" style={{ width: '1114px', height: '29px', gap: '0px', border: '0.5px solid transparent', opacity: 1 }}>{t('sections.locations')}</h1>
                         <br></br>
                         <h1>{t('sections.locationsText')}</h1>
-                        <h2>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id aliquam.</h2>
+                        <h2>{t('sections.locations1')}</h2>
 
                        <MapTabs />
                         
