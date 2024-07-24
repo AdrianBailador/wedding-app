@@ -1,0 +1,45 @@
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+    color: #333;
+    text-align: center;
+}
+
+.message {
+    color: #555;
+    text-align: center;
+}
+
+.subHeading {
+    color: #333;
+    margin-top: 20px;
+}
+
+.eventDetail {
+    color: #555;
+    margin: 5px 0;
+}
+
+.calendarLinks {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.calendarLink {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.calendarLink:hover {
+    text-decoration: underline;
+}

@@ -355,7 +355,11 @@ const GuestFormFormik: React.FC = () => {
                                                 </div>
                                             )}
 
-                                            <div className="w-72 flex flex-col items-center">
+                                     
+                                        </>
+                                    )}
+
+<div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="bus" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Will you use the bus service?
                                                 </label>
@@ -447,10 +451,6 @@ const GuestFormFormik: React.FC = () => {
                                                     style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                                 />
                                             </div>
-                                        </>
-                                    )}
-
-
                                 </>
                             )}
 
