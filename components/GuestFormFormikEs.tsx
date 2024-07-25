@@ -182,13 +182,13 @@ const GuestFormFormik: React.FC = () => {
                         <Form className="flex flex-col items-center space-y-4">
                             <div className="w-72">
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    First Name
+                                    Nombre
                                 </label>
                                 <Field
                                     type="text"
                                     id="name"
                                     name="name"
-                                    placeholder="Name"
+                                    placeholder="Nombre"
                                     className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
                                     style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                 />
@@ -197,13 +197,13 @@ const GuestFormFormik: React.FC = () => {
 
                             <div className="w-72">
                                 <label htmlFor="surname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Last Name
+                                    Apellido
                                 </label>
                                 <Field
                                     type="text"
                                     id="surname"
                                     name="surname"
-                                    placeholder="Surname"
+                                    placeholder="Apellido"
                                     className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
                                     style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                 />
@@ -227,7 +227,7 @@ const GuestFormFormik: React.FC = () => {
 
                             <div className="w-72 flex flex-col items-center">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Will you attend?
+                                ¿Va a asistir?
                                 </label>
                                 <div className="flex items-center space-x-4">
                                     <label className="flex items-center">
@@ -239,7 +239,7 @@ const GuestFormFormik: React.FC = () => {
                                                 </svg>
                                             )}
                                         </div>
-                                        <span className="text-sm">Yes</span>
+                                        <span className="text-sm">Si</span>
                                     </label>
                                     <label className="flex items-center">
                                         <Field type="radio" name="assistance" value="false" className="hidden" />
@@ -261,7 +261,7 @@ const GuestFormFormik: React.FC = () => {
                                 <>
                                     <div className="w-72 flex flex-col items-center">
                                         <label htmlFor="accompanist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Will you be accompanied?
+                                        ¿Irá acompañado?
                                         </label>
                                         <div className="flex items-center space-x-4">
                                             <label className="flex items-center">
@@ -273,7 +273,7 @@ const GuestFormFormik: React.FC = () => {
                                                         </svg>
                                                     )}
                                                 </div>
-                                                <span className="text-sm">Yes</span>
+                                                <span className="text-sm">Si</span>
                                             </label>
                                             <label className="flex items-center">
                                                 <Field type="radio" name="accompanist" value="no" className="hidden" />
@@ -294,13 +294,13 @@ const GuestFormFormik: React.FC = () => {
                                         <>
                                             <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="accompanistName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Name of the Accompanist
+                                                Nombre del acompañante
                                                 </label>
                                                 <Field
                                                     type="text"
                                                     id="accompanistName"
                                                     name="accompanistName"
-                                                    placeholder="Name of the Accompanist"
+                                                    placeholder="Nombre del acompañante"
                                                     className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
                                                     style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                                 />
@@ -309,7 +309,7 @@ const GuestFormFormik: React.FC = () => {
 
                                             <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="children" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Will you be bringing children?
+                                                ¿Va a traer niños?
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
@@ -321,7 +321,7 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">Yes</span>
+                                                        <span className="text-sm">Si</span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="children" value="no" className="hidden" />
@@ -341,13 +341,13 @@ const GuestFormFormik: React.FC = () => {
                                             {values.children === 'yes' && (
                                                 <div className="w-72 flex flex-col items-center">
                                                     <label htmlFor="childrenNames" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                        Names of the Children
+                                                    Nombres de los niños
                                                     </label>
                                                     <Field
                                                         type="text"
                                                         id="childrenNames"
                                                         name="childrenNames"
-                                                        placeholder="Names of the Children"
+                                                        placeholder="Nombres de los niños"
                                                         className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
                                                         style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                                     />
@@ -361,7 +361,7 @@ const GuestFormFormik: React.FC = () => {
 
 <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="bus" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Will you use the bus service?
+                                                ¿Utilizará el servicio de autobuses?
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
@@ -373,7 +373,7 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">Yes</span>
+                                                        <span className="text-sm">Si</span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="bus" value="no" className="hidden" />
@@ -392,7 +392,7 @@ const GuestFormFormik: React.FC = () => {
 
                                             <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="allergies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Do you have any allergies?
+                                                ¿Tiene alguna alergia?
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
@@ -404,7 +404,7 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">Yes</span>
+                                                        <span className="text-sm">Si</span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="allergies" value="no" className="hidden" />
@@ -424,13 +424,13 @@ const GuestFormFormik: React.FC = () => {
                                             {values.allergies === 'yes' && (
                                                 <div className="w-72">
                                                     <label htmlFor="allergyDetails" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                        Please provide details
+                                                    Proporcione detalles sobre la alergia
                                                     </label>
                                                     <Field
                                                         type="text"
                                                         id="allergyDetails"
                                                         name="allergyDetails"
-                                                        placeholder="Details of allergies"
+                                                        placeholder="Proporcione detalles sobre la alergia"
                                                         className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
                                                         style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                                     />
@@ -440,7 +440,7 @@ const GuestFormFormik: React.FC = () => {
 
                                             <div className="w-72 flex flex-col items-center">
                                                 <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Additional comments
+                                                Comentarios adicionales
                                                 </label>
                                                 <Field
                                                     type="text"
@@ -460,7 +460,7 @@ const GuestFormFormik: React.FC = () => {
                                 className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
                                 style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
                             >
-                                Submit
+                                Enviar
                             </button>
                         </Form>
                     )}
@@ -469,9 +469,9 @@ const GuestFormFormik: React.FC = () => {
                 <div className="text-center mt-8">
                     <h2 className="text-2xl font-semibold mb-4">Thank you for your response!</h2>
                     {assistanceConfirmed ? (
-                        <p>We look forward to seeing you at the event.</p>
+                        <p>Esperamos verle en el acontecimiento. Recibira un email con los detalles de la boda, por favor, revise la carpeta de SPAM.</p>
                     ) : (
-                        <p>We are sorry you can not make it.</p>
+                        <p>Lamentamos que no pueda venir.</p>
                     )}
 
                     <div className="mt-6">
@@ -481,7 +481,7 @@ const GuestFormFormik: React.FC = () => {
                             rel="noopener noreferrer"
                             className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 mr-2"
                         >
-                            Add to Google Calendar
+                            Añadir a Google Calendar
                         </a>
                         <a
                             href={outlookCalendarUrl}
@@ -489,14 +489,14 @@ const GuestFormFormik: React.FC = () => {
                             rel="noopener noreferrer"
                             className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mr-2"
                         >
-                            Add to Outlook Calendar
+                            Añadir a Outlook Calendar
                         </a>
                         <a
                             href={icsUrl}
                             download="event.ics"
                             className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
                         >
-                            Download ICS
+                            Descargar ICS
                         </a>
                     </div>
                 </div>
