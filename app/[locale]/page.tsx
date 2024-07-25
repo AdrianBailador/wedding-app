@@ -39,7 +39,7 @@ export default function Home() {
                                     alt="Hero 3"/>
                             </div>
                             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-5 bg-white bg-opacity-80 p-5 text-center" style={{ width: '685px', height: '120px', gap: '0px', opacity: 1 }}>
-                                <h2 className="text-xl mt-3">Acompáñanos en nuestra boda</h2>
+                                <h2 className="text-xl mt-3">{t('sections.hero')}</h2>
                                 <h1 className="text-3xl font-bold mt-2">Adrián & Ana</h1>
                             </div>
                         </div>
