@@ -98,10 +98,10 @@ END:VCALENDAR`;
             <div className="calendarLinks">
                 <a href={googleCalendarUrl} target="_blank" rel="noreferrer" className="calendarLink">
                     Add to Google Calendar / Añadir a Google Calendar
-                </a><br/>
+                </a><br />
                 <a href={outlookCalendarUrl} target="_blank" rel="noreferrer" className="calendarLink">
                     Add to Outlook Calendar / Añadir a Outlook Calendar
-                </a><br/>
+                </a><br />
                 <a href={icsUrl} download="event.ics" className="calendarLink">
                     Download ICS File / Descargar archivo ICS
                 </a>
