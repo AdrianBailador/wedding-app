@@ -1,12 +1,9 @@
 import type {Metadata} from 'next';
-import {Inter, Montserrat} from 'next/font/google';
-
+import {montserrat} from '@/styles/fonts';
 import './globals.css';
 import Footer from '@/components/footer';
 import React from "react";
 import Navbar from "@/components/Navbar";
-
-const montserrat = Montserrat({subsets: ['latin']});
 
 export const metadata: Metadata = {
     title: 'Adrián y Ana',
@@ -26,7 +23,7 @@ export default function RootLayout({
                                    }: Readonly<RootLayoutProps>) {
     return (
         <html lang={locale}>
-        <body className={montserrat.className}>
+        <body className={`${montserrat.className} flex flex-col justify-start items-stretch`}>
         <Navbar/>
         <main>
             {children}
