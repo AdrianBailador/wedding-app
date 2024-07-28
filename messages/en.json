@@ -9,7 +9,11 @@
       "event_registration": "CONFIRM YOUR ASSISTANCE",
       "locations": "Locations",
       "locationsText": "WHERE WILL THE MAGIC HAPPEN?",
-      "grettingText": "YOUR WEDDING SHOULD BE UTTERLY UNFORGETTABLE, DEEPLY ROMANTIC, EXQUISITELY BEAUTIFUL AND ENTIRELY “YOU”. "
+      "locationsText1":"Every detail should reflect your unique love and style, creating everlasting memories.",
+      "locations1":"Choose the perfect venue that captures the essence of your love story.",
+      "grettingText": "YOUR WEDDING SHOULD BE UTTERLY UNFORGETTABLE, DEEPLY ROMANTIC, EXQUISITELY BEAUTIFUL AND ENTIRELY “YOU”. ",
+      "hero": "Join us at our wedding"
+      
     }
   },
   "NotFoundPage": {

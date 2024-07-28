@@ -12,8 +12,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         try {
             const response = await resend.emails.send({
                 to: email,
-                from: 'no-reply@victoralvarado.dev', // Reemplaza con tu dirección de correo
-                subject: 'Formik + ReSend Example - Welcome! 🎉',
+                from: 'no-reply@adrianyana.com', // Reemplaza con tu dirección de correo
+                subject: 'Boda de Adrian y Ana, 12 de Octubre del 2024 - Bienvenido/Welcome! 🎉',
                 react: EmailTemplate({ firstName: name, lastName: surname, email: email}),
                 text: ``,
             });
