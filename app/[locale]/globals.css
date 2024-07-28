@@ -76,3 +76,60 @@
 .container-full {
   @apply w-full max-w-full md:max-w-7xl mx-auto ;
 }
+
+@keyframes fadeInScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aplicar animación a los elementos de la galería */
+.gallery-item {
+  animation: fadeInScaleUp 0.6s ease-out forwards;
+}
+
+/* Definir animación de entrada */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* globals.css */
+
+/* Estilos iniciales para las imágenes de la galería */
+.gallery-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Animación cuando el elemento está visible */
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
