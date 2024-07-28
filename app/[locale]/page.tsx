@@ -104,13 +104,12 @@ export default function Home() {
             <section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
-                        <Image
-                            src="/rama.png"
-                            alt="Rama"
-                            width={140}
-                            height={68}
-                            className="filter sepia-[1] hue-rotate-[90deg] saturate-[6]"
-                        />
+                    <Image
+                                    src={rama}
+                                    width={80}
+                                    alt="Rama"
+                                    className="h-auto object-contain mb-[14px]"
+                                />
                         <br></br>
                         <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
                             style={{
@@ -148,9 +147,7 @@ export default function Home() {
                                         className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
                                         {t('sections.gallery')}
                                     </h2>
-                                    <p>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non
-                                        morbi id
-                                        aliquam.</p>
+                                    <p>{t('sections.galleryText')}</p>
                                 </div>
                             </div>
                         </div>
@@ -173,13 +170,12 @@ export default function Home() {
             <section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
-                        <Image
-                            src="/rama.png"
-                            alt="Rama"
-                            width={140}
-                            height={68}
-                            className="filter sepia-[1] hue-rotate-[90deg] saturate-[6]"
-                        />
+                    <Image
+                                    src={rama}
+                                    width={80}
+                                    alt="Rama"
+                                    className="h-auto object-contain mb-[14px]"
+                                />
                         <br></br>
                         <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
                             style={{
