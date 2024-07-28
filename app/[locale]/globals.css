@@ -72,3 +72,7 @@
 .section-styles {
   @apply flex flex-col justify-center items-center px-5 py-18;
 }
+
+.container-full {
+  @apply w-full max-w-full md:max-w-7xl mx-auto ;
+}
