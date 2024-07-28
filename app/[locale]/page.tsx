@@ -51,7 +51,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="gretting" className="container flex flex-col justify-center items-center py-20 px-5">
+            <section id="greeting" className="container flex flex-col justify-center items-center py-20 px-5">
                 <div className="container-wide w-full max-w-[1200px] flex flex-col items-center">
                     <div className="guest-form-content w-full text-center flex flex-col items-center gap-6 relative">
                         <Image
