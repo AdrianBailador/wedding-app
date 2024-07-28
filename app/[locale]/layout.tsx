@@ -23,6 +23,8 @@ export default function RootLayout({
                                    }: Readonly<RootLayoutProps>) {
     return (
         <html lang={locale}>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+             <link rel="icon" href="/favicon.ico" />
         <body className={`${montserrat.className} flex flex-col justify-start items-stretch`}>
         <Navbar/>
         <main>
