@@ -1,5 +1,4 @@
 import {marcellus} from "@/styles/fonts";
-import {useTranslations} from "next-intl";
 import Image from "next/image";
 import Gretting from '@/components/Gretting';
 import img3 from '@/public/images/img3.jpg';
@@ -7,11 +6,16 @@ import CardHero from "@/components/CardHero";
 import rama from '@/public/rama.png';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
-import {galleryImages} from "@/static_content"; // Import the galleryImages array
-
+import MapTabs from '@/components/MapTabs';
+import GuestFormFormik from "@/components/GuestFormFormikEs";
+import GuestFormFormikEn from "@/components/GuestFormFormikEn"; // Importa tu componente en inglés
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from 'next/navigation';
+import {galleryImages} from "@/static_content"; 
 
 export default function Home() {
     const t = useTranslations('IndexPage');
+    const locale = useLocale();
 
     return (
         <>
@@ -60,7 +64,7 @@ export default function Home() {
                                 className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
                                 {t('sections.grettingText')}
                             </h2>
-                            <p>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id aliquam.</p>
+                            <p>{t('sections.locationsText1')}</p>
                         </div>
                         <Gretting/>
                     </div>
@@ -97,6 +101,35 @@ export default function Home() {
                 </div>
             </section>
 
+            <section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
+                <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
+                    <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
+                        <Image
+                            src="/rama.png"
+                            alt="Rama"
+                            width={140}
+                            height={68}
+                            className="filter sepia-[1] hue-rotate-[90deg] saturate-[6]"
+                        />
+                        <br></br>
+                        <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
+                            style={{
+                                width: '1114px',
+                                height: '29px',
+                                gap: '0px',
+                                border: '0.5px solid transparent',
+                                opacity: 1
+                            }}>{t('sections.locations')}</h1>
+                        <br></br>
+                        <h1>{t('sections.locationsText')}</h1>
+                         <h2>{t('sections.locations1')}</h2>
+
+                        <MapTabs/>
+
+                    </div>
+                </div>
+            </section>
+
             <section className='container-full section-styles'>
                 <div className="content-section flex flex-col items-center justify-start gap-8">
                     <div className="title-section container ">
@@ -113,7 +146,7 @@ export default function Home() {
                                     <h2
                                         style={marcellus.style}
                                         className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
-                                        {t('sections.grettingText')}
+                                        {t('sections.gallery')}
                                     </h2>
                                     <p>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non
                                         morbi id
@@ -137,37 +170,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/*<section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
-                <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
-                    <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
-                        <Image
-                            src="/rama.png"
-                            alt="Rama"
-                            width={140}
-                            height={68}
-                            className="filter sepia-[1] hue-rotate-[90deg] saturate-[6]"
-                        />
-                        <br></br>
-                        <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
-                            style={{
-                                width: '1114px',
-                                height: '29px',
-                                gap: '0px',
-                                border: '0.5px solid transparent',
-                                opacity: 1
-                            }}>{t('sections.locations')}</h1>
-                        <br></br>
-                        <h1>{t('sections.locationsText')}</h1>
-                        <h2>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id
-                            aliquam.</h2>
-
-                        <MapTabs/>
-
-                    </div>
-                </div>
-            </section>*/}
-
-            {/*<section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
+            <section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <Image
@@ -186,14 +189,13 @@ export default function Home() {
                                 border: '0.5px solid transparent',
                                 opacity: 1
                             }}>
-                            {t('sections.event_registration')}
-
+                             {t('sections.event_registration')}
                         </h1>
                         <br></br>
-                        <GuestFormFormik/>
+                        {locale === 'es' ? <GuestFormFormik /> : <GuestFormFormikEn />}
                     </div>
                 </div>
-            </section>*/}
+            </section>
         </>
     );
 }

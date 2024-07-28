@@ -3,8 +3,12 @@ import Image from 'next/image';
 import rama from '@/public/rama.png';
 import logo from '@/public/isotipo_transparent.svg';
 import {Button} from "@/components/ui/button";
+import { useTranslations } from 'next-intl';
+
+
 
 const CardHero = () => {
+    const t = useTranslations('CardHero');
     return (
         <div
             className="relative bottom-[30px] sm:bottom-[-80px] sm:absolute w-[96%] sm:w-[90%] max-w-[780px] z-20">
@@ -16,7 +20,7 @@ const CardHero = () => {
                     width={62}
                     className="object-contain h-auto"
                 />
-                <p className="subtitle text-accent uppercase">Acompañanos en nuestra boda</p>
+                <p className="subtitle text-accent uppercase">{t('hero')}</p>
                 <h1
                     style={marcellus.style}
                     className="heading-hero font-medium uppercase text-6xl">Adrian & Ana</h1>
