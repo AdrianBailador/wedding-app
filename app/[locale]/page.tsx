@@ -129,7 +129,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className='container-full section-styles'>
+            <section id="gallery" className='container-full section-styles'>
                 <div className="content-section flex flex-col items-center justify-start gap-8">
                     <div className="title-section container ">
                         <div className="container-wide w-full max-w-[1200px] flex flex-col items-center">

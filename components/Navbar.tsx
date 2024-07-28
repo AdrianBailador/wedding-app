@@ -59,7 +59,7 @@ const Navbar = () => {
                                className="block py-2 px-3 ">About Us</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="#gallery"
                                className="block py-2 px-3 ">Gallery</a>
                         </li>
                         <li>
