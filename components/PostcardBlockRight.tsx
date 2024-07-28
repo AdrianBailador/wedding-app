@@ -4,8 +4,8 @@ import rama from '@/public/rama.png';
 
 const PostcardBlockRight = () => {
     return (
-        <div className="w-full bg-white flex flex-col justify-center items-stretch mt-[25px] mb-[-25px] pt-[85px] pb-[85px] pl-[50px] sm:mt-[20px] sm:mb-0 sm:pl-0 md:pt-[75px] md:pb-[75px] lg:pt-[65px] lg:pb-[65px] lg:mt-[10px]">
-            <div className="postcard-text">
+        <div style={{gridArea: '1 / 2 / 2 / 5'}} className="w-full bg-[white] flex-col justify-center items-stretch mb-[-25px] flex mt-[25px] pl-[50px] py-[85px]">
+            <div className="w-full flex-col justify-center items-start flex px-[16%]">
                 <Image
                     src={rama}
                     alt="Subtitle"
@@ -18,10 +18,14 @@ const PostcardBlockRight = () => {
                         opacity: 1,
                     }}
                 />
-                <div className="subtitle">who we are<br /></div>
-                <h2 className="heading text-3xl font-bold">Weave story into every thread of your event</h2>
+                <div className="subtitle uppercase">About Us<br /></div>
+                <h2
+                    style={{fontFamily: 'Marcellus'}}
+                    className="heading text-3xl font-bold uppercase">
+                    OUR WEDDING SHOULD BE UNFORGETTABLE,
+                    DEEPLY ROMANTIC, EXQUISITELY.
+                </h2>
                 <p className="paragraph mt-4">Cras urna sed purus magna morbi morbi congue suspendisse. Est faucibus hendrerit donec nisi, feugiat suscipit eu, sit. Orci euismod nibh.</p>
-                <a href="/about/about-a" className="button w-button mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">more about us</a>
             </div>
         </div>
     );
