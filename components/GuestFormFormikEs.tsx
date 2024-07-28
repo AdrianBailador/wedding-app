@@ -466,40 +466,48 @@ const GuestFormFormik: React.FC = () => {
                     )}
                 </Formik>
             ) : (
-                <div className="text-center mt-8">
-                    <h2 className="text-2xl font-semibold mb-4">Gracias por su respuesta!</h2>
-                    {assistanceConfirmed ? (
-                        <p>Esperamos verle en el acontecimiento. Recibira un email con los detalles de la boda, por favor, revise la carpeta de <br>SPAM.</br></p>
-                    ) : (
-                        <p>Lamentamos que no pueda venir.</p>
-                    )}
 
-                    <div className="mt-6">
-                        <a
-                            href={googleCalendarUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 mr-2"
-                        >
-                            Añadir a Google Calendar
-                        </a>
-                        <a
-                            href={outlookCalendarUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mr-2"
-                        >
-                            Añadir a Outlook Calendar
-                        </a>
-                        <a
-                            href={icsUrl}
-                            download="event.ics"
-                            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-                        >
-                            Descargar ICS
-                        </a>
-                    </div>
-                </div>
+                
+                <div className="text-center mt-8 px-4">
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+      <h2 className="text-2xl font-semibold mb-4">Gracias por su respuesta!</h2>
+      {assistanceConfirmed ? (
+        <p className="mb-4">
+          Esperamos verle en el acontecimiento. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de <br>SPAM.</br> 
+        </p>
+      ) : (
+        <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de <br>SPAM,</br>que puede ignorar</p>
+      )}
+
+      <div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2">
+        <a
+          href={googleCalendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+        >
+          Añadir a Google Calendar
+        </a>
+        <a
+          href={outlookCalendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        >
+          Añadir a Outlook Calendar
+        </a>
+        <a
+          href={icsUrl}
+          download="event.ics"
+          className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+        >
+          Descargar ICS
+        </a>
+      </div>
+    </div>
             )}
         </div>
     );

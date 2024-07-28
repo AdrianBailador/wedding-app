@@ -469,9 +469,9 @@ const GuestFormFormik: React.FC = () => {
                 <div className="text-center mt-8">
                     <h2 className="text-2xl font-semibold mb-4">Thank you for your response!</h2>
                     {assistanceConfirmed ? (
-                        <p>We look forward to seeing you at the event. You will receive an email with the wedding details, please check your SPAM folder.</p>
+                        <p>We look forward to seeing you at the event. You will receive an email with the wedding details, please check your <br>SPAM folder.</br></p>
                     ) : (
-                        <p>We are sorry you can not make it.</p>
+                        <p>We are sorry you can not make it. You will receive an email with the wedding details, please check the <br>SPAM folder,</br> which you can ignore.</p>
                     )}
 
                     <div className="mt-6">
