@@ -6,6 +6,7 @@ import img3 from '@/public/images/img3.jpg';
 import CardHero from "@/components/CardHero";
 import rama from '@/public/rama.png';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
+import img4 from '@/public/images/img4.jpg';
 
 
 export default function Home() {
@@ -65,10 +66,32 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="about-us" className="section-styles container">
+            <section id="about-us" className="section-styles container-full">
                 <div className="content w-full flex flex-col items-center">
-                    <div className="grid w-full gap-0 grid-template-columns-custom-postcard auto-cols-1fr">
-                        <PostcardBlockRight />
+                    <div className="grid w-full gap-x-0 gap-y-0 grid-rows-[auto] grid-cols-[1fr_50px_50px_1fr]">
+                        <PostcardBlockRight/>
+                        <div
+                            className="postcard---image relative flex justify-center items-stretch w-full"
+                            style={{
+                                order: -9999,
+                                gridArea: '1 / 1 / 2 / 3',
+                            }}
+                        >
+                            <div className="w-full z-10 bg-amber-100 relative overflow-hidden">
+                                <Image
+                                    className="image"
+                                    src={img4}
+                                    alt=""
+                                    width={805}
+                                    height={0}
+                                    style={{
+                                        opacity: 1,
+                                    }}
+                                    sizes="(max-width: 479px) 96vw, (max-width: 767px) 95vw, 96vw"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
