@@ -7,6 +7,7 @@ import CardHero from "@/components/CardHero";
 import rama from '@/public/rama.png';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
+import {galleryImages} from "@/static_content"; // Import the galleryImages array
 
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
 
     return (
         <>
-            <section id="hero" className="flex flex-col justify-center items-center  px-5 pb-13.5 sm:pb-14.5 md:pb-16.5 lg:pb-18">
+            <section id="hero"
+                     className="flex flex-col justify-center items-center  px-5 pb-13.5 sm:pb-14.5 md:pb-16.5 lg:pb-18">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="hero-content w-full text-center flex-col items-center flex relative mb-10">
                         <div className="hero-gallery w-full grid grid-cols-3  xl:gap-5 lg:gap-4.5 md:gap-3.5 gap-1">
@@ -58,8 +60,7 @@ export default function Home() {
                                 className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
                                 {t('sections.grettingText')}
                             </h2>
-                            <p>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id
-                                aliquam.</p>
+                            <p>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non morbi id aliquam.</p>
                         </div>
                         <Gretting/>
                     </div>
@@ -92,6 +93,46 @@ export default function Home() {
                                 />
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className='container-full section-styles'>
+                <div className="content-section flex flex-col items-center justify-start gap-8">
+                    <div className="title-section container ">
+                        <div className="container-wide w-full max-w-[1200px] flex flex-col items-center">
+                            <div
+                                className="guest-form-content w-full text-center flex flex-col items-center gap-6 relative">
+                                <Image
+                                    src={rama}
+                                    width={80}
+                                    alt="Rama"
+                                    className="h-auto object-contain mb-[14px]"
+                                />
+                                <div className="text-content flex flex-col gap-6">
+                                    <h2
+                                        style={marcellus.style}
+                                        className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
+                                        {t('sections.grettingText')}
+                                    </h2>
+                                    <p>Lectus sit turpis iaculis eu non sed turpis suscipit facilisi. Lorem morbi non
+                                        morbi id
+                                        aliquam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="gallery-mansory columns-6 max-w-7xl mx-auto space-y-4">
+                        {galleryImages.map((el) => (
+                            <div key={el.id} className=' overflow-hidden'>
+                                <Image
+                                    src={el.url}
+                                    alt={el.title}
+                                    height={300}
+                                    width={200}
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
