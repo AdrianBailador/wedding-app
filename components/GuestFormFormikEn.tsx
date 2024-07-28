@@ -462,6 +462,9 @@ const GuestFormFormik: React.FC = () => {
                             >
                                 Submit
                             </button>
+                            <p className="mb-4">
+                            We look forward to seeing you at our wedding. You will receive an email with the wedding details, please check your <b>SPAM</b> folder. 
+                        </p>
                         </Form>
                     )}
                 </Formik>

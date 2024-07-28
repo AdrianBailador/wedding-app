@@ -10,22 +10,32 @@ const MapTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('wedding');
 
   const renderTabContent = () => {
-    return (
-      <div className="tab-content flex flex-col md:flex-row justify-center items-center">
-        <div className="map-container w-[400px] h-[400px]">
-          {activeTab === 'wedding' ? <GoogleMapComponent /> : <GoogleMapRouteComponent />}
-        </div>
-        <div className="image-container ml-0 mt-5 md:mt-0 md:ml-5 w-[400px] h-[400px]">
-          <Image
-            src={activeTab === 'wedding' ? '/iglesia.jpg' : '/genilla.jpg'}
-            alt={activeTab === 'wedding' ? 'Iglesia' : 'Genilla'}
-            width={400}
-            height={400}
-            className="object-cover"
-          />
-        </div>
-      </div>
-    );
+    switch (activeTab) {
+      case 'wedding':
+        return (
+          <div className="tab-content flex flex-col md:flex-row justify-center items-center">
+            <div className="map-container w-[400px] h-[400px]">
+              <GoogleMapComponent />
+            </div>
+            <div className="image-container ml-0 mt-5 md:mt-0 md:ml-5 w-[400px] h-[400px]">
+              <Image src="/iglesia.jpg" alt="Iglesia" width={400} height={400} className="object-cover" />
+            </div>
+          </div>
+        );
+      case 'party':
+        return (
+          <div className="tab-content flex flex-col md:flex-row justify-center items-center">
+            <div className="map-container w-[400px] h-[400px]">
+              <GoogleMapRouteComponent />
+            </div>
+            <div className="image-container ml-0 mt-5 md:mt-0 md:ml-5 w-[400px] h-[400px]">
+              <Image src="/genilla.jpg" alt="Genilla" width={400} height={400} className="object-cover" />
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
   return (

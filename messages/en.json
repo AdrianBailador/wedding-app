@@ -3,6 +3,10 @@
     "title": "Wedding App - Home Page",
     "description": "¡Bienvenidos al ejemplo de Next.js Internationalization (i18n)! Esta demo muestra la potencia del App Router y cómo gestionar contenido multilingüe sin problemas utilizando next-intl",
     "sections": {
+      "WeddingEvent": "Wedding Event",
+  "PartyEvent": "Party Event",
+  "IglesiaAlt": "Church",
+  "GenillaAlt": "Genilla",
 
       "church": "San Francisco Church",
       "farm": "Genilla Farm",
@@ -33,8 +37,17 @@
   },
   "CardHero": {
     "hero": "Join us at our wedding"
+  },
+  "PostcardBlockRight":{
+    "PostcardBlockRight": "The wedding is just around the corner! We would love you to be part of this special moment for us and that you live it and enjoy it to the fullest!",
+    "PostcardBlockRightText": "ABOUT US"
+  },
+  "MapTabs":{
+    "WeddingEvent": "Wedding Event",
+    "PartyEvent": "Party Event",
+    "IglesiaAlt": "Church",
+    "GenillaAlt": "Genilla"
   }
-  
   
   
 }

@@ -462,11 +462,13 @@ const GuestFormFormik: React.FC = () => {
                             >
                                 Enviar
                             </button>
+                            <p className="mb-4">
+                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de <b>SPAM.</b>
+                        </p>
                         </Form>
                     )}
                 </Formik>
             ) : (
-
 
                 <div className="text-center mt-8 px-4">
                     <br></br>
@@ -476,7 +478,7 @@ const GuestFormFormik: React.FC = () => {
                     <h2 className="text-2xl font-semibold mb-4">Gracias por su respuesta!</h2>
                     {assistanceConfirmed ? (
                         <p className="mb-4">
-                            Esperamos verle en el acontecimiento. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM.
+                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM.
                         </p>
                     ) : (
                         <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM, que puede ignorar</p>

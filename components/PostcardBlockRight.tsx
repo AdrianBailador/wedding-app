@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 import rama from '@/public/rama.png';
+import { useTranslations } from 'next-intl';
 
 const PostcardBlockRight = () => {
+    const t = useTranslations('PostcardBlockRight');
     return (
         <div style={{gridArea: '1 / 2 / 2 / 5'}} className="w-full bg-[white] flex-col justify-center items-stretch mb-[-25px] flex mt-[25px] pl-[50px] py-[85px]">
             <div className="w-full flex-col justify-center items-start flex px-[16%]">
@@ -18,14 +20,15 @@ const PostcardBlockRight = () => {
                         opacity: 1,
                     }}
                 />
-                <div className="subtitle uppercase">About Us<br /></div>
+                <div className="subtitle uppercase">{t('PostcardBlockRightText')}<br /></div>
+                <br></br>
                 <h2
                     style={{fontFamily: 'Marcellus'}}
                     className="heading text-3xl font-bold uppercase">
-                    OUR WEDDING SHOULD BE UNFORGETTABLE,
-                    DEEPLY ROMANTIC, EXQUISITELY.
+                    {t('PostcardBlockRight')}
                 </h2>
-                <p className="paragraph mt-4">Cras urna sed purus magna morbi morbi congue suspendisse. Est faucibus hendrerit donec nisi, feugiat suscipit eu, sit. Orci euismod nibh.</p>
+
+                <p className="paragraph mt-4"></p>
             </div>
         </div>
     );

@@ -113,16 +113,12 @@ export default function Home() {
                                     className="h-auto object-contain mb-[14px]"
                                 />
                         <br></br>
-                        <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
-                            style={{
-                                width: '1114px',
-                                height: '29px',
-                                gap: '0px',
-                                border: '0.5px solid transparent',
-                                opacity: 1
-                            }}>{t('sections.locations')}</h1>
+                        <h2
+                                        style={marcellus.style}
+                                        className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
+                                        {t('sections.locationsText')}
+                                    </h2>
                         <br></br>
-                        <h1>{t('sections.locationsText')}</h1>
                          <h2>{t('sections.locations1')}</h2>
 
                         <MapTabs/>
