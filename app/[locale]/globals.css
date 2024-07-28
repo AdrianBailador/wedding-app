@@ -1,7 +1,11 @@
+/* globals.css */
+
+/* Tailwind CSS Imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Base Styles */
 @layer base {
   :root {
     --background: 48, 36%, 95%;
@@ -58,23 +62,44 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }
 
-.section-styles {
-  @apply flex flex-col justify-center items-center px-5 py-18;
-}
+@layer components {
+  .navbar {
+    @apply flex justify-between p-4;
+  }
+  
+  .container-full {
+    @apply w-full max-w-full md:max-w-7xl mx-auto;
+  }
 
-.container-full {
-  @apply w-full max-w-full md:max-w-7xl mx-auto ;
+  .section-styles {
+    @apply flex flex-col justify-center items-center px-5 py-18;
+  }
+
+  /* Global styles for gallery items */
+  .gallery-item {
+    @apply opacity-0 transform translate-y-5 transition-opacity transition-transform duration-300 ease-out;
+    animation: fadeInScaleUp 0.6s ease-out forwards;
+  }
+  
+  /* Animation for when the element is visible */
+  .gallery-item.visible {
+    @apply opacity-100 transform translate-y-0;
+  }
 }
 
 @keyframes fadeInScaleUp {
@@ -88,12 +113,6 @@
   }
 }
 
-/* Aplicar animación a los elementos de la galería */
-.gallery-item {
-  animation: fadeInScaleUp 0.6s ease-out forwards;
-}
-
-/* Definir animación de entrada */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -105,31 +124,33 @@
   }
 }
 
-/* globals.css */
+@layer utilities {
+  /* Ensure responsive styles are in place */
+  .item {
+    @apply flex-1;
+    flex: 1 1 calc(33.333% - 1rem);
+    box-sizing: border-box;
+    background: #e0e0e0;
+    padding: 1rem;
+  }
 
-/* Estilos iniciales para las imágenes de la galería */
-.gallery-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
+  @media (max-width: 1024px) {
+    .item {
+      flex: 1 1 calc(50% - 1rem);
+    }
+  }
 
-/* Animación cuando el elemento está visible */
-.gallery-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+  @media (max-width: 768px) {
+    .item {
+      flex: 1 1 100%;
+    }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-      flex-direction: column;
-      align-items: center;
+    main {
+      @apply p-2;
+    }
+  }
+  
+  img, video {
+    @apply max-w-full h-auto;
   }
 }
-
