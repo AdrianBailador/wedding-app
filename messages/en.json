@@ -38,9 +38,10 @@
   "CardHero": {
     "hero": "Join us at our wedding"
   },
-  "PostcardBlockRight":{
-    "PostcardBlockRight": "The wedding is just around the corner! We would love you to be part of this special moment for us and that you live it and enjoy it to the fullest!",
-    "PostcardBlockRightText": "ABOUT US"
+  "AboutUs":{
+    "title": "The wedding is just around the corner!",
+    "sectionTitle": "ABOUT US",
+    "description": "We would love you to be part of this special moment for us and that you live it and enjoy it to the fullest!"
   },
   "MapTabs":{
     "WeddingEvent": "Wedding Event",

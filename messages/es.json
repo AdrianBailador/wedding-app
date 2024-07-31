@@ -35,11 +35,9 @@
   "Gretting": {
     "Gretting": "Please confirm attendance"
   },
-  "PostcardBlockRight":{
-    "PostcardBlockRight": "¡Falta poco para el bodorrio! Nos encantaria que seas parte de este momento tan especial para nosotros y que lo vivais y disfrutes al maximo",
-    "PostcardBlockRightText": "Sobre Nosotros"
+  "AboutUs":{
+    "title": "¡Falta poco para el bodorrio!",
+    "sectionTitle": "Sobre Nosotros",
+    "description": "¡Nos encantaría que fueras parte de este momento tan especial para nosotros y que lo vivas y disfrutes al máximo!"
   }
-  
-
-  
 }
