@@ -141,7 +141,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="gallery-masonry columns-6 max-w-7xl mx-auto space-y-4">
+                    <div className="gallery-masonry columns-3 md:columns-6 w-full md:max-w-7xl mx-auto space-y-4">
                         {galleryImages.map((el, index) => (
                             <div key={el.id} className='gallery-item overflow-hidden'>
                                 <Image
