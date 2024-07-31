@@ -72,14 +72,10 @@ export default function Home() {
 
             <section id="about-us" className="section-styles container-full">
                 <div className="content w-full flex flex-col items-center">
-                    <div className="grid w-full gap-x-0 gap-y-0 grid-rows-[auto] grid-cols-[1fr_50px_50px_1fr]">
+                    <div className="grid w-full gap-x-0 gap-y-0 grid-rows-[auto] grid-cols-[1fr] md:grid-cols-2">
                         <PostcardBlockRight />
                         <div
-                            className="postcard---image relative flex justify-center items-stretch w-full"
-                            style={{
-                                order: -9999,
-                                gridArea: '1 / 1 / 2 / 3',
-                            }}
+                            className="about-us-left postcard---image relative flex justify-center items-stretch md:-order-1 w-full"
                         >
                             <div className="w-full z-10 bg-amber-100 relative overflow-hidden">
                                 <Image
@@ -100,7 +96,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
+            {/*<section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <Image
@@ -120,7 +116,7 @@ export default function Home() {
                         <MapTabs />
                     </div>
                 </div>
-            </section>
+            </section>*/}
 
             <section id="gallery" className='container-full section-styles'>
                 <div className="content-section flex flex-col items-center justify-start gap-8">
@@ -160,7 +156,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
+            {/*<section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <Image
@@ -184,7 +180,7 @@ export default function Home() {
                         {locale === 'es' ? <GuestFormFormik /> : <GuestFormFormikEn />}
                     </div>
                 </div>
-            </section>
+            </section>*/}
         </>
     );
 }
