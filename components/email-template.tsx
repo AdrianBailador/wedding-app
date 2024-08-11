@@ -14,11 +14,9 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 }) => {
     const event = {
         title: "Boda de Adrian y Ana, 12 de Octubre del 2024",
-        description: "Boda de Adrian y Ana, 12 de Octubre del 2024",
+        description: "Boda de Adrian y Ana, , 12 de Octubre del 2024",
         locationCeremonia: "Iglesia de San Francisco a las 12.00h, Priego de Córdoba",
         locationBanquete: "Finca Genilla, Priego de Córdoba",
-        descriptionEn: "Wedding of Adrian y Ana, 12 de Octubre del 2024",
-        locationCeremoniaEN: "Church of San Francisco at 12.00h, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
         endTime: "2024-10-12T14:00:00",
         contacts: {
@@ -103,7 +101,6 @@ END:VCALENDAR`;
                     </a>
                 </div>
             </div>
-            <br></br>
 
             {/* Sección en Inglés */}
             <div className="mt-12">
@@ -115,7 +112,7 @@ END:VCALENDAR`;
                 <p className="mb-4">
                     <strong>{event.title}</strong>
                     <br />
-                    <strong>Ceremony Location:</strong> {event.locationCeremoniaEN}
+                    <strong>Ceremony Location:</strong> {event.locationCeremonia}
                     <br />
                     <strong>Reception Location:</strong> {event.locationBanquete}
                 </p>
@@ -131,9 +128,9 @@ END:VCALENDAR`;
                     If delivering an envelope is complicated for you, we provide the bank account numbers:
                 </p>
                 <p className="mb-4">
-                    <strong>Ana's Bank Account:</strong> {bankAccounts.ana}
+                    <strong>Ana&apos;s Bank Account:</strong> {bankAccounts.ana}
                     <br />
-                    <strong>Adrian's Bank Account:</strong> {bankAccounts.adrian}
+                    <strong>Adrian&apos;s Bank Account:</strong> {bankAccounts.adrian}
                 </p>
                 <p className="mb-4">
                     Don’t forget to add the event to your calendar:
