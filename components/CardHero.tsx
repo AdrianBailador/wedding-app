@@ -1,7 +1,7 @@
 import {marcellus} from "@/styles/fonts";
 import Image from 'next/image';
 import rama from '@/public/rama.png';
-import logo from '@/public/isotipo_transparent.svg';
+import logo from '@/public/logo.png';
 import {Button} from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
 

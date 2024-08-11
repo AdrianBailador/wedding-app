@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Image
                             width={50}
                             height={50}
-                            src="/isotipo_transparent.svg"
+                            src="/logo.png"
                             alt={"Logo de boda de Adrian y Ana"}
                         />
                     </span>
