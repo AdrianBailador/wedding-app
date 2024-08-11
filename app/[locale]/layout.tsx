@@ -28,6 +28,10 @@ export default function RootLayout({
                 <main className="flex-grow mt-[78px]">
                     {children}
                 </main>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <Footer />
             </body>
         </html>

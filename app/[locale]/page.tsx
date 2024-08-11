@@ -8,7 +8,8 @@ import CardHero from "@/components/CardHero";
 import rama from '@/public/rama.png';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
-import MapTabs from '@/components/MapTabs';
+import MapTabsES from '@/components/MapTabsES';
+import MapTabsEN from '@/components/MapTabsEN';
 import GuestFormFormik from "@/components/GuestFormFormikEs";
 import GuestFormFormikEn from "@/components/GuestFormFormikEn"; // Importa tu componente en inglés
 import { useLocale, useTranslations } from "next-intl";
@@ -96,7 +97,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/*<section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
+            <section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <Image
@@ -113,10 +114,10 @@ export default function Home() {
                         </h2>
                         <br></br>
                         <h2>{t('sections.locations1')}</h2>
-                        <MapTabs />
+                        {locale === 'es' ? <MapTabsES /> : <MapTabsEN />}
                     </div>
                 </div>
-            </section>*/}
+            </section>
 
             <section id="gallery" className='container-full section-styles'>
                 <div className="content-section flex flex-col items-center justify-start gap-8">
@@ -155,8 +156,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-            {/*<section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
+            <section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[120px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <Image
@@ -165,22 +165,22 @@ export default function Home() {
                             alt="Rama"
                             className="h-auto object-contain mb-[14px]"
                         />
-                        <br></br>
                         <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
                             style={{
-                                width: '1114px',
-                                height: '29px',
+                                width: 'auto',
+                                height: 'auto',
                                 gap: '0px',
                                 border: '0.5px solid transparent',
                                 opacity: 1
                             }}>
                             {t('sections.event_registration')}
                         </h1>
-                        <br></br>
-                        {locale === 'es' ? <GuestFormFormik /> : <GuestFormFormikEn />}
+                        <div className="mt-6 w-full">
+                            {locale === 'es' ? <GuestFormFormik /> : <GuestFormFormikEn />}
+                        </div>
                     </div>
                 </div>
-            </section>*/}
+            </section>
         </>
     );
 }

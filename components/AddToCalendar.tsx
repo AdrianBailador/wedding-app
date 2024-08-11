@@ -14,7 +14,7 @@ const AddToCalendar: FC = () => {
         description: "Boda de Adrian y Ana",
         location: "Iglesia de San Francisco, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
-        endTime: "2024-10-12T14:00:00" // Se establece una duración de 2 horas, ajusta según necesites
+        endTime: "2024-10-12T14:00:00" 
     };
 
     const {title, description, location, startTime, endTime} = event;
