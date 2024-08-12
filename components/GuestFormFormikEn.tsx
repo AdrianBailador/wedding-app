@@ -126,11 +126,11 @@ const GuestFormFormik: React.FC = () => {
     };
 
     const event = {
-        title: "Boda de Adrian y Ana",
-        description: "Boda de Adrian y Ana",
-        location: "Iglesia de San Francisco, Priego de Córdoba",
+        title: "Adrian and Ana's Wedding",
+        description: "Adrian and Ana's Wedding",
+        location: "Church of San Francisco, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
-        endTime: "2024-10-12T14:00:00",
+        endTime: "2024-10-12T13:00:00",
         contacts: {
             ana: process.env.NEXT_PUBLIC_ANA_CONTACT,
             adrian: process.env.NEXT_PUBLIC_ADRIAN_CONTACT
@@ -146,7 +146,7 @@ const GuestFormFormik: React.FC = () => {
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
 
-    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nCuentas Bancarias:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
+    const detailsWithContacts = `${description}\n\nContacts:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nBank Accounts:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(location)}`;
 

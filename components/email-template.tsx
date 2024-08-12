@@ -102,6 +102,8 @@ END:VCALENDAR`;
                 </div>
             </div>
 
+            <br></br>
+
             {/* Sección en Inglés */}
             <div className="mt-12">
                 <h1 className="text-2xl font-bold mb-4">Welcome, {firstName} {lastName}!</h1>
