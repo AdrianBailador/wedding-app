@@ -446,7 +446,7 @@ const GuestFormFormik: React.FC = () => {
                                             type="text"
                                             id="comments"
                                             name="comments"
-                                            placeholder="Additional comments"
+                                            placeholder="Comentarios adicionales"
                                             className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
                                             style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
                                         />
@@ -463,8 +463,8 @@ const GuestFormFormik: React.FC = () => {
                                 Enviar
                             </button>
                             <p className="mb-4">
-                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de <b>SPAM.</b>
-                        </p>
+                                Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de <b>SPAM.</b>
+                            </p>
                         </Form>
                     )}
                 </Formik>
@@ -481,34 +481,37 @@ const GuestFormFormik: React.FC = () => {
                             Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM.
                         </p>
                     ) : (
-                        <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM, que puede ignorar</p>
+                        <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM, que puede ignorar.</p>
                     )}
 
-<div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2">
-          <a
-            href={googleCalendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-          >
-            Añadir a Google Calendar
-          </a>
-          <a
-            href={outlookCalendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-          >
-            Añadir a Outlook Calendar
-          </a>
-          <a
-            href={icsUrl}
-            download="event.ics"
-            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-          >
-            Descargar ICS
-          </a>
-        </div>
+                    <div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2 justify-center">
+                        <a
+                            href={googleCalendarUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                            style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
+                        >
+                            Añadir a Google Calendar
+                        </a>
+                        <a
+                            href={outlookCalendarUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                            style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
+                        >
+                            Añadir a Outlook Calendar
+                        </a>
+                        <a
+                            href={icsUrl}
+                            download="event.ics"
+                            className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                            style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
+                        >
+                            Descargar ICS
+                        </a>
+                    </div>
                 </div>
             )}
         </div>
