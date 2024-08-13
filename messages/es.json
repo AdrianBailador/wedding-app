@@ -7,7 +7,7 @@
       "farm": "Finca Genilla",
       "event_registration": "CONFIRMA TU ASISTENCIA",
       "locations": "Localizaciones",
-      "locationsText": "¿DÓNDE OCURRIRÁ LA MAGIA?",
+      "locationsText": "¿Dónde ocurrirá la mágia?",
       "locationsText1":"Por ello tenemos el placer de invitarles a nuestro enlace matrimonial",
       "locations1":"Elija el lugar perfecto que capture la esencia de su historia de amor.",
       "grettingText": "Hay días en la vida que son especiales por sí solos. Compartirlos con las personas que quieres los convierte en inolvidables.",
@@ -36,8 +36,8 @@
     "Gretting": "Please confirm attendance"
   },
   "AboutUs":{
-    "title": "¡Falta poco para el bodorrio!",
+    "title": "Sobre Nosotros",
     "sectionTitle": "Sobre Nosotros",
-    "description": "Una joven prieguense y un sayagués,\ncruzaron sus caminos en un destino lejano.\nLo que empezó como amistad sincera,\nse transformó en amor, una pasión verdadera.\n\nPara crecer juntos, un sueño abrazaron,\ny hacia Irlanda juntos marcharon.\nComo guiris en Mallorca, bajo estrellas en calma,\nen Cala Mendia eligieron compartir su amor."
+    "description": "Una joven prieguense y un sayagués,\ncruzaron sus caminos en un destino lejano.\nLo que empezó como amistad sincera,\nse transformó en amor, una pasión verdadera.\n\nPara crecer juntos, un sueño abrazaron,\ny hacia Irlanda juntos marcharon.\nComo guiris en Mallorca, bajo estrellas en calma,\nen Cala Mendia eligieron compartir su amor para el resto de sus vidas"
   }
 }

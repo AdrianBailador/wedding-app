@@ -12,7 +12,7 @@
       "farm": "Genilla Farm",
       "event_registration": "CONFIRM YOUR ASSISTANCE",
       "locations": "Locations",
-      "locationsText": "WHERE WILL THE MAGIC HAPPEN?",
+      "locationsText": "Where will the magic happen?",
       "locationsText1":"We therefore have the pleasure to invite you to our wedding ceremony.",
       "locations1":"Choose the perfect venue that captures the essence of your love story.",
       "grettingText": "There are days in life that are special on their own. Sharing them with the people you love makes them unforgettable.",
@@ -39,9 +39,9 @@
     "hero": "Join us at our wedding"
   },
   "AboutUs":{
-    "title": "The wedding is just around the corner!",
-    "sectionTitle": "ABOUT US",
-    "description": "A young woman from Priego and a Sayagués lad,\n crossed paths in a distant land.\n What began as a sincere friendship,\n transformed into love, a true passion.\n\n To grow together, they embraced a dream,\n and to Ireland, their lives they did stream.\n Like tourists in Mallorca, under a calm starry sky,\n in Cala Mendia, they chose to share their love till the end of time."
+    "title": "About us",
+    "sectionTitle": "About us",
+    "description": "A young woman from Priego and a Sayagués lad,\n crossed paths in a distant land.\n What began as a sincere friendship,\n transformed into love, a true passion.\n\n To grow together, they embraced a dream,\n and to Ireland, their lives they did stream.\n Like tourists in Mallorca, under a calm starry sky,\n in Cala Mendia, they chose to share their love for the rest of their lives."
   },
   "MapTabs":{
     "WeddingEvent": "Wedding Event",
