@@ -34,7 +34,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
 
-    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nCuentas Bancarias:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
+    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}`;
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(locationCeremonia)}`;
 
@@ -79,14 +79,6 @@ END:VCALENDAR`;
                     <strong>Contactar a Adrian:</strong> {contacts.adrian}
                 </p>
                 <p className="mb-4">
-                    Si entregar un sobre te resulta complicado, te facilitamos el número de cuenta:
-                </p>
-                <p className="mb-4">
-                    <strong>Cuenta Bancaria de Ana:</strong> {bankAccounts.ana}
-                    <br />
-                    <strong>Cuenta Bancaria de Adrian:</strong> {bankAccounts.adrian}
-                </p>
-                <p className="mb-4">
                     No olvides añadir la fecha a tu calendario:
                 </p>
                 <div className="space-y-2">
@@ -125,14 +117,6 @@ END:VCALENDAR`;
                     <strong>Contact Ana:</strong> {contacts.ana}
                     <br />
                     <strong>Contact Adrian:</strong> {contacts.adrian}
-                </p>
-                <p className="mb-4">
-                    If delivering an envelope is complicated for you, we provide the bank account numbers:
-                </p>
-                <p className="mb-4">
-                    <strong>Ana&apos;s Bank Account:</strong> {bankAccounts.ana}
-                    <br />
-                    <strong>Adrian&apos;s Bank Account:</strong> {bankAccounts.adrian}
                 </p>
                 <p className="mb-4">
                     Don’t forget to add the event to your calendar:
