@@ -14,44 +14,63 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 }) => {
     const event = {
         title: "Boda de Adrian y Ana, 12 de Octubre del 2024",
-        description: "Boda de Adrian y Ana, , 12 de Octubre del 2024",
+        description: "Boda de Adrian y Ana, 12 de Octubre del 2024",
         locationCeremonia: "Iglesia de San Francisco a las 12.00h, Priego de Córdoba",
+        locationCeremoniaEN: "San Francisco Church at 12:00 PM, Priego de Córdoba",
         locationBanquete: "Finca Genilla, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
-        endTime: "2024-10-12T14:00:00",
+        endTime: "2024-10-12T13:00:00",
         contacts: {
             ana: process.env.NEXT_PUBLIC_ANA_CONTACT,
             adrian: process.env.NEXT_PUBLIC_ADRIAN_CONTACT
         },
-        bankAccounts: {
-            ana: process.env.NEXT_PUBLIC_ANA_BANK_ACCOUNT,
-            adrian: process.env.NEXT_PUBLIC_ADRIAN_BANK_ACCOUNT
-        }
     };
 
-    const { title, description, locationCeremonia, locationBanquete, startTime, endTime, contacts, bankAccounts } = event;
+    const { title, description, locationCeremonia, locationBanquete, startTime, endTime, contacts } = event;
 
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
 
-    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}`;
+    const getGoogleCalendarUrl = (lang: 'es' | 'en') => {
+        const titleText = lang === 'es' ? title : "Adrian & Ana Wedding, 12th October 2024";
+        const detailsText = lang === 'es' ?
+            `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}` :
+            `Adrian & Ana Wedding, 12th October 2024\n\nContacts:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}`;
+        const locationText = lang === 'es' ? locationCeremonia : "San Francisco Church at 12:00 PM, Priego de Córdoba";
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(locationCeremonia)}`;
+        return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titleText)}&dates=${start}/${end}&details=${encodeURIComponent(detailsText)}&location=${encodeURIComponent(locationText)}`;
+    };
 
-    const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(detailsWithContacts)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(locationCeremonia)}`;
+    const getOutlookCalendarUrl = (lang: 'es' | 'en') => {
+        const titleText = lang === 'es' ? title : "Adrian & Ana Wedding, 12th October 2024";
+        const detailsText = lang === 'es' ?
+            `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}` :
+            `Adrian & Ana Wedding, 12th October 2024\n\nContacts:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}`;
+        const locationText = lang === 'es' ? locationCeremonia : "San Francisco Church at 12:00 PM, Priego de Córdoba";
 
-    const icsContent = `BEGIN:VCALENDAR
+        return `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(titleText)}&body=${encodeURIComponent(detailsText)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(locationText)}`;
+    };
+
+    const getIcsUrl = (lang: 'es' | 'en') => {
+        const titleText = lang === 'es' ? title : "Adrian & Ana Wedding, 12th October 2024";
+        const detailsText = lang === 'es' ?
+            `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}` :
+            `Adrian & Ana Wedding, 12th October 2024\n\nContacts:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}`;
+        const locationText = lang === 'es' ? locationCeremonia : "San Francisco Church at 12:00 PM, Priego de Córdoba";
+
+        const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
-SUMMARY:${title}
-DESCRIPTION:${detailsWithContacts}
-LOCATION:${locationCeremonia}
+SUMMARY:${titleText}
+DESCRIPTION:${detailsText}
+LOCATION:${locationText}
 DTSTART:${start}
 DTEND:${end}
 END:VEVENT
 END:VCALENDAR`;
-    const icsFile = new Blob([icsContent], { type: 'text/calendar' });
-    const icsUrl = URL.createObjectURL(icsFile);
+        const icsFile = new Blob([icsContent], { type: 'text/calendar' });
+        return URL.createObjectURL(icsFile);
+    };
 
     return (
         <div className="container mx-auto p-6">
@@ -82,13 +101,13 @@ END:VCALENDAR`;
                     No olvides añadir la fecha a tu calendario:
                 </p>
                 <div className="space-y-2">
-                    <a href={googleCalendarUrl} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
+                    <a href={getGoogleCalendarUrl('es')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
                         Añadir a Google Calendar
                     </a><br />
-                    <a href={outlookCalendarUrl} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
+                    <a href={getOutlookCalendarUrl('es')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
                         Añadir a Outlook Calendar
                     </a><br />
-                    <a href={icsUrl} download="event.ics" className="text-blue-500 hover:underline">
+                    <a href={getIcsUrl('es')} download="event.ics" className="text-blue-500 hover:underline">
                         Descargar archivo ICS
                     </a>
                 </div>
@@ -104,9 +123,9 @@ END:VCALENDAR`;
                 </p>
                 <h2 className="text-xl font-semibold mb-4">Event Details</h2>
                 <p className="mb-4">
-                    <strong>{event.title}</strong>
+                    <strong>Adrian & Ana Wedding, 12th October 2024</strong>
                     <br />
-                    <strong>Ceremony Location:</strong> {event.locationCeremonia}
+                    <strong>Ceremony Location:</strong> {event.locationCeremoniaEN}
                     <br />
                     <strong>Reception Location:</strong> {event.locationBanquete}
                 </p>
@@ -122,13 +141,13 @@ END:VCALENDAR`;
                     Don’t forget to add the event to your calendar:
                 </p>
                 <div className="space-y-2">
-                    <a href={googleCalendarUrl} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
+                    <a href={getGoogleCalendarUrl('en')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
                         Add to Google Calendar
                     </a><br />
-                    <a href={outlookCalendarUrl} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
+                    <a href={getOutlookCalendarUrl('en')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
                         Add to Outlook Calendar
                     </a><br />
-                    <a href={icsUrl} download="event.ics" className="text-blue-500 hover:underline">
+                    <a href={getIcsUrl('en')} download="event.ics" className="text-blue-500 hover:underline">
                         Download ICS File
                     </a>
                 </div>
