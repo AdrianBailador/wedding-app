@@ -6,6 +6,11 @@ import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recapt
 import * as Yup from 'yup';
 import { sendEmail } from "@/api/emails/sendEmail";
 import { createGuest } from "@/api/fb-database/createGuest";
+import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
+import {Terminal} from "lucide-react";
+import {Input} from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
+import InputField from "@/components/InputField";
 
 interface Values {
     name: string;
@@ -171,7 +176,7 @@ const GuestFormFormik: React.FC = () => {
     console.log('ICS URL:', icsUrl);
 
     return (
-        <div className="flex justify-center h-screen">
+        <div className="w-full flex justify-center bg-white py-8 px-8">
             {!formSubmitted ? (
                 <Formik
                     initialValues={initialValues}
@@ -179,292 +184,317 @@ const GuestFormFormik: React.FC = () => {
                     onSubmit={handleSubmit}
                 >
                     {({ isSubmitting, values, errors, touched }) => (
-                        <Form className="flex flex-col items-center space-y-4">
-                            <div className="w-72">
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Nombre
-                                </label>
-                                <Field
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Nombre"
-                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                />
-                                {errors.name && touched.name ? <div className="text-red-500">{errors.name}</div> : null}
+                        <Form className="flex flex-col space-y-4">
+                            <Alert>
+                                <AlertDescription>
+                                    Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por
+                                    favor, revise la carpeta de <b>SPAM.</b>
+                                </AlertDescription>
+                            </Alert>
+
+                            {/*Input group*/}
+                            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <InputField label="Nombre" type="text" id="name" name="name" placeholder="Escriba su primer nombre">
+                                    {errors.name && touched.name ?
+                                        <div className="text-sm text-red-500">{errors.name}</div> : null}
+                                </InputField>
+
+                                <InputField label={"Apellido"} type={"text"} id={"surname"} name={"surname"} placeholder={"Escribe tu apellido"}>
+                                    {errors.surname && touched.surname ?
+                                        <div className="text-sm text-red-500">{errors.surname}</div> : null}
+                                </InputField>
                             </div>
 
-                            <div className="w-72">
-                                <label htmlFor="surname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Apellido
-                                </label>
-                                <Field
-                                    type="text"
-                                    id="surname"
-                                    name="surname"
-                                    placeholder="Apellido"
-                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                />
-                                {errors.surname && touched.surname ? <div className="text-red-500">{errors.surname}</div> : null}
-                            </div>
+                            {/*Input Email*/}
+                            <InputField label={"Email"} type={"email"} id={"email"} name={"email"} placeholder={"Escribe tu email"}>
+                                {errors.email && touched.email ?
+                                    <div className="text-sm text-red-500">{errors.email}</div> : null}
+                            </InputField>
 
-                            <div className="w-72">
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Email
-                                </label>
-                                <Field
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                />
-                                {errors.email && touched.email ? <div className="text-red-500">{errors.email}</div> : null}
-                            </div>
-
-                            <div className="w-72 flex flex-col items-center">
+                            <div className="w-full flex flex-col">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     ¿Va a asistir?
                                 </label>
                                 <div className="flex items-center space-x-4">
                                     <label className="flex items-center">
-                                        <Field type="radio" name="assistance" value="true" className="hidden" />
-                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.assistance === 'true' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                        <Field type="radio" name="assistance" value="true" className="hidden"/>
+                                        <div
+                                            className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.assistance === 'true' ? 'bg-accent border-blue-500' : ''}`}>
                                             {values.assistance === 'true' && (
-                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                                     stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                          d="M5 13l4 4L19 7"/>
                                                 </svg>
                                             )}
                                         </div>
                                         <span className="text-sm">Si</span>
                                     </label>
                                     <label className="flex items-center">
-                                        <Field type="radio" name="assistance" value="false" className="hidden" />
-                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.assistance === 'false' ? 'bg-blue-500 border-blue-500' : ''}`}>
+                                        <Field type="radio" name="assistance" value="false" className="hidden"/>
+                                        <div
+                                            className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.assistance === 'false' ? 'bg-accent border-blue-500' : ''}`}>
                                             {values.assistance === 'false' && (
-                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                                     stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                          d="M5 13l4 4L19 7"/>
                                                 </svg>
                                             )}
                                         </div>
                                         <span className="text-sm">No</span>
                                     </label>
                                 </div>
-                                {errors.assistance && touched.assistance ? <div className="text-red-500">{errors.assistance}</div> : null}
+                                {errors.assistance && touched.assistance ?
+                                    <div className="text-red-500">{errors.assistance}</div> : null}
                             </div>
 
 
                             {values.assistance === 'true' && (
                                 <>
-                                    <div className="w-72 flex flex-col items-center">
-                                        <label htmlFor="accompanist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            ¿Irá acompañado?
+                                    {/*Public Transport Radio Buttons*/}
+                                    <div className="w-full flex flex-col">
+                                        <label htmlFor="bus"
+                                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            ¿Utilizará el servicio de autobuses?
                                         </label>
                                         <div className="flex items-center space-x-4">
                                             <label className="flex items-center">
-                                                <Field type="radio" name="accompanist" value="yes" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.accompanist === 'yes' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                <Field type="radio" name="bus" value="yes" className="hidden"/>
+                                                <div
+                                                    className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
+                                                    {values.bus === 'yes' && (
+                                                        <svg className="w-4 h-4 text-white" fill="none"
+                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
                                                         </svg>
                                                     )}
                                                 </div>
                                                 <span className="text-sm">Si</span>
                                             </label>
                                             <label className="flex items-center">
-                                                <Field type="radio" name="accompanist" value="no" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.accompanist === 'no' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                <Field type="radio" name="bus" value="no" className="hidden"/>
+                                                <div
+                                                    className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'no' ? 'bg-accent border-blue-500' : ''}`}>
+                                                    {values.bus === 'no' && (
+                                                        <svg className="w-4 h-4 text-white" fill="none"
+                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
                                                         </svg>
                                                     )}
                                                 </div>
                                                 <span className="text-sm">No</span>
                                             </label>
                                         </div>
-                                        {errors.accompanist && touched.accompanist ? <div className="text-red-500">{errors.accompanist}</div> : null}
+                                        {errors.bus && touched.bus ?
+                                            <div className="text-red-500">{errors.bus}</div> : null}
                                     </div>
 
-                                    {values.accompanist === 'yes' && (
-                                        <>
-                                            <div className="w-72 flex flex-col items-center">
-                                                <label htmlFor="accompanistName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Nombre del acompañante
-                                                </label>
-                                                <Field
-                                                    type="text"
-                                                    id="accompanistName"
-                                                    name="accompanistName"
-                                                    placeholder="Nombre del acompañante"
-                                                    className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                                    style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                                />
-                                                {errors.accompanistName && touched.accompanistName ? <div className="text-red-500">{errors.accompanistName}</div> : null}
-                                            </div>
-
-                                            <div className="w-72 flex flex-col items-center">
-                                                <label htmlFor="children" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    ¿Va a traer niños?
+                                    {/*Guest Radio Buttons Section*/}
+                                    <div className="form-section p-4 border border-accent rounded-xl">
+                                        <h5 className="form-section-title font-semibold mb-4">
+                                            Invitados
+                                        </h5>
+                                        <div className="form-section-content flex flex-col gap-4">
+                                            <div className="w-full flex flex-col">
+                                                <label htmlFor="accompanist"
+                                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    ¿Irá acompañado?
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
-                                                        <Field type="radio" name="children" value="yes" className="hidden" />
-                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                            {values.children === 'yes' && (
-                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        <Field type="radio" name="accompanist" value="yes"
+                                                               className="hidden"/>
+                                                        <div
+                                                            className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
+                                                            {values.accompanist === 'yes' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none"
+                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
                                                                 </svg>
                                                             )}
                                                         </div>
                                                         <span className="text-sm">Si</span>
                                                     </label>
                                                     <label className="flex items-center">
-                                                        <Field type="radio" name="children" value="no" className="hidden" />
-                                                        <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                            {values.children === 'no' && (
-                                                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        <Field type="radio" name="accompanist" value="no"
+                                                               className="hidden"/>
+                                                        <div
+                                                            className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'no' ? 'bg-accent border-blue-500' : ''}`}>
+                                                            {values.accompanist === 'no' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none"
+                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
                                                                 </svg>
                                                             )}
                                                         </div>
                                                         <span className="text-sm">No</span>
                                                     </label>
                                                 </div>
-                                                {errors.children && touched.children ? <div className="text-red-500">{errors.children}</div> : null}
+                                                {errors.accompanist && touched.accompanist ?
+                                                    <div className="text-red-500">{errors.accompanist}</div> : null}
                                             </div>
 
-                                            {values.children === 'yes' && (
-                                                <div className="w-72 flex flex-col items-center">
-                                                    <label htmlFor="childrenNames" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                        Nombres de los niños
+                                            {values.accompanist === 'yes' && (
+                                                <>
+                                                    <InputField label={"Nombre del Acompañante"} type={"text"} id={"accompanistName"} name={"accompanistName"} placeholder={"Nombre del acompañante"}>
+                                                        {errors.accompanistName && touched.accompanistName ?
+                                                            <div
+                                                                className="text-red-500">{errors.accompanistName}</div> : null}
+                                                    </InputField>
+
+                                                    <div className="w-full flex flex-col">
+                                                        <label htmlFor="children"
+                                                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                            ¿Va a traer niños?
+                                                        </label>
+                                                        <div className="flex items-center space-x-4">
+                                                            <label className="flex items-center">
+                                                                <Field type="radio" name="children" value="yes"
+                                                                       className="hidden"/>
+                                                                <div
+                                                                    className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
+                                                                    {values.children === 'yes' && (
+                                                                        <svg className="w-4 h-4 text-white" fill="none"
+                                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                                            <path strokeLinecap="round"
+                                                                                  strokeLinejoin="round"
+                                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                        </svg>
+                                                                    )}
+                                                                </div>
+                                                                <span className="text-sm">Si</span>
+                                                            </label>
+                                                            <label className="flex items-center">
+                                                                <Field type="radio" name="children" value="no"
+                                                                       className="hidden"/>
+                                                                <div
+                                                                    className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'no' ? 'bg-accent border-blue-500' : ''}`}>
+                                                                    {values.children === 'no' && (
+                                                                        <svg className="w-4 h-4 text-white" fill="none"
+                                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                                            <path strokeLinecap="round"
+                                                                                  strokeLinejoin="round"
+                                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                        </svg>
+                                                                    )}
+                                                                </div>
+                                                                <span className="text-sm">No</span>
+                                                            </label>
+                                                        </div>
+                                                        {errors.children && touched.children ?
+                                                            <div className="text-red-500">{errors.children}</div> : null}
+                                                    </div>
+
+                                                    {values.children === 'yes' && (
+                                                        <InputField label={"Nombre del niño"} type={"text"} id={"childrenNames"} name={"childrenNames"} placeholder={"Nombres de los niño"}>
+                                                            {errors.childrenNames && touched.childrenNames ? <div
+                                                                className="text-red-500">{errors.childrenNames}</div> : null}
+                                                        </InputField>
+                                                    )}
+
+
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="form-section p-4 border border-accent rounded-xl">
+                                        <h5 className="form-section-title font-semibold mb-4">
+                                            Alergias
+                                        </h5>
+                                        <div className="flex flex-col gap-4">
+                                            <div className="w-full flex flex-col">
+                                                <label htmlFor="allergies"
+                                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    ¿Tiene alguna alergia?
+                                                </label>
+                                                <div className="flex items-center space-x-4">
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="allergies" value="yes"
+                                                               className="hidden"/>
+                                                        <div
+                                                            className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
+                                                            {values.allergies === 'yes' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none"
+                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">Si</span>
                                                     </label>
-                                                    <Field
-                                                        type="text"
-                                                        id="childrenNames"
-                                                        name="childrenNames"
-                                                        placeholder="Nombres de los niños"
-                                                        className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                                        style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                                    />
-                                                    {errors.childrenNames && touched.childrenNames ? <div className="text-red-500">{errors.childrenNames}</div> : null}
+                                                    <label className="flex items-center">
+                                                        <Field type="radio" name="allergies" value="no" className="hidden"/>
+                                                        <div
+                                                            className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'no' ? 'bg-accent border-blue-500' : ''}`}>
+                                                            {values.allergies === 'no' && (
+                                                                <svg className="w-4 h-4 text-white" fill="none"
+                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                </svg>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-sm">No</span>
+                                                    </label>
+                                                </div>
+                                                {errors.allergies && touched.allergies ?
+                                                    <div className="text-red-500">{errors.allergies}</div> : null}
+                                            </div>
+
+                                            {values.allergies === 'yes' && (
+                                                <div className="w-full">
+                                                    <InputField label={"Proporciona una lista de tus alergias"} type={"text"} id={"allergyDetails"} name={"allergyDetails"} placeholder={"Proporcione detalles sobre la alergia"}>
+                                                        {errors.allergyDetails && touched.allergyDetails ?
+                                                            <div className="text-red-500">{errors.allergyDetails}</div> : null}
+                                                    </InputField>
                                                 </div>
                                             )}
-
-
-                                        </>
-                                    )}
-
-                                    <div className="w-72 flex flex-col items-center">
-                                        <label htmlFor="bus" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            ¿Utilizará el servicio de autobuses?
-                                        </label>
-                                        <div className="flex items-center space-x-4">
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="yes" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.bus === 'yes' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">Si</span>
-                                            </label>
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="no" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.bus === 'no' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">No</span>
-                                            </label>
                                         </div>
-                                        {errors.bus && touched.bus ? <div className="text-red-500">{errors.bus}</div> : null}
                                     </div>
 
-                                    <div className="w-72 flex flex-col items-center">
-                                        <label htmlFor="allergies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            ¿Tiene alguna alergia?
-                                        </label>
-                                        <div className="flex items-center space-x-4">
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="allergies" value="yes" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'yes' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.allergies === 'yes' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">Si</span>
-                                            </label>
-                                            <label className="flex items-center">
-                                                <Field type="radio" name="allergies" value="no" className="hidden" />
-                                                <div className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'no' ? 'bg-blue-500 border-blue-500' : ''}`}>
-                                                    {values.allergies === 'no' && (
-                                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                                <span className="text-sm">No</span>
-                                            </label>
+                                    <div className="form-section p-4 border border-accent rounded-xl">
+                                        <h5 className="form-section-title font-semibold mb-4">
+                                            Comentarios Adicionales
+                                        </h5>
+                                        <div className="form-section-content flex flex-col gap-4">
+                                            <div className="w-full flex flex-col">
+                                                <label htmlFor="surname"
+                                                       className="block text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    Escribe tus comentarios
+                                                </label>
+                                                <textarea rows={4} id="comments" name="comments" placeholder={"Additional comments"}
+                                                          className="px-3 py-2 rounded border border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 autofill:bg-background">
+                                                </textarea>
+                                            </div>
                                         </div>
-                                        {errors.allergies && touched.allergies ? <div className="text-red-500">{errors.allergies}</div> : null}
                                     </div>
 
-                                    {values.allergies === 'yes' && (
-                                        <div className="w-72">
-                                            <label htmlFor="allergyDetails" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                Proporcione detalles sobre la alergia
-                                            </label>
-                                            <Field
-                                                type="text"
-                                                id="allergyDetails"
-                                                name="allergyDetails"
-                                                placeholder="Proporcione detalles sobre la alergia"
-                                                className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                                style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                            />
-                                            {errors.allergyDetails && touched.allergyDetails ? <div className="text-red-500">{errors.allergyDetails}</div> : null}
-                                        </div>
-                                    )}
-
-                                    <div className="w-72 flex flex-col items-center">
-                                        <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Comentarios adicionales
-                                        </label>
-                                        <Field
-                                            type="text"
-                                            id="comments"
-                                            name="comments"
-                                            placeholder="Additional comments"
-                                            className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
-                                            style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
-                                        />
-                                    </div>
                                 </>
                             )}
 
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
-                                style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
-                            >
-                                Enviar
-                            </button>
-                            <p className="mb-4">
-                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de <b>SPAM.</b>
-                        </p>
+                            <div className="w-full flex justify-center items-center py-8">
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200 uppercase"
+                                    style={{
+                                        backgroundColor: "#FFFFFF00",
+                                        color: "#DE967D",
+                                        borderColor: "#DE967D",
+                                        borderWidth: "2px"
+                                    }}
+                                >
+                                    Confirmar Asistencia
+                                </button>
+                            </div>
+
                         </Form>
                     )}
                 </Formik>
@@ -478,37 +508,39 @@ const GuestFormFormik: React.FC = () => {
                     <h2 className="text-2xl font-semibold mb-4">Gracias por su respuesta!</h2>
                     {assistanceConfirmed ? (
                         <p className="mb-4">
-                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM.
+                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor,
+                            revise la carpeta de SPAM.
                         </p>
                     ) : (
-                        <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM, que puede ignorar</p>
+                        <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la
+                            boda, por favor, revise la carpeta de SPAM, que puede ignorar</p>
                     )}
 
-<div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2">
-          <a
-            href={googleCalendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-          >
-            Añadir a Google Calendar
-          </a>
-          <a
-            href={outlookCalendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-          >
-            Añadir a Outlook Calendar
-          </a>
-          <a
-            href={icsUrl}
-            download="event.ics"
-            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-          >
-            Descargar ICS
-          </a>
-        </div>
+                    <div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2">
+                        <a
+                            href={googleCalendarUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                        >
+                            Añadir a Google Calendar
+                        </a>
+                        <a
+                            href={outlookCalendarUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-accent text-white rounded-lg hover:bg-blue-600"
+                        >
+                            Añadir a Outlook Calendar
+                        </a>
+                        <a
+                            href={icsUrl}
+                            download="event.ics"
+                            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+                        >
+                            Descargar ICS
+                        </a>
+                    </div>
                 </div>
             )}
         </div>
@@ -520,7 +552,7 @@ const GuestFormFormik: React.FC = () => {
 const WrappedGuestForm: React.FC = () => {
     return (
         <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}>
-            <GuestFormFormik />
+            <GuestFormFormik/>
         </GoogleReCaptchaProvider>
     );
 };
