@@ -8,11 +8,12 @@ import CardHero from "@/components/CardHero";
 import rama from '@/public/rama.png';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
-import MapTabs from '@/components/MapTabs';
-import GuestFormFormik from "@/components/GuestFormFormikEs";
-import GuestFormFormikEn from "@/components/GuestFormFormikEn"; // Importa tu componente en inglés
 import { useLocale, useTranslations } from "next-intl";
 import { galleryImages } from "@/static_content";
+import GuestFormFormikEn from "@/components/GuestFormFormikEn";
+import GuestFormFormikEs from "@/components/GuestFormFormikEs";
+import React from "react";
+import SectionsContent from "@/components/SectionsContent";
 
 export default function Home() {
     const t = useTranslations('IndexPage');
@@ -20,8 +21,8 @@ export default function Home() {
 
     return (
         <>
-            <section id="hero" className="flex flex-col justify-center items-center px-5 pb-13.5 sm:pb-14.5 md:pb-16.5 lg:pb-18">
-                <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
+            <section id="hero" className="w-ful flex flex-col justify-center items-center px-5 pb-13.5 sm:pb-14.5 md:pb-16.5 lg:pb-18">
+                <div className="container-wide w-full md:max-w-[1200px] flex-col items-center flex;">
                     <div className="hero-content w-full text-center flex-col items-center flex relative mb-10">
                         <div className="hero-gallery w-full grid grid-cols-3 xl:gap-5 lg:gap-4.5 md:gap-3.5 gap-1">
                             <div className="hero-gallery-item w-full overflow-hidden relative">
@@ -156,31 +157,19 @@ export default function Home() {
                 </div>
             </section>
 
-            {/*<section id="guestFormFormik" className="flex-col justify-center items-center flex pb-[76px] px-5">
-                <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
-                    <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
-                        <Image
-                            src={rama}
-                            width={80}
-                            alt="Rama"
-                            className="h-auto object-contain mb-[14px]"
-                        />
-                        <br></br>
-                        <h1 className="font-montserrat text-[24px] font-normal leading-[29.26px] text-center mt-2"
-                            style={{
-                                width: '1114px',
-                                height: '29px',
-                                gap: '0px',
-                                border: '0.5px solid transparent',
-                                opacity: 1
-                            }}>
-                            {t('sections.event_registration')}
-                        </h1>
-                        <br></br>
-                        {locale === 'es' ? <GuestFormFormik /> : <GuestFormFormikEn />}
+            <section id="guestFormFormik" className="container flex-col justify-center items-center flex pb-[76px] px-5">
+                <div className="content-section flex flex-col items-center justify-start gap-8">
+                    <SectionsContent image={rama}
+                                     subtitle={"Confirm Your Assistance"}
+                                     title={"WE’LL BE WAITING FOR YOU"}
+                                     description={"Fill the form below to confirm your assistance to the wedding."}
+                    />
+
+                    <div className="guest-form-content w-full flex-col items-center flex relative mb-10">
+                        {locale === 'es' ? <GuestFormFormikEs/> : <GuestFormFormikEn/>}
                     </div>
                 </div>
-            </section>*/}
+            </section>
         </>
     );
 }
