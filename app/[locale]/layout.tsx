@@ -23,9 +23,9 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
     return (
         <html lang={locale}>
-            <body className={`${montserrat.className} w-full `}>
+            <body className={`${montserrat.className} `}>
                 <Navbar />
-                <main className="flex-grow mt-[78px]">
+                <main className="w-full flex-grow mt-[78px]">
                     {children}
                 </main>
                 <Footer />
