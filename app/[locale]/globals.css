@@ -28,7 +28,7 @@
     --divider: 70.91, 10.78%, 60%;
     --input: 214.3 31.8% 91.4%;
     --ring: 70.91, 10.78%, 60%;
-    --radius: 0.5rem;
+    --radius: 0;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -66,10 +66,21 @@
   * {
     @apply border-border;
   }
-  
+
+  html {
+    /* this makes sure the padding and the border is included in the box sizing */
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  html body {
+    padding: 0;
+    margin: 0;
+    overflow-x: inherit;
+  }
   body {
     @apply bg-background text-foreground;
     margin: 0;
+
   }
 
   .section-styles {
@@ -78,6 +89,10 @@
 
   .container-full {
     @apply w-full max-w-full md:max-w-7xl mx-auto ;
+  }
+
+  .content-section {
+    @apply w-full
   }
 
 
