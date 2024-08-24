@@ -1,7 +1,7 @@
 import {marcellus} from "@/styles/fonts";
 import Image from 'next/image';
 import rama from '@/public/rama.png';
-import logo from '@/public/isotipo_transparent.svg';
+import logo from '@/public/logoTransparent.png';
 import {Button} from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
 
@@ -23,7 +23,7 @@ const CardHero = () => {
                 <p className="subtitle text-accent uppercase">{t('hero')}</p>
                 <h1
                     style={marcellus.style}
-                    className="heading-hero font-medium uppercase text-6xl">Adrian & Ana</h1>
+                    className="heading-hero font-medium uppercase text-6xl">Adrián & Ana</h1>
                 <Image
                     src={rama}
                     alt="Subtitle"

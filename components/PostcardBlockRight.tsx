@@ -15,13 +15,10 @@ const PostcardBlockRight = () => {
                     height={62}
                     className="mb-4"
                 />
-                <span className="subtitle uppercase mb-4">
-                    {t('sectionTitle')}
-                </span>
                 <h2
                     style={{fontFamily: 'Marcellus'}}
-                    className="heading text-3xl font-bold uppercase">
-                    {t('title')}
+                    className="text-[23px] md:text-[32px] font-normal md:leading-[50.16px] text-center">
+                    {t('sectionTitle')}
                 </h2>
                 <p className="paragraph mt-4">
                     {t('description')}

@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 export default function Footer() {
-  const t = useTranslations('Footer');
+    const t = useTranslations('Footer');
 
   return (
     <footer className='w-full footer flex-col justify-center items-center flex mt-auto px-5 pt-[76px] pb-4'>

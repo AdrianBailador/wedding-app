@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Image
                             width={50}
                             height={50}
-                            src="/isotipo_transparent.svg"
+                            src="/logoTransparent.png"
                             alt={"Logo de boda de Adrian y Ana"}
                         />
                     </span>
@@ -52,7 +52,7 @@ const Navbar = () => {
                                aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#gretting" className="block py-2 px-3 ">Greeting</a>
+                            <a href="#greeting" className="block py-2 px-3 ">Greeting</a>
                         </li>
                         <li>
                             <a href="#about-us"

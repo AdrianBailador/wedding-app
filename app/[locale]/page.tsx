@@ -8,6 +8,9 @@ import CardHero from "@/components/CardHero";
 import rama from '@/public/rama.png';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
+import MapTabsES from '@/components/MapTabsES';
+import MapTabsEN from '@/components/MapTabsEN';
+import GuestFormFormik from "@/components/GuestFormFormikEs";
 import { useLocale, useTranslations } from "next-intl";
 import { galleryImages } from "@/static_content";
 import GuestFormFormikEn from "@/components/GuestFormFormikEn";
@@ -97,7 +100,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/*<section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
+            <section id="localitations" className="flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="container-wide w-full max-w-[1200px] flex-col items-center flex;">
                     <div className="guest-form-content w-full text-center flex-col items-center flex relative mb-10">
                         <Image
@@ -114,10 +117,10 @@ export default function Home() {
                         </h2>
                         <br></br>
                         <h2>{t('sections.locations1')}</h2>
-                        <MapTabs />
+                        {locale === 'es' ? <MapTabsES /> : <MapTabsEN />}
                     </div>
                 </div>
-            </section>*/}
+            </section>
 
             <section id="gallery" className='container-full section-styles'>
                 <div className="content-section flex flex-col items-center justify-start gap-8">

@@ -126,11 +126,11 @@ const GuestFormFormik: React.FC = () => {
     };
 
     const event = {
-        title: "Boda de Adrian y Ana",
-        description: "Boda de Adrian y Ana",
-        location: "Iglesia de San Francisco, Priego de Córdoba",
+        title: "Adrian and Ana's Wedding",
+        description: "Adrian and Ana's Wedding",
+        location: "Church of San Francisco, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
-        endTime: "2024-10-12T14:00:00",
+        endTime: "2024-10-12T13:00:00",
         contacts: {
             ana: process.env.NEXT_PUBLIC_ANA_CONTACT,
             adrian: process.env.NEXT_PUBLIC_ADRIAN_CONTACT
@@ -146,7 +146,7 @@ const GuestFormFormik: React.FC = () => {
     const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
     const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
 
-    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nCuentas Bancarias:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
+    const detailsWithContacts = `${description}\n\nContacts:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nBank Accounts:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(location)}`;
 
@@ -463,13 +463,17 @@ const GuestFormFormik: React.FC = () => {
                                 Submit
                             </button>
                             <p className="mb-4">
-                            We look forward to seeing you at our wedding. You will receive an email with the wedding details, please check your <b>SPAM</b> folder. 
-                        </p>
+                                We look forward to seeing you at our wedding. You will receive an email with the wedding details, please check your <b>SPAM</b> folder.
+                            </p>
                         </Form>
                     )}
                 </Formik>
             ) : (
-                <div className="text-center mt-8">
+                <div className="text-center mt-8 px-4">
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                     <h2 className="text-2xl font-semibold mb-4">Thank you for your response!</h2>
                     {assistanceConfirmed ? (
                         <p>We look forward to seeing you at the event. You will receive an email with the wedding details, please check your SPAM folder.</p>
@@ -477,13 +481,13 @@ const GuestFormFormik: React.FC = () => {
                         <p>We are sorry you can not make it. You will receive an email with the wedding details, please check the SPAM folder, which you can ignore.</p>
                     )}
 
-
-                    <div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2">
+                    <div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2 justify-center">
                         <a
                             href={googleCalendarUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                            className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                            style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
                         >
                             Add to Google Calendar
                         </a>
@@ -491,19 +495,24 @@ const GuestFormFormik: React.FC = () => {
                             href={outlookCalendarUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                            className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                            style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
                         >
-                            Add to Outlook Calendar
+                            Add to Google Calendar
                         </a>
                         <a
                             href={icsUrl}
                             download="event.ics"
-                            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+                            className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200"
+                            style={{ backgroundColor: "#FFFFFF00", color: "#DE967D", borderColor: "#DE967D", borderWidth: "2px" }}
                         >
                             Download ICS
                         </a>
                     </div>
                 </div>
+
+
+
             )}
         </div>
     );

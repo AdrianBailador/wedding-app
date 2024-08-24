@@ -135,7 +135,7 @@ const GuestFormFormik: React.FC = () => {
         description: "Boda de Adrian y Ana",
         location: "Iglesia de San Francisco, Priego de Córdoba",
         startTime: "2024-10-12T12:00:00",
-        endTime: "2024-10-12T14:00:00",
+        endTime: "2024-10-12T13:00:00",
         contacts: {
             ana: process.env.NEXT_PUBLIC_ANA_CONTACT,
             adrian: process.env.NEXT_PUBLIC_ADRIAN_CONTACT
