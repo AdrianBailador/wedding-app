@@ -4,21 +4,97 @@
     "description": "¡Bienvenidos al ejemplo de Next.js Internationalization (i18n)! Esta demo muestra la potencia del App Router y cómo gestionar contenido multilingüe sin problemas utilizando next-intl",
     "sections": {
       "WeddingEvent": "Wedding Event",
-  "PartyEvent": "Party Event",
-  "IglesiaAlt": "Church",
-  "GenillaAlt": "Genilla",
-
+      "PartyEvent": "Party Event",
+      "IglesiaAlt": "Church",
+      "GenillaAlt": "Genilla",
       "church": "San Francisco Church",
       "farm": "Genilla Farm",
       "event_registration": "CONFIRM YOUR ATTENDANCE",
       "locations": "Locations",
       "locationsText": "Where will the magic happen?",
-      "locationsText1":"We therefore have the pleasure to invite you to our wedding ceremony.",
-      "locations1":"Choose the perfect venue that captures the essence of your love story.",
+      "locationsText1": "We therefore have the pleasure to invite you to our wedding ceremony.",
+      "locations1": "Choose the perfect venue that captures the essence of your love story.",
       "grettingText": "There are days in life that are special on their own. Sharing them with the people you love makes them unforgettable.",
       "gallery": "Our History in Pictures",
       "galleryText": "Each photo tells a part of our story, from the simplest moments to the most extraordinary. We feel fortunate to have shared so many memories together and are excited to create many more in the future."
-      
+    },
+    "form": {
+      "warning": "We hope to see you at our wedding. You will receive an email with the wedding details, please check the",
+      "NameInput": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "LastNameInput": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name"
+      },
+      "EmailInput": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "AssistanceRadioButton": {
+        "label": "Will you attend the wedding?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "BusServiceRadioButton": {
+        "label": "Will you use the bus service?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "GuestsSection": {
+        "title": "Guests",
+        "guestRadioButton": {
+          "label": "Will you bring guests?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "guestsInput": {
+          "label": "Number of Guests",
+          "placeholder": "Enter the number of guests"
+        },
+        "guestsNamesInput": {
+          "label": "Guests Names",
+          "placeholder": "Enter the names of your guests"
+        },
+        "guestsChildrenRadioButton": {
+          "label": "Will you bring children?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "guestsChildrenInput": {
+          "label": "Number of Children",
+          "placeholder": "Enter the number of children"
+        },
+        "guestsChildrenNamesInput": {
+          "label": "Children Names",
+          "placeholder": "Enter the names of your children"
+        }
+      },
+      "AllergiesSection": {
+        "title": "Allergies",
+        "allergyRadioButton": {
+          "label": "Do you have any allergies?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "allergiesInput": {
+          "label": "Provide a list of Allergies",
+          "placeholder": "Enter your allergies separated by commas"
+        }
+      },
+      "CommentsSection": {
+        "title": "Any Comments?",
+        "commentsInput": {
+          "label": "Additional Comments",
+          "placeholder": "Feel free to add any additional comments that you would like to be considered "
+        }
+      },
+      "SubmitButton": "Submit and Confirm Attendance"
+    },
+    "example": {
+      "title": "Example of internationalization",
+      "description": "This is an example of how you can manage multilingual content in Next.js using next-intl. You can change the language in the navigation bar."
     }
   },
   "NotFoundPage": {
@@ -38,17 +114,15 @@
   "CardHero": {
     "hero": "Join us at our wedding"
   },
-  "AboutUs":{
+  "AboutUs": {
     "title": "About us",
     "sectionTitle": "About us",
     "description": "A young woman from Priego and a Sayagués lad,\n crossed paths in a distant land.\n What began as a sincere friendship,\n transformed into love, a true passion.\n\n To grow together, they embraced a dream,\n and to Ireland, their lives they did stream.\n Like tourists in Mallorca, under a calm starry sky,\n in Cala Mendia, they chose to share their love for the rest of their lives."
   },
-  "MapTabs":{
+  "MapTabs": {
     "WeddingEvent": "Wedding Event",
     "PartyEvent": "Party Event",
     "IglesiaAlt": "Church",
     "GenillaAlt": "Genilla"
   }
-  
-  
 }
