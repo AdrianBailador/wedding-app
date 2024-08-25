@@ -14,7 +14,7 @@
       "gallery": "Nuestra Historia en Imágenes",
       "galleryText": "Cada foto cuenta una parte de nuestra historia, desde los momentos más simples hasta los más extraordinarios. Nos sentimos afortunados de haber compartido tantos recuerdos juntos y estamos emocionados de crear muchos más en el futuro.",
       "subtitle": "Confirma tu asistencia",
-      "title": "ESPERAMOS VERLE ALLI",
+      "title": "ESPERAMOS VERTE ALLI",
       "descriptionForm": "Llena el formulario a continuación para confirmar tu asistencia a la boda."
     },
     "form": {
@@ -42,9 +42,9 @@
         "no": "No"
       },
       "GuestsSection": {
-        "title": "Invitados",
+        "title": "Acompañante",
         "guestRadioButton": {
-          "label": "¿Traerás invitados?",
+          "label": "¿Traerás acompañante?",
           "yes": "Sí",
           "no": "No"
         },
@@ -53,8 +53,8 @@
           "placeholder": "Ingresa el número de invitados"
         },
         "guestsNamesInput": {
-          "label": "Nombres de los Invitados",
-          "placeholder": "Ingresa los nombres de tus invitados"
+          "label": "Nombre del Acompañante",
+          "placeholder": "Ingresa el nombre de tu acompañante"
         },
         "guestsChildrenRadioButton": {
           "label": "¿Traerás niños?",
@@ -91,7 +91,7 @@
       },
       "SubmitButton": "Enviar y Confirmar Asistencia",
       "thankYouMessage": "Gracias por su respuesta!",
-      "confirmationMessage": "Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM.",
+      "confirmationMessage": "Esperamos verte en nuestra boda. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM.",
       "cannotAttendMessage": "Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM, que puede ignorar.",
       "addGoogleCalendar": "Añadir a Google Calendar",
       "addOutlookCalendar": "Añadir a Outlook Calendar",
