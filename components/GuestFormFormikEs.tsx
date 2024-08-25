@@ -6,11 +6,11 @@ import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recapt
 import * as Yup from 'yup';
 import { sendEmail } from "@/api/emails/sendEmail";
 import { createGuest } from "@/api/fb-database/createGuest";
-import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
-import {Terminal} from "lucide-react";
-import {Label} from "@/components/ui/label";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Terminal } from "lucide-react";
+import { Label } from "@/components/ui/label";
 import InputField from "@/components/InputField";
-import {useLocale, useTranslations} from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Values {
     name: string;
@@ -219,14 +219,14 @@ const GuestFormFormikEs: React.FC = () => {
                                 </label>
                                 <div className="flex items-center space-x-4">
                                     <label className="flex items-center">
-                                        <Field type="radio" name="assistance" value="true" className="hidden"/>
+                                        <Field type="radio" name="assistance" value="true" className="hidden" />
                                         <div
                                             className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.assistance === 'true' ? 'bg-accent border-blue-500' : ''}`}>
                                             {values.assistance === 'true' && (
                                                 <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-                                                     stroke="currentColor">
+                                                    stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                          d="M5 13l4 4L19 7"/>
+                                                        d="M5 13l4 4L19 7" />
                                                 </svg>
                                             )}
                                         </div>
@@ -235,14 +235,14 @@ const GuestFormFormikEs: React.FC = () => {
                                         </span>
                                     </label>
                                     <label className="flex items-center">
-                                        <Field type="radio" name="assistance" value="false" className="hidden"/>
+                                        <Field type="radio" name="assistance" value="false" className="hidden" />
                                         <div
                                             className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.assistance === 'false' ? 'bg-accent border-blue-500' : ''}`}>
                                             {values.assistance === 'false' && (
                                                 <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-                                                     stroke="currentColor">
+                                                    stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                          d="M5 13l4 4L19 7"/>
+                                                        d="M5 13l4 4L19 7" />
                                                 </svg>
                                             )}
                                         </div>
@@ -261,19 +261,19 @@ const GuestFormFormikEs: React.FC = () => {
                                     {/*Public Transport Radio Buttons*/}
                                     <div className="w-full flex flex-col">
                                         <label htmlFor="bus"
-                                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                             {t('form.BusServiceRadioButton.label')}
                                         </label>
                                         <div className="flex items-center space-x-4">
                                             <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="yes" className="hidden"/>
+                                                <Field type="radio" name="bus" value="yes" className="hidden" />
                                                 <div
                                                     className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
                                                     {values.bus === 'yes' && (
                                                         <svg className="w-4 h-4 text-white" fill="none"
-                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round"
-                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                strokeWidth={2} d="M5 13l4 4L19 7" />
                                                         </svg>
                                                     )}
                                                 </div>
@@ -282,14 +282,14 @@ const GuestFormFormikEs: React.FC = () => {
                                                 </span>
                                             </label>
                                             <label className="flex items-center">
-                                                <Field type="radio" name="bus" value="no" className="hidden"/>
+                                                <Field type="radio" name="bus" value="no" className="hidden" />
                                                 <div
                                                     className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.bus === 'no' ? 'bg-accent border-blue-500' : ''}`}>
                                                     {values.bus === 'no' && (
                                                         <svg className="w-4 h-4 text-white" fill="none"
-                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round"
-                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                strokeWidth={2} d="M5 13l4 4L19 7" />
                                                         </svg>
                                                     )}
                                                 </div>
@@ -310,20 +310,20 @@ const GuestFormFormikEs: React.FC = () => {
                                         <div className="form-section-content flex flex-col gap-4">
                                             <div className="w-full flex flex-col">
                                                 <label htmlFor="accompanist"
-                                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     {t('form.GuestsSection.guestRadioButton.label')}
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="accompanist" value="yes"
-                                                               className="hidden"/>
+                                                            className="hidden" />
                                                         <div
                                                             className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
                                                             {values.accompanist === 'yes' && (
                                                                 <svg className="w-4 h-4 text-white" fill="none"
-                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round"
-                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                        strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                 </svg>
                                                             )}
                                                         </div>
@@ -333,14 +333,14 @@ const GuestFormFormikEs: React.FC = () => {
                                                     </label>
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="accompanist" value="no"
-                                                               className="hidden"/>
+                                                            className="hidden" />
                                                         <div
                                                             className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.accompanist === 'no' ? 'bg-accent border-blue-500' : ''}`}>
                                                             {values.accompanist === 'no' && (
                                                                 <svg className="w-4 h-4 text-white" fill="none"
-                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round"
-                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                        strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                 </svg>
                                                             )}
                                                         </div>
@@ -363,21 +363,21 @@ const GuestFormFormikEs: React.FC = () => {
 
                                                     <div className="w-full flex flex-col">
                                                         <label htmlFor="children"
-                                                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                             {t('form.GuestsSection.guestsChildrenRadioButton.label')}
                                                         </label>
                                                         <div className="flex items-center space-x-4">
                                                             <label className="flex items-center">
                                                                 <Field type="radio" name="children" value="yes"
-                                                                       className="hidden"/>
+                                                                    className="hidden" />
                                                                 <div
                                                                     className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
                                                                     {values.children === 'yes' && (
                                                                         <svg className="w-4 h-4 text-white" fill="none"
-                                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                                             <path strokeLinecap="round"
-                                                                                  strokeLinejoin="round"
-                                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                                strokeLinejoin="round"
+                                                                                strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                         </svg>
                                                                     )}
                                                                 </div>
@@ -387,15 +387,15 @@ const GuestFormFormikEs: React.FC = () => {
                                                             </label>
                                                             <label className="flex items-center">
                                                                 <Field type="radio" name="children" value="no"
-                                                                       className="hidden"/>
+                                                                    className="hidden" />
                                                                 <div
                                                                     className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.children === 'no' ? 'bg-accent border-blue-500' : ''}`}>
                                                                     {values.children === 'no' && (
                                                                         <svg className="w-4 h-4 text-white" fill="none"
-                                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                                            viewBox="0 0 24 24" stroke="currentColor">
                                                                             <path strokeLinecap="round"
-                                                                                  strokeLinejoin="round"
-                                                                                  strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                                strokeLinejoin="round"
+                                                                                strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                         </svg>
                                                                     )}
                                                                 </div>
@@ -429,20 +429,20 @@ const GuestFormFormikEs: React.FC = () => {
                                         <div className="flex flex-col gap-4">
                                             <div className="w-full flex flex-col">
                                                 <label htmlFor="allergies"
-                                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     {t('form.AllergiesSection.allergyRadioButton.label')}
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="allergies" value="yes"
-                                                               className="hidden"/>
+                                                            className="hidden" />
                                                         <div
                                                             className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'yes' ? 'bg-accent border-blue-500' : ''}`}>
                                                             {values.allergies === 'yes' && (
                                                                 <svg className="w-4 h-4 text-white" fill="none"
-                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round"
-                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                        strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                 </svg>
                                                             )}
                                                         </div>
@@ -451,14 +451,14 @@ const GuestFormFormikEs: React.FC = () => {
                                                         </span>
                                                     </label>
                                                     <label className="flex items-center">
-                                                        <Field type="radio" name="allergies" value="no" className="hidden"/>
+                                                        <Field type="radio" name="allergies" value="no" className="hidden" />
                                                         <div
                                                             className={`w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-2 ${values.allergies === 'no' ? 'bg-accent border-blue-500' : ''}`}>
                                                             {values.allergies === 'no' && (
                                                                 <svg className="w-4 h-4 text-white" fill="none"
-                                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round"
-                                                                          strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                                        strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                 </svg>
                                                             )}
                                                         </div>
@@ -489,11 +489,11 @@ const GuestFormFormikEs: React.FC = () => {
                                         <div className="form-section-content flex flex-col gap-4">
                                             <div className="w-full flex flex-col gap-2">
                                                 <label htmlFor="surname"
-                                                       className="block text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    className="block text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     {t('form.CommentsSection.commentsInput.label')}
                                                 </label>
                                                 <textarea rows={4} id="comments" name="comments" placeholder={t('form.CommentsSection.commentsInput.placeholder')}
-                                                          className="px-3 py-2 rounded-xl border border-border bg-white text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 autofill:bg-background">
+                                                    className="px-3 py-2 rounded-xl border border-border bg-white text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 autofill:bg-background">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -518,29 +518,27 @@ const GuestFormFormikEs: React.FC = () => {
             ) : (
 
                 <div className="text-center mt-8 px-4">
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <h2 className="text-2xl font-semibold mb-4">Gracias por su respuesta!</h2>
+                    <h2 className="text-2xl font-semibold mb-4">
+                        {t('form.SubmitButton')} {t('form.thankYouMessage')}
+                    </h2>
                     {assistanceConfirmed ? (
                         <p className="mb-4">
-                            Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por favor,
-                            revise la carpeta de SPAM.
+                            {t('form.confirmationMessage')}
                         </p>
                     ) : (
-                        <p className="mb-4">Lamentamos que no pueda venir. Recibirá un email con los detalles de la
-                            boda, por favor, revise la carpeta de SPAM, que puede ignorar</p>
+                        <p className="mb-4">
+                            {t('form.cannotAttendMessage')}
+                        </p>
                     )}
 
-                    <div className="mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-2">
+                    <div className="mt-6 flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-2">
                         <a
                             href={googleCalendarUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
                         >
-                            Añadir a Google Calendar
+                            {t('form.addGoogleCalendar')}
                         </a>
                         <a
                             href={outlookCalendarUrl}
@@ -548,14 +546,14 @@ const GuestFormFormikEs: React.FC = () => {
                             rel="noopener noreferrer"
                             className="px-4 py-2 bg-accent text-white rounded-lg hover:bg-blue-600"
                         >
-                            Añadir a Outlook Calendar
+                            {t('form.addOutlookCalendar')}
                         </a>
                         <a
                             href={icsUrl}
                             download="event.ics"
                             className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
                         >
-                            Descargar ICS
+                            {t('form.downloadICS')}
                         </a>
                     </div>
                 </div>
@@ -569,7 +567,7 @@ const GuestFormFormikEs: React.FC = () => {
 const WrappedGuestForm: React.FC = () => {
     return (
         <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}>
-            <GuestFormFormikEs/>
+            <GuestFormFormikEs />
         </GoogleReCaptchaProvider>
     );
 };

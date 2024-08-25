@@ -2,7 +2,6 @@ import React from 'react';
 import Image, {StaticImageData} from "next/image";
 import rama from "@/public/rama.png";
 import GuestFormFormikEs from "@/components/GuestFormFormikEs";
-import GuestFormFormikEn from "@/components/GuestFormFormikEn";
 
 interface SectionsContentProps {
     image: StaticImageData;

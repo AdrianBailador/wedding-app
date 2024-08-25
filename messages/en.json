@@ -18,7 +18,7 @@
       "gallery": "Our History in Pictures",
       "galleryText": "Each photo tells a part of our story, from the simplest moments to the most extraordinary. We feel fortunate to have shared so many memories together and are excited to create many more in the future.",
       "subtitle": "Confirm Your Assistance",
-      "title": "WE’LL BE WAITING FOR YOU",
+      "title": "WE HOPE TO SEE YOU THERE",
       "descriptionForm":"Fill the form below to confirm your assistance to the wedding."
     },
     "form": {
@@ -93,7 +93,13 @@
           "placeholder": "Feel free to add any additional comments that you would like to be considered "
         }
       },
-      "SubmitButton": "Submit and Confirm Attendance"
+      "SubmitButton": "Submit and Confirm Attendance",
+      "thankYouMessage": "Thank you for your response!",
+      "confirmationMessage": "We look forward to seeing you at our wedding. You will receive an email with the wedding details. Please check your SPAM folder.",
+      "cannotAttendMessage": "We are sorry you can't make it. You will receive an email with the wedding details. Please check your SPAM folder, which you can ignore.",
+      "addGoogleCalendar": "Add to Google Calendar",
+      "addOutlookCalendar": "Add to Outlook Calendar",
+      "downloadICS": "Download ICS"
     },
     "example": {
       "title": "Example of internationalization",

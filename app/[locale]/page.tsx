@@ -13,7 +13,6 @@ import MapTabsEN from '@/components/MapTabsEN';
 import GuestFormFormik from "@/components/GuestFormFormikEs";
 import { useLocale, useTranslations } from "next-intl";
 import { galleryImages } from "@/static_content";
-import GuestFormFormikEn from "@/components/GuestFormFormikEn";
 import GuestFormFormikEs from "@/components/GuestFormFormikEs";
 import React from "react";
 import SectionsContent from "@/components/SectionsContent";
