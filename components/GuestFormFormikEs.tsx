@@ -11,6 +11,7 @@ import {Terminal} from "lucide-react";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import InputField from "@/components/InputField";
+import {useLocale, useTranslations} from "next-intl";
 
 interface Values {
     name: string;
@@ -33,7 +34,7 @@ const generateToken = () => {
     return Math.random().toString(36).substr(2, 9);
 };
 
-const GuestFormFormik: React.FC = () => {
+const GuestFormFormikEs: React.FC = () => {
     const { executeRecaptcha } = useGoogleReCaptcha();
     const [isVerified, setIsVerified] = useState(true);
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -175,6 +176,9 @@ const GuestFormFormik: React.FC = () => {
     console.log('Outlook Calendar URL:', outlookCalendarUrl);
     console.log('ICS URL:', icsUrl);
 
+    const t = useTranslations('IndexPage');
+    const locale = useLocale();
+
     return (
         <div className="w-full flex justify-center bg-white py-8 px-8">
             {!formSubmitted ? (
@@ -185,35 +189,34 @@ const GuestFormFormik: React.FC = () => {
                 >
                     {({ isSubmitting, values, errors, touched }) => (
                         <Form className="flex flex-col space-y-4">
-                            <Alert>
+                            <Alert className="my-8">
                                 <AlertDescription>
-                                    Esperamos verle en nuestra boda. Recibirá un email con los detalles de la boda, por
-                                    favor, revise la carpeta de <b>SPAM.</b>
+                                    {t('form.warning')} <b>SPAM.</b>
                                 </AlertDescription>
                             </Alert>
 
                             {/*Input group*/}
                             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <InputField label="Nombre" type="text" id="name" name="name" placeholder="Escriba su primer nombre">
+                                <InputField label={t('form.NameInput.label')} type="text" id="name" name="name" placeholder={t('form.NameInput.placeholder')}>
                                     {errors.name && touched.name ?
                                         <div className="text-sm text-red-500">{errors.name}</div> : null}
                                 </InputField>
 
-                                <InputField label={"Apellido"} type={"text"} id={"surname"} name={"surname"} placeholder={"Escribe tu apellido"}>
+                                <InputField label={t('form.LastNameInput.label')} type={"text"} id={"surname"} name={"surname"} placeholder={t('form.LastNameInput.placeholder')}>
                                     {errors.surname && touched.surname ?
                                         <div className="text-sm text-red-500">{errors.surname}</div> : null}
                                 </InputField>
                             </div>
 
                             {/*Input Email*/}
-                            <InputField label={"Email"} type={"email"} id={"email"} name={"email"} placeholder={"Escribe tu email"}>
+                            <InputField label={t('form.EmailInput.label')} type={"email"} id={"email"} name={"email"} placeholder={t('form.EmailInput.placeholder')}>
                                 {errors.email && touched.email ?
                                     <div className="text-sm text-red-500">{errors.email}</div> : null}
                             </InputField>
 
                             <div className="w-full flex flex-col">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    ¿Va a asistir?
+                                    {t('form.AssistanceRadioButton.label')}
                                 </label>
                                 <div className="flex items-center space-x-4">
                                     <label className="flex items-center">
@@ -228,7 +231,9 @@ const GuestFormFormik: React.FC = () => {
                                                 </svg>
                                             )}
                                         </div>
-                                        <span className="text-sm">Si</span>
+                                        <span className="text-sm">
+                                            {t('form.AssistanceRadioButton.yes')}
+                                        </span>
                                     </label>
                                     <label className="flex items-center">
                                         <Field type="radio" name="assistance" value="false" className="hidden"/>
@@ -242,7 +247,9 @@ const GuestFormFormik: React.FC = () => {
                                                 </svg>
                                             )}
                                         </div>
-                                        <span className="text-sm">No</span>
+                                        <span className="text-sm">
+                                            {t('form.AssistanceRadioButton.no')}
+                                        </span>
                                     </label>
                                 </div>
                                 {errors.assistance && touched.assistance ?
@@ -256,7 +263,7 @@ const GuestFormFormik: React.FC = () => {
                                     <div className="w-full flex flex-col">
                                         <label htmlFor="bus"
                                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            ¿Utilizará el servicio de autobuses?
+                                            {t('form.BusServiceRadioButton.label')}
                                         </label>
                                         <div className="flex items-center space-x-4">
                                             <label className="flex items-center">
@@ -271,7 +278,9 @@ const GuestFormFormik: React.FC = () => {
                                                         </svg>
                                                     )}
                                                 </div>
-                                                <span className="text-sm">Si</span>
+                                                <span className="text-sm">
+                                                    {t('form.BusServiceRadioButton.yes')}
+                                                </span>
                                             </label>
                                             <label className="flex items-center">
                                                 <Field type="radio" name="bus" value="no" className="hidden"/>
@@ -285,7 +294,9 @@ const GuestFormFormik: React.FC = () => {
                                                         </svg>
                                                     )}
                                                 </div>
-                                                <span className="text-sm">No</span>
+                                                <span className="text-sm">
+                                                    {t('form.BusServiceRadioButton.no')}
+                                                </span>
                                             </label>
                                         </div>
                                         {errors.bus && touched.bus ?
@@ -295,13 +306,13 @@ const GuestFormFormik: React.FC = () => {
                                     {/*Guest Radio Buttons Section*/}
                                     <div className="form-section p-4 border border-accent rounded-xl">
                                         <h5 className="form-section-title font-semibold mb-4">
-                                            Invitados
+                                            {t('form.GuestsSection.title')}
                                         </h5>
                                         <div className="form-section-content flex flex-col gap-4">
                                             <div className="w-full flex flex-col">
                                                 <label htmlFor="accompanist"
                                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    ¿Irá acompañado?
+                                                    {t('form.GuestsSection.guestRadioButton.label')}
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
@@ -317,7 +328,9 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">Si</span>
+                                                        <span className="text-sm">
+                                                            {t('form.GuestsSection.guestRadioButton.yes')}
+                                                        </span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="accompanist" value="no"
@@ -332,7 +345,9 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">No</span>
+                                                        <span className="text-sm">
+                                                            {t('form.GuestsSection.guestRadioButton.no')}
+                                                        </span>
                                                     </label>
                                                 </div>
                                                 {errors.accompanist && touched.accompanist ?
@@ -341,7 +356,7 @@ const GuestFormFormik: React.FC = () => {
 
                                             {values.accompanist === 'yes' && (
                                                 <>
-                                                    <InputField label={"Nombre del Acompañante"} type={"text"} id={"accompanistName"} name={"accompanistName"} placeholder={"Nombre del acompañante"}>
+                                                    <InputField label={t('form.GuestsSection.guestsNamesInput.label')} type={"text"} id={"accompanistName"} name={"accompanistName"} placeholder={t('form.GuestsSection.guestsNamesInput.placeholder')}>
                                                         {errors.accompanistName && touched.accompanistName ?
                                                             <div
                                                                 className="text-red-500">{errors.accompanistName}</div> : null}
@@ -350,7 +365,7 @@ const GuestFormFormik: React.FC = () => {
                                                     <div className="w-full flex flex-col">
                                                         <label htmlFor="children"
                                                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                            ¿Va a traer niños?
+                                                            {t('form.GuestsSection.guestsChildrenRadioButton.label')}
                                                         </label>
                                                         <div className="flex items-center space-x-4">
                                                             <label className="flex items-center">
@@ -367,7 +382,9 @@ const GuestFormFormik: React.FC = () => {
                                                                         </svg>
                                                                     )}
                                                                 </div>
-                                                                <span className="text-sm">Si</span>
+                                                                <span className="text-sm">
+                                                                    {t('form.GuestsSection.guestsChildrenRadioButton.yes')}
+                                                                </span>
                                                             </label>
                                                             <label className="flex items-center">
                                                                 <Field type="radio" name="children" value="no"
@@ -383,7 +400,9 @@ const GuestFormFormik: React.FC = () => {
                                                                         </svg>
                                                                     )}
                                                                 </div>
-                                                                <span className="text-sm">No</span>
+                                                                <span className="text-sm">
+                                                                    {t('form.GuestsSection.guestsChildrenRadioButton.no')}
+                                                                </span>
                                                             </label>
                                                         </div>
                                                         {errors.children && touched.children ?
@@ -391,7 +410,7 @@ const GuestFormFormik: React.FC = () => {
                                                     </div>
 
                                                     {values.children === 'yes' && (
-                                                        <InputField label={"Nombre del niño"} type={"text"} id={"childrenNames"} name={"childrenNames"} placeholder={"Nombres de los niño"}>
+                                                        <InputField label={t('form.GuestsSection.guestsChildrenNamesInput.label')} type={"text"} id={"childrenNames"} name={"childrenNames"} placeholder={t('form.GuestsSection.guestsChildrenNamesInput.placeholder')}>
                                                             {errors.childrenNames && touched.childrenNames ? <div
                                                                 className="text-red-500">{errors.childrenNames}</div> : null}
                                                         </InputField>
@@ -403,15 +422,16 @@ const GuestFormFormik: React.FC = () => {
                                         </div>
                                     </div>
 
+                                    {/*Allergies Section*/}
                                     <div className="form-section p-4 border border-accent rounded-xl">
                                         <h5 className="form-section-title font-semibold mb-4">
-                                            Alergias
+                                            {t('form.AllergiesSection.title')}
                                         </h5>
                                         <div className="flex flex-col gap-4">
                                             <div className="w-full flex flex-col">
                                                 <label htmlFor="allergies"
                                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    ¿Tiene alguna alergia?
+                                                    {t('form.AllergiesSection.allergyRadioButton.label')}
                                                 </label>
                                                 <div className="flex items-center space-x-4">
                                                     <label className="flex items-center">
@@ -427,7 +447,9 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">Si</span>
+                                                        <span className="text-sm">
+                                                            {t('form.AllergiesSection.allergyRadioButton.yes')}
+                                                        </span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <Field type="radio" name="allergies" value="no" className="hidden"/>
@@ -441,7 +463,9 @@ const GuestFormFormik: React.FC = () => {
                                                                 </svg>
                                                             )}
                                                         </div>
-                                                        <span className="text-sm">No</span>
+                                                        <span className="text-sm">
+                                                            {t('form.AllergiesSection.allergyRadioButton.no')}
+                                                        </span>
                                                     </label>
                                                 </div>
                                                 {errors.allergies && touched.allergies ?
@@ -450,7 +474,7 @@ const GuestFormFormik: React.FC = () => {
 
                                             {values.allergies === 'yes' && (
                                                 <div className="w-full">
-                                                    <InputField label={"Proporciona una lista de tus alergias"} type={"text"} id={"allergyDetails"} name={"allergyDetails"} placeholder={"Proporcione detalles sobre la alergia"}>
+                                                    <InputField label={t('form.AllergiesSection.allergiesInput.label')} type={"text"} id={"allergyDetails"} name={"allergyDetails"} placeholder={t('form.AllergiesSection.allergiesInput.placeholder')}>
                                                         {errors.allergyDetails && touched.allergyDetails ?
                                                             <div className="text-red-500">{errors.allergyDetails}</div> : null}
                                                     </InputField>
@@ -461,16 +485,16 @@ const GuestFormFormik: React.FC = () => {
 
                                     <div className="form-section p-4 border border-accent rounded-xl">
                                         <h5 className="form-section-title font-semibold mb-4">
-                                            Comentarios Adicionales
+                                            {t('form.CommentsSection.title')}
                                         </h5>
                                         <div className="form-section-content flex flex-col gap-4">
-                                            <div className="w-full flex flex-col">
+                                            <div className="w-full flex flex-col gap-2">
                                                 <label htmlFor="surname"
                                                        className="block text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    Escribe tus comentarios
+                                                    {t('form.CommentsSection.commentsInput.label')}
                                                 </label>
-                                                <textarea rows={4} id="comments" name="comments" placeholder={"Additional comments"}
-                                                          className="px-3 py-2 rounded border border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 autofill:bg-background">
+                                                <textarea rows={4} id="comments" name="comments" placeholder={t('form.CommentsSection.commentsInput.placeholder')}
+                                                          className="px-3 py-2 rounded-xl border border-border bg-white text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 autofill:bg-background">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -483,15 +507,9 @@ const GuestFormFormik: React.FC = () => {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="px-4 py-2 bg-white text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-200 uppercase"
-                                    style={{
-                                        backgroundColor: "#FFFFFF00",
-                                        color: "#DE967D",
-                                        borderColor: "#DE967D",
-                                        borderWidth: "2px"
-                                    }}
+                                    className="px-4 py-3 bg-white text-button-bg-foreground  border border-accent rounded-lg hover:bg-border uppercase"
                                 >
-                                    Confirmar Asistencia
+                                    {t('form.SubmitButton')}
                                 </button>
                             </div>
 
@@ -552,7 +570,7 @@ const GuestFormFormik: React.FC = () => {
 const WrappedGuestForm: React.FC = () => {
     return (
         <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}>
-            <GuestFormFormik/>
+            <GuestFormFormikEs/>
         </GoogleReCaptchaProvider>
     );
 };
