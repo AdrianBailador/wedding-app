@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import rama from '@/public/rama.png';
+import ramal from '@/public/branch-l.svg';
 import { useTranslations } from 'next-intl';
 
 const PostcardBlockRight = () => {
@@ -9,10 +9,10 @@ const PostcardBlockRight = () => {
         <div className="about-us- right md:order-1 derw-full bg-[white] flex-col justify-center items-stretch mb-[-25px] flex mt-[25px] md:pl-[50px] py-[85px]">
             <div className="w-full flex-col justify-center items-start flex px-[10%] md:px-[16%]">
                 <Image
-                    src={rama}
+                    src={ramal}
                     alt="Subtitle"
-                    width={62}
-                    height={62}
+                    width={82}
+                    height={82}
                     className="mb-4"
                 />
                 <h2

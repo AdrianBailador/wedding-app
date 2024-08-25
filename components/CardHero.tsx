@@ -1,7 +1,8 @@
 import {marcellus} from "@/styles/fonts";
 import Image from 'next/image';
 import rama from '@/public/rama.png';
-import logo from '@/public/logoTransparent.png';
+import divider from '@/public/branch-divider.svg';
+import logo from '@/public/aya-logo-w-namest.svg';
 import {Button} from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
 
@@ -17,7 +18,7 @@ const CardHero = () => {
                 <Image
                     src={logo}
                     alt="Subtitle"
-                    width={62}
+                    width={100}
                     className="object-contain h-auto"
                 />
                 <p className="subtitle text-accent uppercase">{t('hero')}</p>
@@ -25,9 +26,10 @@ const CardHero = () => {
                     style={marcellus.style}
                     className="heading-hero font-medium uppercase text-6xl">Adrián & Ana</h1>
                 <Image
-                    src={rama}
+                    src={divider}
                     alt="Subtitle"
-                    width={52}
+                    width={120}
+                    height={0}
                     className="object-contain h-auto"
                 />
 

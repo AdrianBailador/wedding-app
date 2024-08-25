@@ -5,7 +5,7 @@ import img5 from '@/public/images/img5.jpg';
 import img9 from '@/public/images/img9.jpg';
 import img10 from '@/public/images/img10.jpg';
 import CardHero from "@/components/CardHero";
-import rama from '@/public/rama.png';
+import rama from '@/public/branch-r.svg';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
 import MapTabsES from '@/components/MapTabsES';
@@ -25,9 +25,6 @@ export default function Home() {
 
     return (
         <>
-            <section className="container flex flex-col justify-center items-center py-20 px-5">
-                <TestingTranslations />
-            </section>
             <section id="hero" className="w-ful flex flex-col justify-center items-center px-5 pb-13.5 sm:pb-14.5 md:pb-16.5 lg:pb-18">
                 <div className="container-wide w-full md:max-w-[1200px] flex-col items-center flex;">
                     <div className="hero-content w-full text-center flex-col items-center flex relative mb-10">
