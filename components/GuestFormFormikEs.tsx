@@ -8,7 +8,6 @@ import { sendEmail } from "@/api/emails/sendEmail";
 import { createGuest } from "@/api/fb-database/createGuest";
 import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
 import {Terminal} from "lucide-react";
-import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import InputField from "@/components/InputField";
 import {useLocale, useTranslations} from "next-intl";

@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Image
                             width={50}
                             height={50}
-                            src="/aya-logo-wo-names.svg"
+                            src="/aya-logo-w-namest.svg"
                             alt={"Logo de boda de Adrian y Ana"}
                         />
                     </span>

@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="footer-content w-full text-center flex-col justify-start items-center flex px-[10%] gap-4 text-xs">
                 <Image
                     className="my-2"
-                    src={"/aya-logo-wo-names.svg"}
+                    src={"/aya-logo-w-namest.svg"}
                     alt={"logo"}
                     width={70}
                     height={70}

@@ -168,9 +168,9 @@ export default function Home() {
             <section id="guestFormFormik" className="container flex-col justify-center items-center flex pb-[76px] px-5">
                 <div className="content-section flex flex-col items-center justify-start gap-8">
                     <SectionsContent image={rama}
-                                     subtitle={"Confirm Your Assistance"}
-                                     title={"WE’LL BE WAITING FOR YOU"}
-                                     description={"Fill the form below to confirm your assistance to the wedding."}
+                                     subtitle={t('sections.subtitle')}
+                                     title={t('sections.title')}
+                                     description={t('sections.descriptionForm')}
                     />
 
                     <div className="guest-form-content w-full flex-col items-center flex relative mb-10">
