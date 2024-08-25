@@ -17,6 +17,7 @@ import GuestFormFormikEn from "@/components/GuestFormFormikEn";
 import GuestFormFormikEs from "@/components/GuestFormFormikEs";
 import React from "react";
 import SectionsContent from "@/components/SectionsContent";
+import TestingTranslations from "@/components/TestingTranslations";
 
 export default function Home() {
     const t = useTranslations('IndexPage');
@@ -24,24 +25,30 @@ export default function Home() {
 
     return (
         <>
+            <section className="container flex flex-col justify-center items-center py-20 px-5">
+                <TestingTranslations />
+            </section>
             <section id="hero" className="w-ful flex flex-col justify-center items-center px-5 pb-13.5 sm:pb-14.5 md:pb-16.5 lg:pb-18">
                 <div className="container-wide w-full md:max-w-[1200px] flex-col items-center flex;">
                     <div className="hero-content w-full text-center flex-col items-center flex relative mb-10">
                         <div className="hero-gallery w-full grid grid-cols-3 xl:gap-5 lg:gap-4.5 md:gap-3.5 gap-1">
                             <div className="hero-gallery-item w-full overflow-hidden relative">
                                 <Image
+                                    priority
                                     className="w-full object-cover h-[70vw] md:h-80vh min-h-auto md:min-h-[600px]"
                                     src={img9}
                                     alt="Hero 1" />
                             </div>
                             <div className="hero-gallery-item w-full overflow-hidden relative">
                                 <Image
+                                    priority
                                     className="w-full object-cover h-[70vw] md:h-80vh min-h-auto md:min-h-[600px]"
                                     src={img5}
                                     alt="Hero 2" />
                             </div>
                             <div className="hero-gallery-item w-full overflow-hidden relative">
                                 <Image
+                                    priority
                                     className="w-full object-cover h-[70vw] md:h-80vh min-h-auto md:min-h-[600px]"
                                     src={img10}
                                     alt="Hero 3" />
@@ -169,7 +176,7 @@ export default function Home() {
                     />
 
                     <div className="guest-form-content w-full flex-col items-center flex relative mb-10">
-                        {locale === 'es' ? <GuestFormFormikEs/> : <GuestFormFormikEn/>}
+                        <GuestFormFormikEs/>
                     </div>
                 </div>
             </section>
