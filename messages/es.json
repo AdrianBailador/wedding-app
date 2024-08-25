@@ -13,6 +13,19 @@
       "grettingText": "Hay días en la vida que son especiales por sí solos. Compartirlos con las personas que quieres los convierte en inolvidables.",
       "gallery": "Nuestra Historia en Imágenes",
       "galleryText": "Cada foto cuenta una parte de nuestra historia, desde los momentos más sencillos hasta los más extraordinarios. Nos sentimos afortunados de haber compartido tantos recuerdos juntos y estamos deseando crear muchos más en el futuro."
+    },
+    "form" : {
+      "warning": "Esperamos verte en nuestra boda. Recibirás un email con los detalles de la boda, por\n favor, revisa la carpeta de",
+      "name": "Nombre",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "guests": "Número de Invitados",
+      "message": "Mensaje",
+      "submit": "Enviar"
+    },
+    "example": {
+      "title": "Ejemplo de internacionalización",
+      "description": "Este es un ejemplo de cómo se puede gestionar contenido multilingüe en Next.js utilizando next-intl. Puedes cambiar el idioma en la barra de navegación."
     }
   },
   "NotFoundPage": {
