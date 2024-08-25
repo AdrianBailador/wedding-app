@@ -62,6 +62,7 @@ export default function Home() {
                         <Image
                             src={rama}
                             width={80}
+                            height={0}
                             alt="Rama"
                             className="h-auto object-contain mb-[14px]"
                         />

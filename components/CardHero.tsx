@@ -19,6 +19,7 @@ const CardHero = () => {
                     src={logo}
                     alt="Subtitle"
                     width={100}
+                    height={0}
                     className="object-contain h-auto"
                 />
                 <p className="subtitle text-accent uppercase">{t('hero')}</p>

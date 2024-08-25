@@ -14,14 +14,79 @@
       "gallery": "Nuestra Historia en Imágenes",
       "galleryText": "Cada foto cuenta una parte de nuestra historia, desde los momentos más sencillos hasta los más extraordinarios. Nos sentimos afortunados de haber compartido tantos recuerdos juntos y estamos deseando crear muchos más en el futuro."
     },
-    "form" : {
-      "warning": "Esperamos verte en nuestra boda. Recibirás un email con los detalles de la boda, por\n favor, revisa la carpeta de",
-      "name": "Nombre",
-      "email": "Correo Electrónico",
-      "phone": "Teléfono",
-      "guests": "Número de Invitados",
-      "message": "Mensaje",
-      "submit": "Enviar"
+    "form": {
+      "warning": "Esperamos verte en nuestra boda. Recibirás un correo electrónico con los detalles de la boda, por favor revisa la",
+      "NameInput": {
+        "label": "Nombre",
+        "placeholder": "Ingresa tu nombre"
+      },
+      "LastNameInput": {
+        "label": "Apellido",
+        "placeholder": "Ingresa tu apellido"
+      },
+      "EmailInput": {
+        "label": "Correo Electrónico",
+        "placeholder": "Ingresa tu correo electrónico"
+      },
+      "AssistanceRadioButton": {
+        "label": "¿Asistirás a la boda?",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "BusServiceRadioButton": {
+        "label": "¿Utilizarás el servicio de autobús?",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "GuestsSection": {
+        "title": "Invitados",
+        "guestRadioButton": {
+          "label": "¿Traerás invitados?",
+          "yes": "Sí",
+          "no": "No"
+        },
+        "guestsInput": {
+          "label": "Número de Invitados",
+          "placeholder": "Ingresa el número de invitados"
+        },
+        "guestsNamesInput": {
+          "label": "Nombres de los Invitados",
+          "placeholder": "Ingresa los nombres de tus invitados"
+        },
+        "guestsChildrenRadioButton": {
+          "label": "¿Traerás niños?",
+          "yes": "Sí",
+          "no": "No"
+        },
+        "guestsChildrenInput": {
+          "label": "Número de Niños",
+          "placeholder": "Ingresa el número de niños"
+        },
+        "guestsChildrenNamesInput": {
+          "label": "Nombres de los Niños",
+          "placeholder": "Ingresa los nombres de tus niños"
+        }
+      },
+      "AllergiesSection": {
+        "title": "Alergias",
+        "allergyRadioButton": {
+          "label": "¿Tienes alguna alergia?",
+          "yes": "Sí",
+          "no": "No"
+        },
+        "allergiesInput": {
+          "label": "Proporciona una lista de Alergias",
+          "placeholder": "Ingresa tus alergias separadas por comas"
+        }
+      },
+      "CommentsSection": {
+        "title": "¿Algún Comentario?",
+        "commentsInput": {
+          "label": "Comentarios Adicionales",
+          "placeholder": "Siéntete libre de agregar cualquier comentario adicional que te gustaría que se considerara"
+        }
+      },
+      "SubmitButton": "Enviar y Confirmar Asistencia"
     },
     "example": {
       "title": "Ejemplo de internacionalización",
