@@ -95,7 +95,18 @@
       "cannotAttendMessage": "Lamentamos que no pueda venir. Recibirá un email con los detalles de la boda, por favor, revise la carpeta de SPAM, que puede ignorar.",
       "addGoogleCalendar": "Añadir a Google Calendar",
       "addOutlookCalendar": "Añadir a Outlook Calendar",
-      "downloadICS": "Descargar ICS"
+      "downloadICS": "Descargar ICS",
+      "eventTitle": "Boda de Adrián y Ana",
+      "eventDescription": "Boda de Adrián y Ana",
+      "eventLocation": "Iglesia de San Francisco, Priego de Córdoba",
+      "contacts": {
+        "ana": "Ana",
+        "adrian": "Adrián"
+      },
+      "bankAccounts": {
+        "ana": "Cuenta bancaria de Ana",
+        "adrian": "Cuenta bancaria de Adrián"
+      }
     },
     "example": {
       "title": "Ejemplo de internacionalización",
@@ -127,4 +138,5 @@
     "sectionTitle": "Sobre Nosotros",
     "description": "Una joven prieguense y un sayagués,\ncruzaron sus caminos en un destino lejano.\nLo que empezó como amistad sincera,\nse transformó en amor, una pasión verdadera.\n\nPara crecer juntos, un sueño abrazaron,\ny hacia Irlanda juntos marcharon.\nComo guiris en Mallorca, bajo estrellas en calma,\nen Cala Mendia eligieron compartir su amor para el resto de sus vidas."
   }
+  
 }

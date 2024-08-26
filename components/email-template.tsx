@@ -28,8 +28,8 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 
     const { title, description, locationCeremonia, locationBanquete, startTime, endTime, contacts } = event;
 
-    const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
-    const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
+    const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '').slice(0, 15) + 'Z';
+    const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '').slice(0, 15) + 'Z';
 
     const getGoogleCalendarUrl = (lang: 'es' | 'en') => {
         const titleText = lang === 'es' ? title : "Adrian & Ana Wedding, 12th October 2024";
@@ -51,14 +51,14 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         return `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(titleText)}&body=${encodeURIComponent(detailsText)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(locationText)}`;
     };
 
-    const getIcsUrl = (lang: 'es' | 'en') => {
+    const getIcsContent = (lang: 'es' | 'en') => {
         const titleText = lang === 'es' ? title : "Adrian & Ana Wedding, 12th October 2024";
         const detailsText = lang === 'es' ?
             `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}` :
             `Adrian & Ana Wedding, 12th October 2024\n\nContacts:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}`;
         const locationText = lang === 'es' ? locationCeremonia : "San Francisco Church at 12:00 PM, Priego de Córdoba";
 
-        const icsContent = `BEGIN:VCALENDAR
+        return `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 SUMMARY:${titleText}
@@ -68,8 +68,13 @@ DTSTART:${start}
 DTEND:${end}
 END:VEVENT
 END:VCALENDAR`;
+    };
+
+    const getIcsUrl = (lang: 'es' | 'en') => {
+        const icsContent = getIcsContent(lang);
         const icsFile = new Blob([icsContent], { type: 'text/calendar' });
-        return URL.createObjectURL(icsFile);
+        const icsUrl = URL.createObjectURL(icsFile);
+        return icsUrl;
     };
 
     return (
@@ -97,20 +102,7 @@ END:VCALENDAR`;
                     <br />
                     <strong>Contactar a Adrian:</strong> {contacts.adrian}
                 </p>
-                <p className="mb-4">
-                    No olvides añadir la fecha a tu calendario:
-                </p>
-                <div className="space-y-2">
-                    <a href={getGoogleCalendarUrl('es')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
-                        Añadir a Google Calendar
-                    </a><br />
-                    <a href={getOutlookCalendarUrl('es')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
-                        Añadir a Outlook Calendar
-                    </a><br />
-                    <a href={getIcsUrl('es')} download="event.ics" className="text-blue-500 hover:underline">
-                        Descargar archivo ICS
-                    </a>
-                </div>
+              
             </div>
 
             <br></br>
@@ -137,20 +129,7 @@ END:VCALENDAR`;
                     <br />
                     <strong>Contact Adrian:</strong> {contacts.adrian}
                 </p>
-                <p className="mb-4">
-                    Don’t forget to add the event to your calendar:
-                </p>
-                <div className="space-y-2">
-                    <a href={getGoogleCalendarUrl('en')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
-                        Add to Google Calendar
-                    </a><br />
-                    <a href={getOutlookCalendarUrl('en')} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
-                        Add to Outlook Calendar
-                    </a><br />
-                    <a href={getIcsUrl('en')} download="event.ics" className="text-blue-500 hover:underline">
-                        Download ICS File
-                    </a>
-                </div>
+                
             </div>
         </div>
     );

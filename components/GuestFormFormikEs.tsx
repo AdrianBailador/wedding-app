@@ -130,10 +130,13 @@ const GuestFormFormikEs: React.FC = () => {
         }
     };
 
+    const t = useTranslations('IndexPage');
+    const locale = useLocale();
+
     const event = {
-        title: "Boda de Adrian y Ana",
-        description: "Boda de Adrian y Ana",
-        location: "Iglesia de San Francisco, Priego de Córdoba",
+        title: t('form.eventTitle'),
+        description: t('form.eventDescription'),
+        location: t('form.eventLocation'),
         startTime: "2024-10-12T12:00:00",
         endTime: "2024-10-12T13:00:00",
         contacts: {
@@ -146,37 +149,48 @@ const GuestFormFormikEs: React.FC = () => {
         }
     };
 
+    // Destructure event details
     const { title, description, location, startTime, endTime, contacts, bankAccounts } = event;
 
-    const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
-    const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
+    // Create start and end times for calendars (UTC format)
+    const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '').slice(0, 15) + 'Z';
+    const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '').slice(0, 15) + 'Z';
 
-    const detailsWithContacts = `${description}\n\nContactos:\nAna: ${contacts.ana}\nAdrian: ${contacts.adrian}\n\nCuentas Bancarias:\nAna: ${bankAccounts.ana}\nAdrian: ${bankAccounts.adrian}`;
+    // Event details with contacts (bank accounts removed)
+    const detailsWithContacts = `${description}\n\n${t('form.contacts.ana')}: ${contacts.ana}\n${t('form.contacts.adrian')}: ${contacts.adrian}`;
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(detailsWithContacts)}&location=${encodeURIComponent(location)}`;
+    // Encode newlines for Google Calendar URL
+    const detailsWithContactsForUrl = encodeURIComponent(detailsWithContacts).replace(/%0A/g, '%0D%0A');
 
-    const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(detailsWithContacts)}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(location)}`;
+    // Google Calendar URL
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${detailsWithContactsForUrl}&location=${encodeURIComponent(location)}`;
+    // Generate unique UID and DTSTAMP
+    const dtstamp = new Date().toISOString().replace(/-|:|\.\d+/g, '').slice(0, 15) + 'Z';
+    const uid = `${new Date().getTime()}@example.com`;
 
-    const icsContent = `BEGIN:VCALENDAR
-    VERSION:2.0
-    BEGIN:VEVENT
-    SUMMARY:${title}
-    DESCRIPTION:${detailsWithContacts}
-    LOCATION:${location}
-    DTSTART:${start}
-    DTEND:${end}
-    END:VEVENT
-    END:VCALENDAR`;
+    // Updated ICS file content
+    const icsContent = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nSUMMARY:${title}\r\nDESCRIPTION:${detailsWithContacts}\r\nLOCATION:${location}\r\nDTSTART:${start}\r\nDTEND:${end}\r\nDTSTAMP:${dtstamp}\r\nUID:${uid}\r\nEND:VEVENT\r\nEND:VCALENDAR`;
+
+    // Create Blob for ICS file
     const icsFile = new Blob([icsContent], { type: 'text/calendar' });
+
+    // Create URL for ICS file
     const icsUrl = URL.createObjectURL(icsFile);
 
-    // Aquí no imprimimos los detalles sensibles
+
+    // Encode newlines for Outlook Calendar URL
+    const detailsWithContactsForOutlook = encodeURIComponent(detailsWithContacts).replace(/%0A/g, '%0D%0A');
+
+    // Outlook Calendar URL with properly encoded newlines
+    const outlookCalendarUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${detailsWithContactsForOutlook}&startdt=${startTime}&enddt=${endTime}&location=${encodeURIComponent(location)}`;
+    // Yahoo Calendar URL
+    const yahooCalendarUrl = `https://calendar.yahoo.com/?v=60&view=d&type=20&title=${encodeURIComponent(title)}&st=${start}&et=${end}&desc=${encodeURIComponent(detailsWithContacts)}&in_loc=${encodeURIComponent(location)}`;
+
     console.log('Google Calendar URL:', googleCalendarUrl);
     console.log('Outlook Calendar URL:', outlookCalendarUrl);
     console.log('ICS URL:', icsUrl);
 
-    const t = useTranslations('IndexPage');
-    const locale = useLocale();
+
 
     return (
         <div className="w-full flex justify-center bg-white py-8 px-8">

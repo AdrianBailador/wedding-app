@@ -99,7 +99,18 @@
       "cannotAttendMessage": "We are sorry you can't make it. You will receive an email with the wedding details. Please check your SPAM folder, which you can ignore.",
       "addGoogleCalendar": "Add to Google Calendar",
       "addOutlookCalendar": "Add to Outlook Calendar",
-      "downloadICS": "Download ICS"
+      "downloadICS": "Download ICS",
+      "eventTitle": "Wedding of Adrian and Ana",
+      "eventDescription": "Wedding of Adrian and Ana",
+      "eventLocation": "Church of San Francisco, Priego de Córdoba",
+      "contacts": {
+        "ana": "Ana",
+        "adrian": "Adrian"
+      },
+      "bankAccounts": {
+        "ana": "Ana's bank account",
+        "adrian": "Adrian's bank account"
+      }
     },
     "example": {
       "title": "Example of internationalization",
@@ -134,4 +145,5 @@
     "IglesiaAlt": "Church",
     "GenillaAlt": "Genilla"
   }
+  
 }
