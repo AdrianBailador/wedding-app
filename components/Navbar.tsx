@@ -10,8 +10,12 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <nav className=" flex-no-wrap fixed top-0 z-50 flex w-full items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4">
+        <nav className="flex-no-wrap fixed top-0 z-50 flex w-full items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4">
             <div className="md:container-full container flex flex-wrap items-center justify-between w-full">
                 <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span
@@ -47,28 +51,34 @@ const Navbar = () => {
                     id="navbar-language">
                     <ul className="flex flex-col tracking-[0.25em] font-normal p-4 md:p-0 mt-4 border border-gray-100 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
                         <li>
-                            <a href="/"
-                               className="block py-2 px-3 font-bold"
-                               aria-current="page">Home</a>
+                            <a href="/" className="block py-2 px-3 font-bold" onClick={closeMenu} aria-current="page">
+                                Home
+                            </a>
                         </li>
                         <li>
-                            <a href="#greeting" className="block py-2 px-3 ">Greeting</a>
+                            <a href="#greeting" className="block py-2 px-3" onClick={closeMenu}>
+                                Greeting
+                            </a>
                         </li>
                         <li>
-                            <a href="#about-us"
-                               className="block py-2 px-3 ">About Us</a>
+                            <a href="#about-us" className="block py-2 px-3" onClick={closeMenu}>
+                                About Us
+                            </a>
                         </li>
                         <li>
-                            <a href="#gallery"
-                               className="block py-2 px-3 ">Gallery</a>
+                            <a href="#gallery" className="block py-2 px-3" onClick={closeMenu}>
+                                Gallery
+                            </a>
                         </li>
                         <li>
-                            <a href="#localitations"
-                               className="block py-2 px-3 ">Locations</a>
+                            <a href="#localitations" className="block py-2 px-3" onClick={closeMenu}>
+                                Locations
+                            </a>
                         </li>
                         <li>
-                            <a href="#guestFormFormik"
-                               className="block py-2 px-3 ">RSVP</a>
+                            <a href="#guestFormFormik" className="block py-2 px-3" onClick={closeMenu}>
+                                RSVP
+                            </a>
                         </li>
                     </ul>
                 </div>
