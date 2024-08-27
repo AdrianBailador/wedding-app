@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 import GoogleMapComponent from './GoogleMap';
 import GoogleMapRouteComponent from './GoogleMapRoute';
 import Image from 'next/image';
+import { useLocale, useTranslations } from "next-intl";
 
 type Tab = 'wedding' | 'party';
 
 const MapTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('wedding');
+
+  const t = useTranslations('IndexPage');
+  const locale = useLocale();
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -45,13 +49,13 @@ const MapTabs: React.FC = () => {
           className={`tab px-5 py-2 mx-2 border-2 cursor-pointer transition-colors duration-300 ${activeTab === 'wedding' ? 'bg-[#A0A48E] text-white' : 'bg-white text-[#545748]'}`}
           onClick={() => setActiveTab('wedding')}
         >
-          Wedding Event
+          {t('sections.Wedding')}
         </button>
         <button
           className={`tab px-5 py-2 mx-2 border-2 cursor-pointer transition-colors duration-300 ${activeTab === 'party' ? 'bg-[#A0A48E] text-white' : 'bg-white text-[#545748]'}`}
           onClick={() => setActiveTab('party')}
         >
-          Party Event
+          {t('sections.Party')}
         </button>
       </div>
       {renderTabContent()}

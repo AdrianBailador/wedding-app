@@ -21,7 +21,9 @@
       "AboutUs": "Sobre Nosotros",
       "Gallery": "Galería",
       "Locations": "Localizaciones",
-      "RSVP": "RSVP"
+      "RSVP": "RSVP",
+      "Wedding": "Boda",
+      "Party": "Fiesta"
     },
     "form": {
       "warning": "Esperamos verte en nuestra boda. Recibirás un correo electrónico con los detalles de la boda, por favor revisa el",

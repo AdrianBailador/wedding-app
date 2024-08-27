@@ -8,8 +8,7 @@ import CardHero from "@/components/CardHero";
 import rama from '@/public/branch-r.svg';
 import PostcardBlockRight from "@/components/PostcardBlockRight";
 import img4 from '@/public/images/img4.jpg';
-import MapTabsES from '@/components/MapTabsES';
-import MapTabsEN from '@/components/MapTabsEN';
+import MapTabs from '@/components/MapTabs';
 import GuestFormFormik from "@/components/GuestFormFormikEs";
 import { useLocale, useTranslations } from "next-intl";
 import { galleryImages } from "@/static_content";
@@ -121,7 +120,7 @@ export default function Home() {
                         </h2>
                         <br></br>
                         <h2>{t('sections.locations1')}</h2>
-                        {locale === 'es' ? <MapTabsES /> : <MapTabsEN />}
+                        <MapTabs/>
                     </div>
                 </div>
             </section>

@@ -25,7 +25,9 @@
       "AboutUs": "About Us",
       "Gallery": "Gallery",
       "Locations": "Locations",
-      "RSVP": "RSVP"
+      "RSVP": "RSVP",
+      "Wedding": "Wedding Event",
+      "Party": "Party Event"
     },
     "form": {
       "warning": "We hope to see you at our wedding. You will receive an email with the wedding details, please check the",
