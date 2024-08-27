@@ -19,7 +19,13 @@
       "galleryText": "Each photo tells a part of our story, from the simplest moments to the most extraordinary. We feel fortunate to have shared so many memories together and are excited to create many more in the future.",
       "subtitle": "Confirm Your Assistance",
       "title": "WE HOPE TO SEE YOU THERE",
-      "descriptionForm":"Fill the form below to confirm your assistance to the wedding."
+      "descriptionForm":"Fill the form below to confirm your assistance to the wedding.",
+      "Home": "Home",
+      "Greeting": "Greeting",
+      "AboutUs": "About Us",
+      "Gallery": "Gallery",
+      "Locations": "Locations",
+      "RSVP": "RSVP"
     },
     "form": {
       "warning": "We hope to see you at our wedding. You will receive an email with the wedding details, please check the",
