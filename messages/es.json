@@ -24,7 +24,7 @@
       "RSVP": "RSVP"
     },
     "form": {
-      "warning": "Esperamos verte en nuestra boda. Recibirás un correo electrónico con los detalles de la boda, por favor revisa la",
+      "warning": "Esperamos verte en nuestra boda. Recibirás un correo electrónico con los detalles de la boda, por favor revisa el",
       "NameInput": {
         "label": "Nombre",
         "placeholder": "Ingresa tu nombre"
