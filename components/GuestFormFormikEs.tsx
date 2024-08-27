@@ -533,7 +533,7 @@ const GuestFormFormikEs: React.FC = () => {
 
                 <div className="text-center mt-8 px-4">
                     <h2 className="text-2xl font-semibold mb-4">
-                        {t('form.SubmitButton')} {t('form.thankYouMessage')}
+                         {t('form.thankYouMessage')}
                     </h2>
                     {assistanceConfirmed ? (
                         <p className="mb-4">
