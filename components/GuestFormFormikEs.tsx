@@ -506,9 +506,14 @@ const GuestFormFormikEs: React.FC = () => {
                                                     className="block text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     {t('form.CommentsSection.commentsInput.label')}
                                                 </label>
-                                                <textarea rows={4} id="comments" name="comments" placeholder={t('form.CommentsSection.commentsInput.placeholder')}
-                                                    className="px-3 py-2 rounded-xl border border-border bg-white text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 autofill:bg-background">
-                                                </textarea>
+                                                <Field
+                                            type="text"
+                                            id="comments"
+                                            name="comments"
+                                            placeholder= {t('form.CommentsSection.commentsInput.placeholder')}
+                                            className="input-field bg-gray-800 text-white border border-gray-600 rounded-lg pl-2"
+                                            style={{ backgroundColor: "#F6F4EC", color: "#545748", borderColor: "#A0A48E", borderWidth: "2px" }}
+                                        />
                                             </div>
                                         </div>
                                     </div>
@@ -533,7 +538,7 @@ const GuestFormFormikEs: React.FC = () => {
 
                 <div className="text-center mt-8 px-4">
                     <h2 className="text-2xl font-semibold mb-4">
-                         {t('form.thankYouMessage')}
+                        {t('form.thankYouMessage')}
                     </h2>
                     {assistanceConfirmed ? (
                         <p className="mb-4">
