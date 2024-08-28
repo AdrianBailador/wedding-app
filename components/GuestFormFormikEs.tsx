@@ -502,11 +502,18 @@ const GuestFormFormikEs: React.FC = () => {
                                         </h5>
                                         <div className="form-section-content flex flex-col gap-4">
                                             <div className="w-full flex flex-col gap-2">
-                                                <InputField label={t('form.CommentsSection.commentsInput.label')} type="text" id="comments" name="comments" placeholder={t('form.CommentsSection.commentsInput.placeholder')}>
-                                                    {errors.name && touched.name ?
-                                                        <div className="text-sm text-red-500">{errors.name}</div> : null}
+                                                <InputField
+                                                    label={t('form.CommentsSection.commentsInput.label')}
+                                                    type="textarea" 
+                                                    id="comments"
+                                                    name="comments"
+                                                    placeholder={t('form.CommentsSection.commentsInput.placeholder')}
+                                                    rows={3} 
+                                                >
+                                                    {errors.comments && touched.comments ? (
+                                                        <div className="text-sm text-red-500">{errors.comments}</div>
+                                                    ) : null}
                                                 </InputField>
-
                                             </div>
                                         </div>
                                     </div>
