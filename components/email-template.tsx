@@ -98,9 +98,9 @@ END:VCALENDAR`;
                     Para cualquier duda puedes contactarnos a estos números de teléfono:
                 </p>
                 <p className="mb-4">
-                    <strong>Contactar a Ana:</strong> {contacts.ana}
+                    <strong>Contactar a Ana:</strong> {}
                     <br />
-                    <strong>Contactar a Adrian:</strong> {contacts.adrian}
+                    <strong>Contactar a Adrian:</strong> {}
                 </p>
               
             </div>
@@ -125,9 +125,9 @@ END:VCALENDAR`;
                     For any questions, you can contact us at these phone numbers:
                 </p>
                 <p className="mb-4">
-                    <strong>Contact Ana:</strong> {contacts.ana}
+                    <strong>Contact Ana:</strong> {}
                     <br />
-                    <strong>Contact Adrian:</strong> {contacts.adrian}
+                    <strong>Contact Adrian:</strong> {}
                 </p>
                 
             </div>
